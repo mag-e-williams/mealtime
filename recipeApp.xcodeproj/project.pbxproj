@@ -14,6 +14,7 @@
 		D9AF2F68236B639400DF3919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9AF2F67236B639400DF3919 /* Assets.xcassets */; };
 		D9AF2F6B236B639400DF3919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF2F69236B639400DF3919 /* LaunchScreen.storyboard */; };
 		D9AF2F76236B639400DF3919 /* recipeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F75236B639400DF3919 /* recipeAppTests.swift */; };
+		D9AF2F81236E168900DF3919 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F80236E168900DF3919 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		D9AF2F71236B639400DF3919 /* recipeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recipeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF2F75236B639400DF3919 /* recipeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeAppTests.swift; sourceTree = "<group>"; };
 		D9AF2F77236B639400DF3919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9AF2F80236E168900DF3919 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				D9AF2F5D236B639300DF3919 /* AppDelegate.swift */,
 				D9AF2F5F236B639300DF3919 /* ViewController.swift */,
+				D9AF2F80236E168900DF3919 /* Recipe.swift */,
 				D9AF2F61236B639300DF3919 /* Main.storyboard */,
 				D9AF2F67236B639400DF3919 /* Assets.xcassets */,
 				D9AF2F69236B639400DF3919 /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 				D9AF2F66236B639300DF3919 /* recipeApp.xcdatamodeld in Sources */,
 				D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
+				D9AF2F81236E168900DF3919 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

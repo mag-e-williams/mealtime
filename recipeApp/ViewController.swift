@@ -25,6 +25,11 @@ class ViewController: UIViewController {
         
         print(url)
     }
+    
+    func queryAPI(_ url: String) -> Recipes{
+        
+        return []
+    }
 
 
 }
