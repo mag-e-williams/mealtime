@@ -19,17 +19,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func createQuery(sender: UIButton){
-        let queryArray = (ingredientInput.text!).split(separator: ",")
-        let interpString = queryArray.joined(separator: ",+")
+        let cleanQuery = (ingredientInput.text!).replacingOccurrences(of: " ", with: "")
+        let interpString = (cleanQuery).replacingOccurrences(of: ",", with: ",+")
         let url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(interpString)&apiKey=0ff5861766ea48b0a55b2008c47bd778"
         
         print(url)
+        print("bro")
+        let recipes = queryAPI(url)
+        print("pls dude")
+        print(recipes.count)
     }
     
-    func queryAPI(_ url: String) -> Recipes{
-        
-        return []
-    }
 
 
 }
