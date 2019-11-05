@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9962BAC2371289E00774B21 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9962BAB2371289E00774B21 /* RecipesViewController.swift */; };
 		D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F5D236B639300DF3919 /* AppDelegate.swift */; };
 		D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F5F236B639300DF3919 /* ViewController.swift */; };
 		D9AF2F63236B639300DF3919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF2F61236B639300DF3919 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9962BAB2371289E00774B21 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		D9AF2F5A236B639300DF3919 /* recipeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AF2F5D236B639300DF3919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9AF2F5F236B639300DF3919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				D9AF2F5F236B639300DF3919 /* ViewController.swift */,
 				D9AF2F80236E168900DF3919 /* Recipe.swift */,
 				D9AF2F61236B639300DF3919 /* Main.storyboard */,
+				D9962BAB2371289E00774B21 /* RecipesViewController.swift */,
 				D9AF2F67236B639400DF3919 /* Assets.xcassets */,
 				D9AF2F69236B639400DF3919 /* LaunchScreen.storyboard */,
 				D9AF2F6C236B639400DF3919 /* Info.plist */,
@@ -206,6 +209,7 @@
 				D9AF2F66236B639300DF3919 /* recipeApp.xcdatamodeld in Sources */,
 				D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
+				D9962BAC2371289E00774B21 /* RecipesViewController.swift in Sources */,
 				D9AF2F81236E168900DF3919 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
