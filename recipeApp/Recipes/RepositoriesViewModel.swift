@@ -12,14 +12,14 @@ class RecipesViewModel {
   var recipes = [RecipeElement]()
   
   let client = SearchRecipesClient()
-  let parser = RecipesParser()
+//  let parser = RecipesParser()
   
   func numberOfRows() -> Int? {
-    return repos.count
+    return recipes.count
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
-    return recipes[indexPath.row].name
+    return recipes[indexPath.row].title
   }
   
 //  func detailViewModelForRowAtIndexPath(_ indexPath: IndexPath) -> RecipesDetailViewModel {
@@ -31,15 +31,15 @@ class RecipesViewModel {
 //    return repos[indexPath.row].description
 //  }
   
-  func refresh(completion: @escaping () -> Void) {
-    client.fetchRepositories { [unowned self] data in
-      
-      // we need in this block a way for the parser to get an array of repository
-      // objects (if they exist) and then set the repos var in the view model to
-      // those repository objects
-      self.recipes = self.parser.recipesromSearchResponse(data)!
-      completion()
-    }
-  }
+//  func refresh(completion: @escaping () -> Void) {
+//    client.fetchRecipes(inputString: <#T##String#>) { [unowned self] data in
+//
+//      // we need in this block a way for the parser to get an array of repository
+//      // objects (if they exist) and then set the repos var in the view model to
+//      // those repository objects
+//      self.recipes = data!
+//      completion()
+//    }
+//  }
   
 }

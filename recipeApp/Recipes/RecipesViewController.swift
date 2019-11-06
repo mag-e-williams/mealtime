@@ -10,11 +10,15 @@ import UIKit
 
 class RecipesViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  var recipes: [RecipeElement]?
+  var query: String?
+  
+  @IBOutlet var searchBar:UISearchBar!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.searchBar.text = self.query
+  }
     
 
     /*
