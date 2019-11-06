@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
-                                    <segue destination="9VP-ou-zeg" kind="show" id="Uf1-Fy-8bW"/>
+                                    <segue destination="9VP-ou-zeg" kind="show" identifier="showRecipes" id="Uf1-Fy-8bW"/>
                                 </connections>
                             </button>
                         </subviews>
