@@ -16,8 +16,10 @@
 		D9AF2F6B236B639400DF3919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9AF2F69236B639400DF3919 /* LaunchScreen.storyboard */; };
 		D9AF2F76236B639400DF3919 /* recipeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F75236B639400DF3919 /* recipeAppTests.swift */; };
 		D9AF2F81236E168900DF3919 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AF2F80236E168900DF3919 /* Recipe.swift */; };
-		F48F5D6223733F0700345980 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6123733F0700345980 /* RepositoriesViewModel.swift */; };
+		F48F5D6223733F0700345980 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6123733F0700345980 /* RecipesViewModel.swift */; };
 		F48F5D642373407B00345980 /* SearchRecipesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D632373407B00345980 /* SearchRecipesClient.swift */; };
+		F48F5D6F2373900A00345980 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6E2373900A00345980 /* TableViewCell.swift */; };
+		F48F5D712373907A00345980 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48F5D702373907A00345980 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,10 @@
 		D9AF2F75236B639400DF3919 /* recipeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeAppTests.swift; sourceTree = "<group>"; };
 		D9AF2F77236B639400DF3919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9AF2F80236E168900DF3919 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		F48F5D6123733F0700345980 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		F48F5D6123733F0700345980 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		F48F5D632373407B00345980 /* SearchRecipesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipesClient.swift; sourceTree = "<group>"; };
+		F48F5D6E2373900A00345980 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F48F5D702373907A00345980 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				D9962BAB2371289E00774B21 /* RecipesViewController.swift */,
-				F48F5D6123733F0700345980 /* RepositoriesViewModel.swift */,
+				F48F5D6123733F0700345980 /* RecipesViewModel.swift */,
+				F48F5D6E2373900A00345980 /* TableViewCell.swift */,
+				F48F5D702373907A00345980 /* TableViewCell.xib */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AF2F6B236B639400DF3919 /* LaunchScreen.storyboard in Resources */,
+				F48F5D712373907A00345980 /* TableViewCell.xib in Resources */,
 				D9AF2F68236B639400DF3919 /* Assets.xcassets in Resources */,
 				D9AF2F63236B639300DF3919 /* Main.storyboard in Resources */,
 			);
@@ -237,10 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AF2F66236B639300DF3919 /* recipeApp.xcdatamodeld in Sources */,
+				F48F5D6F2373900A00345980 /* TableViewCell.swift in Sources */,
 				D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
 				D9962BAC2371289E00774B21 /* RecipesViewController.swift in Sources */,
-				F48F5D6223733F0700345980 /* RepositoriesViewModel.swift in Sources */,
+				F48F5D6223733F0700345980 /* RecipesViewModel.swift in Sources */,
 				F48F5D642373407B00345980 /* SearchRecipesClient.swift in Sources */,
 				D9AF2F81236E168900DF3919 /* Recipe.swift in Sources */,
 			);

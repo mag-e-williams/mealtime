@@ -103,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="LLA-uS-Mod" id="s1q-aK-2x0"/>
+                        <outlet property="tableView" destination="YWy-lN-B8c" id="yVy-kr-i8C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZM-ch-MbE" userLabel="First Responder" sceneMemberID="firstResponder"/>
