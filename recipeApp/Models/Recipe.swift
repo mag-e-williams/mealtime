@@ -23,7 +23,6 @@ struct SedIngredient: Codable {
 typealias Recipes = [RecipeElement]
 
 
-
 func queryAPI(_ url: String) -> Recipes{
     
     let decoder = JSONDecoder()
