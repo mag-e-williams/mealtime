@@ -14,7 +14,8 @@ class RecipeDetailViewController: UIViewController {
   
   @IBOutlet var recipeLabel: UILabel!
   @IBOutlet weak var recipeImg: UIImageView!
-  
+  @IBOutlet var ingredientsTable: UITableView!
+
   var viewModel: RecipeDetailViewModel?
   var recipeID: Int?
   
