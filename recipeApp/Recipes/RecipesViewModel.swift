@@ -18,8 +18,8 @@ class RecipesViewModel {
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
-//    return recipes[indexPath.row].title
-    return "FUCK"
+    return recipes[indexPath.row].title
+//    return "FUCK"
   }
   
   func refresh(queryString: String, completion: @escaping () -> Void) {
