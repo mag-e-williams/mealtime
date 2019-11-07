@@ -18,16 +18,14 @@ class RecipesViewModel {
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
-    return recipes[indexPath.row].title
+//    return recipes[indexPath.row].title
+    return "FUCK"
   }
   
   func refresh(queryString: String, completion: @escaping () -> Void) {
-    client.fetchRecipes(inputString: queryString) { [unowned self] data in
+    client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
 
-      // we need in this block a way for the parser to get an array of repository
-      // objects (if they exist) and then set the repos var in the view model to
-      // those repository objects
-      self.recipes = data!
+      self.recipes = recipes!
       completion()
     }
   }

@@ -91,6 +91,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9VP-ou-zeg" id="9Zn-hl-clS"/>
+                                    <outlet property="delegate" destination="9VP-ou-zeg" id="3gj-AM-IqR"/>
+                                </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLA-uS-Mod">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
