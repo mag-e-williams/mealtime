@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.ingredientInput.text = "sugar"
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
