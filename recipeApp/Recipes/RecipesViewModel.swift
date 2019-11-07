@@ -14,8 +14,6 @@ class RecipesViewModel {
   let client = SearchRecipesClient()
   
   func numberOfRows() -> Int? {
-    print("huh")
-    print(recipes.count)
     return recipes.count
   }
   

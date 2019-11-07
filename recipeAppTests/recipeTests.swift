@@ -11,51 +11,57 @@ import XCTest
 
 class recipeTests: XCTestCase {
 
-    let valid_recipe_url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&number=100&apiKey=cc7e79e045f747eabb5362ba580ccac9"
-    let invalid_url = ""
+    let valid_recipes_url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&apiKey=cc7e79e045f747eabb5362ba580ccac9"
+    let invalid_recipes_url = ""
     let client = SearchRecipesClient()
     
+    let recipe1 = RecipeElement(id: 1, title: "cake", image: "cake.jpg", imageType: ".jpg", usedIngredientCount: 0, missedIngredientCount: 0, unusedIngredients: [], likes: 3, missedIngredients: [], usedIngredients: [])
+    let recipe2 = RecipeElement(id: 2, title: "pizza", image: "pizza.png", imageType: ".png", usedIngredientCount: 0, missedIngredientCount: 0, unusedIngredients: [], likes: 4, missedIngredients: [], usedIngredients: [])
+    let recipe3 = RecipeElement(id: 245633, title: "fish", image: "", imageType: "", usedIngredientCount: 0, missedIngredientCount: 0, unusedIngredients: [], likes: 5, missedIngredients: [], usedIngredients: [])
     
-    func testProperRetrieval(){
-        
+    //VALID URL TESTS
+    func test_numberOfRows_valid() {
+        let viewModel = RecipesViewModel()
+        viewModel.recipes = [recipe1, recipe2, recipe3]
+        XCTAssert(viewModel.numberOfRows() == 3)
     }
-
-    func testNumberOfRows() {
-        let valid_recipe = client.getRecipes(valid_recipe_url)
-        
-        //VALID URL TESTS
-        XCTAssert(valid_recipe.numberOfRows() == 100)
-        XCTAssert(valid_recipe[0].title == "Classic Shortbread Cookies")
-        
-        
-        
-        //INVALID URL TESTS
-        let invalid_recipe: [RecipeElement?] = client.getRecipes(invalid_url)
-        XCTAssert(invalid_recipe.count == 0)
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_numberOfRows_empty() {
+        let viewModel = RecipesViewModel()
+        viewModel.recipes = []
+        XCTAssert(viewModel.numberOfRows() == 0)
     }
     
     
-    func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
-        return recipes[indexPath.row].title
+    func test_titleForRowAtIndexPath() {
+        let viewModel = RecipesViewModel()
+        viewModel.recipes = [recipe1, recipe2, recipe3]
+        
+        let indexPath1 = IndexPath(row: 0, section: 0)
+        XCTAssertEqual(viewModel.titleForRowAtIndexPath(indexPath1), "cake")
+        
+        let indexPath2 = IndexPath(row: 1, section: 0)
+        XCTAssertEqual(viewModel.titleForRowAtIndexPath(indexPath2), "pizza")
     }
     
-    func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
-        return recipes[indexPath.row].id
+    func test_idForRowAtIndexPath() {
+        let viewModel = RecipesViewModel()
+        viewModel.recipes = [recipe1, recipe2, recipe3]
+        
+        let indexPath1 = IndexPath(row: 0, section: 0)
+        XCTAssertEqual(viewModel.idForRowAtIndexPath(indexPath1), 1)
+        let indexPath2 = IndexPath(row: 1, section: 0)
+        XCTAssertEqual(viewModel.idForRowAtIndexPath(indexPath2), 2)
+        let indexPath3 = IndexPath(row: 2, section: 0)
+        XCTAssertEqual(viewModel.idForRowAtIndexPath(indexPath3), 245633)
     }
     
-    func detailViewModelForRowAtIndexPath(_ indexPath: IndexPath) -> RecipeDetailViewModel {
-        let viewModel = RecipeDetailViewModel(id: recipes[indexPath.row].id)
-        return viewModel
-    }
-    
-    func refresh(queryString: String, completion: @escaping () -> Void) {
-        client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
-            
-            self.recipes = recipes!
-            completion()
-        }
+    func test_detailViewModelForRowAtIndexPath() {
+        let viewModel = RecipesViewModel()
+        viewModel.recipes = [recipe1, recipe2, recipe3]
+        
+        let indexPath1 = IndexPath(row: 0, section: 0)
+        XCTAssertEqual(viewModel.detailViewModelForRowAtIndexPath(indexPath1).recipeID, RecipeDetailViewModel(id: recipe1.id).recipeID)
     }
 
 }
