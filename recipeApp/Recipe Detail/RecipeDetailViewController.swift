@@ -28,5 +28,12 @@ class RecipeDetailViewController: UIViewController {
       viewModel.refresh {
       }
     }
+    loadDetails()
   }
+    
+    func loadDetails(){
+        print("title is:")
+        print(self.recipeDetail!)
+        recipeLabel.text = self.recipeDetail?.title
+    }
 }

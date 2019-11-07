@@ -23,7 +23,11 @@ class ViewController: UIViewController {
       showRecipes.query = self.ingredientInput.text
     }
   }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        ingredientInput.resignFirstResponder()
+        return true
+    }
 
 }
 

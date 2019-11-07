@@ -15,7 +15,7 @@ struct RecipeDetail: Codable {
   let image: String
   let imageType: String
   let servings, readyInMinutes: Int
-  let license, sourceName: String
+  let sourceName: String
   let sourceURL: String
   let spoonacularSourceURL: String
   let aggregateLikes, healthScore, spoonacularScore: Int
@@ -30,57 +30,31 @@ struct RecipeDetail: Codable {
   let glutenFree: Bool
   let instructions: String
   let ketogenic, lowFodmap: Bool
-  let occasions: [JSONAny]
   let sustainable, vegan, vegetarian, veryHealthy: Bool
   let veryPopular, whole30: Bool
   let weightWatcherSmartPoints: Int
   let dishTypes: [String]
-  let extendedIngredients: [ExtendedIngredient]
-  let winePairing: WinePairing
+  let extendedIngredients: [ExtendedIngredient]?
   
   enum CodingKeys: String, CodingKey {
-    case id, title, image, imageType, servings, readyInMinutes, license, sourceName
+    case id, title, image, imageType, servings, readyInMinutes, sourceName
     case sourceURL = "sourceUrl"
     case spoonacularSourceURL = "spoonacularSourceUrl"
-    case aggregateLikes, healthScore, spoonacularScore, pricePerServing, analyzedInstructions, cheap, creditsText, cuisines, dairyFree, diets, gaps, glutenFree, instructions, ketogenic, lowFodmap, occasions, sustainable, vegan, vegetarian, veryHealthy, veryPopular, whole30, weightWatcherSmartPoints, dishTypes, extendedIngredients, winePairing
+    case aggregateLikes, healthScore, spoonacularScore, pricePerServing, analyzedInstructions, cheap, creditsText, cuisines, dairyFree, diets, gaps, glutenFree, instructions, ketogenic, lowFodmap, sustainable, vegan, vegetarian, veryHealthy, veryPopular, whole30, weightWatcherSmartPoints, dishTypes, extendedIngredients
   }
 }
 
 // MARK: - ExtendedIngredient
 struct ExtendedIngredient: Codable {
-  let aisle: String
-  let amount: Double
-  let consitency: Consitency
-  let id: Int
-  let image: String
-  let measures: Measures
+  let aisle: String?
+  let amount: Double?
+  let id: Int?
+  let image: String?
   let meta, metaInformation: [String]
-  let name, original, originalName, originalString: String
-  let unit: String
+  let name, original, originalName, originalString: String?
+  let unit: String?
 }
 
-enum Consitency: String, Codable {
-  case liquid = "liquid"
-  case solid = "solid"
-}
-
-// MARK: - Measures
-struct Measures: Codable {
-  let metric, us: Metric
-}
-
-// MARK: - Metric
-struct Metric: Codable {
-  let amount: Double
-  let unitLong, unitShort: String
-}
-
-// MARK: - WinePairing
-struct WinePairing: Codable {
-  let pairedWines: [JSONAny]
-  let pairingText: String
-  let productMatches: [JSONAny]
-}
 
 // MARK: - Encode/decode helpers
 
