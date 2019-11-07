@@ -34,6 +34,7 @@ class RecipeDetailViewController: UIViewController {
     }
     loadDetails()
   }
+    
   
   func loadDetails(){
     self.recipeLabel.text = self.recipeDetail?.title

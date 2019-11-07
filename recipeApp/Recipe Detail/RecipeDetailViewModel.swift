@@ -14,15 +14,17 @@ class RecipeDetailViewModel {
 
   var recipeDetail: RecipeDetail?
   var recipeID: Int
-
+  
   init(id: Int) {
     self.recipeID = id
   }
   
+    
   func refresh(completion: @escaping () -> Void) {
     client.fetchRecipeDetail(inputID: self.recipeID) { [unowned self] recipeDetail in
     
       self.recipeDetail = recipeDetail!
+        print(self.recipeDetail!)
       completion()
     }
   }
