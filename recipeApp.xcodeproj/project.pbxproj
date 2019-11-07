@@ -20,6 +20,10 @@
 		F48F5D642373407B00345980 /* SearchRecipesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D632373407B00345980 /* SearchRecipesClient.swift */; };
 		F48F5D6F2373900A00345980 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6E2373900A00345980 /* TableViewCell.swift */; };
 		F48F5D712373907A00345980 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48F5D702373907A00345980 /* TableViewCell.xib */; };
+		F48F5D7623739E3D00345980 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D7523739E3D00345980 /* RecipeDetailViewController.swift */; };
+		F48F5D7923739EFE00345980 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D7823739EFE00345980 /* RecipeDetailViewModel.swift */; };
+		F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D7E2373C00100345980 /* RecipeDetail.swift */; };
+		F48F5D812373C50E00345980 /* GetRecipeDetailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D802373C50E00345980 /* GetRecipeDetailClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		F48F5D632373407B00345980 /* SearchRecipesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipesClient.swift; sourceTree = "<group>"; };
 		F48F5D6E2373900A00345980 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F48F5D702373907A00345980 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		F48F5D7523739E3D00345980 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		F48F5D7823739EFE00345980 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		F48F5D7E2373C00100345980 /* RecipeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetail.swift; sourceTree = "<group>"; };
+		F48F5D802373C50E00345980 /* GetRecipeDetailClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecipeDetailClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				D9AF2F5D236B639300DF3919 /* AppDelegate.swift */,
-				D9AF2F61236B639300DF3919 /* Main.storyboard */,
 				D9AF2F5F236B639300DF3919 /* ViewController.swift */,
+				D9AF2F61236B639300DF3919 /* Main.storyboard */,
+				F48F5D6023733DE100345980 /* Recipes */,
+				F48F5D7723739E4200345980 /* Recipe Detail */,
 				F48F5D652373408100345980 /* Network */,
 				F48F5D5F23733D4D00345980 /* Models */,
-				F48F5D6023733DE100345980 /* Recipes */,
 				D9AF2F67236B639400DF3919 /* Assets.xcassets */,
 				D9AF2F69236B639400DF3919 /* LaunchScreen.storyboard */,
 				D9AF2F6C236B639400DF3919 /* Info.plist */,
@@ -118,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D9AF2F80236E168900DF3919 /* Recipe.swift */,
+				F48F5D7E2373C00100345980 /* RecipeDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,8 +147,18 @@
 			isa = PBXGroup;
 			children = (
 				F48F5D632373407B00345980 /* SearchRecipesClient.swift */,
+				F48F5D802373C50E00345980 /* GetRecipeDetailClient.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F48F5D7723739E4200345980 /* Recipe Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F48F5D7523739E3D00345980 /* RecipeDetailViewController.swift */,
+				F48F5D7823739EFE00345980 /* RecipeDetailViewModel.swift */,
+			);
+			path = "Recipe Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9AF2F66236B639300DF3919 /* recipeApp.xcdatamodeld in Sources */,
+				F48F5D7623739E3D00345980 /* RecipeDetailViewController.swift in Sources */,
 				F48F5D6F2373900A00345980 /* TableViewCell.swift in Sources */,
+				F48F5D7923739EFE00345980 /* RecipeDetailViewModel.swift in Sources */,
+				F48F5D812373C50E00345980 /* GetRecipeDetailClient.swift in Sources */,
+				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,
 				D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
 				D9962BAC2371289E00774B21 /* RecipesViewController.swift in Sources */,

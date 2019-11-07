@@ -19,7 +19,15 @@ class RecipesViewModel {
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
     return recipes[indexPath.row].title
-//    return "FUCK"
+  }
+  
+  func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
+    return recipes[indexPath.row].id
+  }
+  
+  func detailViewModelForRowAtIndexPath(_ indexPath: IndexPath) -> RecipeDetailViewModel {
+    let viewModel = RecipeDetailViewModel(id: recipes[indexPath.row].id)
+    return viewModel
   }
   
   func refresh(queryString: String, completion: @escaping () -> Void) {

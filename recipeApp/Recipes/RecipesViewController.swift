@@ -52,7 +52,16 @@ class RecipesViewController: UIViewController, UITableViewDataSource, UITableVie
     return cell
   }
 
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let detailVC = segue.destination as? RecipeDetailViewController,
+      let indexPath = sender as? IndexPath {
+      detailVC.viewModel = viewModel.detailViewModelForRowAtIndexPath(indexPath)
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    performSegue(withIdentifier: "toDetailVC", sender: indexPath)
+  }
   
   
 }
