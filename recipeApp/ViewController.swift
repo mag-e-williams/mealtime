@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.ingredientInput.delegate = self
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,9 +26,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
   }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("lol")
         ingredientInput.resignFirstResponder()
         return true
     }
-
+    
 }
 
