@@ -24,6 +24,7 @@ class RecipesViewModel {
   }
   
   func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
+    print(indexPath.row)
     return recipes[indexPath.row].id
   }
   
