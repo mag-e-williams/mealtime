@@ -15,16 +15,27 @@ class RecipeDetailViewModel {
   var recipeDetail: RecipeDetail?
   var recipeID: Int
   
+  var recipeIngredients = [ExtendedIngredient]()
+  
   init(id: Int) {
     self.recipeID = id
   }
   
-    
+  func numberOfIngredientsTableRows() -> Int? {
+    return recipeDetail?.extendedIngredients?.count
+  }
+  
+  func ingredientTitleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
+    return self.recipeIngredients[indexPath.row].name
+  }
+  
   func refresh(completion: @escaping () -> Void) {
     client.fetchRecipeDetail(inputID: self.recipeID) { [unowned self] recipeDetail in
     
       self.recipeDetail = recipeDetail!
-        print(self.recipeDetail!)
+      self.recipeIngredients = (self.recipeDetail?.extendedIngredients)!
+      print("HEHRHEHRIGA;RBU;GIRUS;I U45G")
+      print(self.recipeIngredients.count)
       completion()
     }
   }
