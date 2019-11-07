@@ -11,8 +11,8 @@ import XCTest
 
 class recipeTests: XCTestCase {
 
-    let valid_recipes_url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&apiKey=cc7e79e045f747eabb5362ba580ccac9"
-    let invalid_recipes_url = ""
+//    let valid_recipes_url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&apiKey=cc7e79e045f747eabb5362ba580ccac9"
+//    let invalid_recipes_url = ""
     let client = SearchRecipesClient()
     
     let recipe1 = RecipeElement(id: 1, title: "cake", image: "cake.jpg", imageType: ".jpg", usedIngredientCount: 0, missedIngredientCount: 0, unusedIngredients: [], likes: 3, missedIngredients: [], usedIngredients: [])
