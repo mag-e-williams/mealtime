@@ -27,6 +27,7 @@ class SearchRecipesClient {
     
     let decoder = JSONDecoder()
     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
+    print(item)
     return item
   }
   

@@ -24,6 +24,7 @@ class GetRecipeDetailClient {
     print(url)
     let decoder = JSONDecoder()
     let item = try! decoder.decode(RecipeDetail.self, from: try! Data(contentsOf: URL(string: url)!))
+    print(item)
     return item
   }
 
