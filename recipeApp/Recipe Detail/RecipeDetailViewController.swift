@@ -13,6 +13,7 @@ class RecipeDetailViewController: UIViewController {
   var recipeDetail: RecipeDetail?
   
   @IBOutlet var recipeLabel: UILabel!
+  @IBOutlet weak var recipeImg: UIImageView!
   
   var viewModel: RecipeDetailViewModel?
   var recipeID: Int?
@@ -26,14 +27,15 @@ class RecipeDetailViewController: UIViewController {
     
     if let viewModel = viewModel {
       viewModel.refresh {
+        self.recipeDetail = viewModel.recipeDetail
+        self.loadDetails()
       }
     }
     loadDetails()
   }
-    
-    func loadDetails(){
-//        print("title is:")
-//        print(self.recipeDetail!)
-//        recipeLabel.text = self.recipeDetail?.title
-    }
+  
+  func loadDetails(){
+    self.recipeLabel.text = self.recipeDetail?.title
+  }
+  
 }
