@@ -22,10 +22,8 @@ class recipeTests: XCTestCase {
     //VALID URL TESTS
     func test_numberOfRows_valid() {
         let viewModel = RecipesViewModel()
-//        viewModel.recipes = client.getRecipes(valid_recipes_url)
         viewModel.recipes = [recipe1, recipe2, recipe3]
         XCTAssert(viewModel.numberOfRows() == 3)
-        
     }
     
     func test_numberOfRows_empty() {

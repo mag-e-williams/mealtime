@@ -14,8 +14,6 @@ class RecipesViewModel {
   let client = SearchRecipesClient()
   
   func numberOfRows() -> Int? {
-    print("huh")
-    print(recipes.count)
     return recipes.count
   }
   
@@ -24,7 +22,6 @@ class RecipesViewModel {
   }
   
   func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
-    print(indexPath.row)
     return recipes[indexPath.row].id
   }
   
