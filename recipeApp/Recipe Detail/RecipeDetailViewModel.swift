@@ -24,7 +24,8 @@ class RecipeDetailViewModel {
   }
   
   func numberOfIngredientsTableRows() -> Int? {
-    return self.recipeDetail?.extendedIngredients?.count
+    return self.recipeIngredients.count
+//    return self.recipeDetail?.extendedIngredients?.count
   }
   
   func ingredientTitleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
@@ -53,7 +54,6 @@ class RecipeDetailViewModel {
     client.fetchRecipeInstructions(inputID: self.recipeID) { [unowned self] recipeInstructions in
       self.recipeInstructions = recipeInstructions!
       self.recipeInstructionSteps = self.recipeInstructions[0].steps
-      print(self.recipeInstructionSteps)
       completion()
     }
     

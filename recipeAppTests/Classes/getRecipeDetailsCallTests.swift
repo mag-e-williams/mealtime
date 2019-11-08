@@ -7,13 +7,15 @@
 //
 
 import XCTest
+@testable import recipeApp
 
 class getRecipeDetailsCallTests: XCTestCase {
+    let client = GetRecipeDetailClient()
+    let recipeDetail = RecipeDetail.self
+    let url = "https://api.spoonacular.com/recipes/716429/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
 
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_getRecipeDetails() {
+        
     }
 
 }

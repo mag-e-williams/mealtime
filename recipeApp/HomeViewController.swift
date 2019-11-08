@@ -30,5 +30,4 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     ingredientInput.resignFirstResponder()
     return true
   }
-  
 }

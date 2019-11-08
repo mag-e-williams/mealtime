@@ -12,18 +12,26 @@ import XCTest
 class searchRecipesCallTests: XCTestCase {
     
     let client = SearchRecipesClient()
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&apiKey=cc7e79e045f747eabb5362ba580ccac9"
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=sugar&apiKey=0ff5861766ea48b0a55b2008c47bd778"
 
     func test_getRecipes() {
-//        let decoder = JSONDecoder()
-//        let data = loadJSONTestData("validRecipes")
-//        let pulled_data = client.getRecipes(url)
+        let recipes = client.getRecipes(url)
+        XCTAssertEqual(recipes.count, 10)
+        XCTAssertEqual(recipes[0].title, "Classic Shortbread Cookies")
+        XCTAssertEqual(recipes[0].id, 1059776)
     }
     
+//    func refresh(queryString: String, completion: @escaping () -> Void) {
+//        client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
+//            
+//            self.recipes = recipes!
+//            completion()
+//        }
+//    }
     
-    func loadJSONTestData(_ filename: String) -> Data? {
-        let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: filename, ofType: "json")
-        return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
+    
+    func test_fetchRecipes() {
+        //TEST FETCH_RECIPES
     }
+    
 }
