@@ -18,15 +18,24 @@ class RecipesViewModel {
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
-    return recipes[indexPath.row].title
+    
+    if let title = recipes[indexPath.row].title{
+        return title
+    }else{
+        return "Title is nil"
+    }
   }
   
   func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
-    return recipes[indexPath.row].id
+    if let id = recipes[indexPath.row].id{
+        return id
+    }else{
+        return -1
+    }
   }
   
   func detailViewModelForRowAtIndexPath(_ indexPath: IndexPath) -> RecipeDetailViewModel {
-    let viewModel = RecipeDetailViewModel(id: recipes[indexPath.row].id)
+    let viewModel = RecipeDetailViewModel(id: recipes[indexPath.row].id!)
     return viewModel
   }
   
