@@ -63,22 +63,36 @@ class recipeDetailTests: XCTestCase {
     }
     
     func test_instructionForRowAtIndexPath() {
-        let recipeDetail = client.getRecipeDetail(url1)
+        let recipeDetail = client.getRecipeDetail(url)
         let viewModel = RecipeDetailViewModel(id: recipeDetail.id!)
-        viewModel.recipeInstructions = client.getRecipeInstructions(url1_instructions)
-        viewModel.recipeInstructionSteps = viewModel.recipeInstructions[0].steps
-
+        viewModel.recipeInstructions = client.getRecipeInstructions(url_instructions)
+//        viewModel.recipeInstructionSteps = viewModel.recipeInstructions[0].steps
         let indexPath1 = IndexPath(row: 0, section: 0)
-        XCTAssertEqual(viewModel.instructionForRowAtIndexPath(indexPath1), "Preheat oven to 325 F degrees.")
+        XCTAssertEqual(viewModel.instructionForRowAtIndexPath(indexPath1), "No instructions to display")
+        
+        let recipeDetail1 = client.getRecipeDetail(url1)
+        let viewModel1 = RecipeDetailViewModel(id: recipeDetail1.id!)
+        viewModel1.recipeInstructions = client.getRecipeInstructions(url1_instructions)
+        viewModel1.recipeInstructionSteps = viewModel1.recipeInstructions[0].steps
+        let indexPath2 = IndexPath(row: 0, section: 0)
+        XCTAssertEqual(viewModel1.instructionForRowAtIndexPath(indexPath2), "Preheat oven to 325 F degrees.")
     }
     
     func test_instructionNumberForRowAtIndexPath() {
-        let recipeDetail = client.getRecipeDetail(url1)
+        let recipeDetail = client.getRecipeDetail(url)
         let viewModel = RecipeDetailViewModel(id: recipeDetail.id!)
-        viewModel.recipeInstructions = client.getRecipeInstructions(url1_instructions)
-        viewModel.recipeInstructionSteps = viewModel.recipeInstructions[0].steps
+        viewModel.recipeInstructions = client.getRecipeInstructions(url_instructions)
+//        viewModel.recipeInstructionSteps = viewModel.recipeInstructions[0].steps
         let indexPath1 = IndexPath(row: 0, section: 0)
-        XCTAssertEqual(viewModel.instructionNumberForRowAtIndexPath(indexPath1), "1")
+        XCTAssertEqual(viewModel.instructionNumberForRowAtIndexPath(indexPath1), "N/A")
+        
+        
+        let recipeDetail1 = client.getRecipeDetail(url1)
+        let viewModel1 = RecipeDetailViewModel(id: recipeDetail1.id!)
+        viewModel1.recipeInstructions = client.getRecipeInstructions(url1_instructions)
+        viewModel1.recipeInstructionSteps = viewModel1.recipeInstructions[0].steps
+        let indexPath2 = IndexPath(row: 0, section: 0)
+        XCTAssertEqual(viewModel1.instructionNumberForRowAtIndexPath(indexPath2), "1")
     }
     
     

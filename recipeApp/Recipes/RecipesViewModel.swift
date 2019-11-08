@@ -21,8 +21,6 @@ class RecipesViewModel {
     
     if let title = recipes[indexPath.row].title{
         return title
-    }else{
-        print("title is nil")
     }
     return "Title is nil"
   }
@@ -30,8 +28,6 @@ class RecipesViewModel {
   func idForRowAtIndexPath(_ indexPath: IndexPath) -> Int? {
     if let id = recipes[indexPath.row].id{
         return id
-    }else{
-        print("id is nil")
     }
     return -1
   }
