@@ -1,18 +1,18 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  recipeApp
 //
-//  Created by Kasdan on 10/31/19.
+//  Created by Maggie Williams on 11/7/19.
 //  Copyright © 2019 CMU. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
-
+class HomeViewController: UIViewController, UITextFieldDelegate {
+  
   @IBOutlet weak var ingredientInput: UITextField!
-    
-    
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.ingredientInput.delegate = self
@@ -25,11 +25,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
       showRecipes.query = self.ingredientInput.text
     }
   }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        ingredientInput.resignFirstResponder()
-        return true
-    }
-    
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    ingredientInput.resignFirstResponder()
+    return true
+  }
 }
-

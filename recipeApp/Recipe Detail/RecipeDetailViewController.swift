@@ -68,10 +68,18 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     self.ingredientsTable.reloadData()
     self.instructionsTable.reloadData()
 
+    var ingredientsFrame: CGRect = self.ingredientsTable.frame
+    ingredientsFrame.size.height = self.ingredientsTable.contentSize.height
+    self.ingredientsTable.frame = ingredientsFrame
+    
+    var instructionsFrame: CGRect = self.instructionsTable.frame
+    instructionsFrame.size.height = self.instructionsTable.contentSize.height
+    self.instructionsTable.frame = instructionsFrame
+    
+
   }
   
-  
-//  Ingredients table view
+//  Ingredients + Instructions table views
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +90,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     return 0
   }
+
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if tableView == ingredientsTable {
@@ -97,6 +106,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     return UITableViewCell()
   }
+
+
 
   
   
@@ -119,6 +130,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
   }
   
 }
+
 extension UIImageView {
   func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
     URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
