@@ -37,10 +37,16 @@ class RecipeDetailViewModel {
   }
   
   func instructionForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
+    if(self.numberOfInstructionTableRows() == 0){
+        return "No instructions to display"
+    }
     return self.recipeInstructionSteps[indexPath.row].step
   }
   
   func instructionNumberForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
+    if(self.numberOfInstructionTableRows() == 0){
+        return "N/A"
+    }
     return String(self.recipeInstructionSteps[indexPath.row].number)
   }
   
