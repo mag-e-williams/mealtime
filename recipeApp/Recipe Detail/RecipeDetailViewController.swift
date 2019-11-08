@@ -76,6 +76,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     instructionsFrame.size.height = self.instructionsTable.contentSize.height
     self.instructionsTable.frame = instructionsFrame
     
+    self.instructionsTable.rowHeight = UITableView.automaticDimension
+    self.instructionsTable.estimatedRowHeight = 600
 
   }
   
@@ -102,7 +104,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       cell.title?.text = viewModel?.instructionForRowAtIndexPath(indexPath)
       cell.stepNumber?.text = viewModel?.instructionNumberForRowAtIndexPath(indexPath)
       return cell
-      
     }
     return UITableViewCell()
   }

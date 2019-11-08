@@ -18,24 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-ee-lcG">
-                        <rect key="frame" x="13" y="11" width="27" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chx-4g-sit">
-                        <rect key="frame" x="48" y="11" width="346" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chx-4g-sit">
+                        <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="chx-4g-sit" secondAttribute="bottom" constant="11" id="1A8-H2-NdI"/>
+                    <constraint firstItem="chx-4g-sit" firstAttribute="top" secondItem="AFU-2p-0kQ" secondAttribute="top" constant="11" id="E1v-0d-SCd"/>
+                    <constraint firstAttribute="trailing" secondItem="chx-4g-sit" secondAttribute="trailing" constant="20" id="Gta-KI-2Pp"/>
+                    <constraint firstItem="chx-4g-sit" firstAttribute="leading" secondItem="AFU-2p-0kQ" secondAttribute="leading" constant="20" id="Ndc-nJ-1dP"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="stepNumber" destination="fdA-ee-lcG" id="6kq-0W-au1"/>
                 <outlet property="title" destination="chx-4g-sit" id="sKW-Jd-FMS"/>
             </connections>
             <point key="canvasLocation" x="175.36231884057972" y="113.83928571428571"/>
