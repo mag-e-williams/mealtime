@@ -27,7 +27,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
   }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    print("lol")
     ingredientInput.resignFirstResponder()
     return true
   }

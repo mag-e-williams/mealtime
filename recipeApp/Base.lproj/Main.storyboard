@@ -10,6 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Home-->
+        <scene sceneID="qdI-xh-zbf">
+            <objects>
+                <navigationController title="Home" id="VQa-sS-fv5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="T0j-hD-ba7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zag-Fi-LdD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xwc-id-vUj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dA1-ga-mMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107" y="104"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,8 +35,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYr-2m-Yn5">
+                                <rect key="frame" x="132" y="427" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
+                                <state key="normal" title="Button" image="audioSearchButton"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowIBColor">
+                                        <color key="value" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                        <size key="value" width="5" height="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="9VP-ou-zeg" kind="show" identifier="showRecipes" id="mtr-yX-1q7"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJe-bt-owG">
-                                <rect key="frame" x="100" y="433" width="214" height="30"/>
+                                <rect key="frame" x="72" y="284" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -28,15 +71,15 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cgd-J4-2Sp"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Ingredients!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4s-gJ-X8b">
-                                <rect key="frame" x="139" y="370" width="136" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Reciped By Ingredients!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4s-gJ-X8b">
+                                <rect key="frame" x="88" y="242" width="239" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkh-aT-10K">
-                                <rect key="frame" x="183" y="471" width="48" height="30"/>
+                                <rect key="frame" x="294" y="284" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
@@ -139,24 +182,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EW6-f7-MjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934.78260869565224" y="-701.11607142857144"/>
-        </scene>
-        <!--Home-->
-        <scene sceneID="jmd-Is-IbI">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IxU-JR-BHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="EHF-05-Wef" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="Search" id="0lX-5c-ljI"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I1i-ul-7IA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uTO-w7-Xha"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-178" y="104"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="wuM-9Q-N1H">
@@ -309,7 +334,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="0j9-Yq-ZbQ" kind="relationship" relationship="viewControllers" id="rzZ-f7-iII"/>
-                        <segue destination="EHF-05-Wef" kind="relationship" relationship="viewControllers" id="7gP-sA-Cwr"/>
+                        <segue destination="VQa-sS-fv5" kind="relationship" relationship="viewControllers" id="WKp-h4-Oew"/>
                         <segue destination="3RI-9X-p7n" kind="relationship" relationship="viewControllers" id="n85-cL-lbX"/>
                     </connections>
                 </tabBarController>
@@ -318,6 +343,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Search" width="16" height="16"/>
+        <image name="audioSearchButton" width="1945" height="1945"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mtr-yX-1q7"/>
+    </inferredMetricsTieBreakers>
 </document>
