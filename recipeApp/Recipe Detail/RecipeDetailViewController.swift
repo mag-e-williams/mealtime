@@ -45,10 +45,21 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
 //  loading all the data into the screen
   
   func loadDetails(){
+
+    let imageURL: URL
+    if let title = self.recipeDetail?.title {
+            self.recipeLabel.text = title
+    } else {
+        self.recipeLabel.text = "No title given"
+    }
     
-    self.recipeLabel.text = self.recipeDetail?.title
-    let imageURL = URL(string: self.recipeDetail!.image)
-    self.recipeImg.downloadImage(from: imageURL!)
+    if let image = self.recipeDetail!.image {
+        imageURL = URL(string: image)!
+    } else {
+        imageURL = URL(string: "https://upload.wikimedia.org/wikipedia/commons/7/75/No_image_available.png")!
+    }
+    self.recipeImg.downloadImage(from: imageURL)
+    
     self.ingredientsTable.reloadData()
   }
   
