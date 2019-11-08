@@ -16,27 +16,29 @@ class GetRecipeDetailClient {
     let url = "https://api.spoonacular.com/recipes/\(interpString)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
     let recipeDetail = getRecipeDetail(url)
     completion(recipeDetail)
-    
+  
   }
 
-  func fetchRecipeInstructions(inputID: Int,_ completion: @escaping (RecipeInstruction?) -> Void) {
-    
-    let interpString = String(inputID)
-    let url = "https://api.spoonacular.com/recipes/\(interpString)/analyzedInstructions&apiKey=0ff5861766ea48b0a55b2008c47bd778"
-    let recipeDetail = getRecipeInstructions(url)
-    completion(recipeDetail)
+  func getRecipeInstructions(_ url: String) -> RecipeInstructions {
+    let decoder = JSONDecoder()
+    let item = try! decoder.decode(RecipeInstructions.self, from: try! Data(contentsOf: URL(string: url)!))
+    return item
   }
   
-  func getRecipeDetail(_ url: String) -> RecipeDetail{
+  func fetchRecipeInstructions(inputID: Int,_ completion: @escaping (RecipeInstructions?) -> Void) {
+    
+    let interpString = String(inputID)
+    let url = "https://api.spoonacular.com/recipes/\(interpString)/analyzedInstructions?apiKey=0ff5861766ea48b0a55b2008c47bd778"
+    let recipeInstructions = getRecipeInstructions(url)
+    completion(recipeInstructions)
+  }
+  
+  func getRecipeDetail(_ url: String) -> RecipeDetail {
     let decoder = JSONDecoder()
     let item = try! decoder.decode(RecipeDetail.self, from: try! Data(contentsOf: URL(string: url)!))
     return item
   }
   
-  func getRecipeInstructions(_ url: String) -> RecipeInstruction{
-    let decoder = JSONDecoder()
-    let item = try! decoder.decode(RecipeInstruction.self, from: try! Data(contentsOf: URL(string: url)!))
-    return item
-  }
+
   
 }

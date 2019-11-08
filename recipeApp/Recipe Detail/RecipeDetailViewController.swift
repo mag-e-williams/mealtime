@@ -26,9 +26,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     super.viewDidLoad()
     
     let bundle = Bundle(for: type(of: self))
-    let cellNib = UINib(nibName: "IngredientsTableCell", bundle: bundle)
-    self.ingredientsTable.register(cellNib, forCellReuseIdentifier: "cell")
-  
+    
+    let ingredientsCellNib = UINib(nibName: "IngredientsTableCell", bundle: bundle)
+    self.ingredientsTable.register(ingredientsCellNib, forCellReuseIdentifier: "cell")
+    
+    let instructionsCellNib = UINib(nibName: "InstructionsTableCell", bundle: bundle)
+    self.instructionsTable.register(instructionsCellNib, forCellReuseIdentifier: "cell")
+
+
     if let viewModel = viewModel {
       viewModel.refresh {
         self.recipeDetail = viewModel.recipeDetail
@@ -61,6 +66,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     self.recipeImg.downloadImage(from: imageURL)
     
     self.ingredientsTable.reloadData()
+    self.instructionsTable.reloadData()
+
   }
   
   
@@ -68,13 +75,26 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (viewModel?.numberOfIngredientsTableRows()!)!
+    if tableView == ingredientsTable {
+      return (viewModel?.numberOfIngredientsTableRows()!)!
+    } else if tableView == instructionsTable {
+      return (viewModel?.numberOfInstructionTableRows()!)!
+    }
+    return 0
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! IngredientsTableCell
-    cell.title?.text = viewModel?.ingredientTitleForRowAtIndexPath(indexPath)
-    return cell
+    if tableView == ingredientsTable {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! IngredientsTableCell
+      cell.title?.text = viewModel?.ingredientTitleForRowAtIndexPath(indexPath)
+      return cell
+    } else if tableView == instructionsTable {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! InstructionsTableCell
+      cell.title?.text = viewModel?.instructionForRowAtIndexPath(indexPath)
+      return cell
+      
+    }
+    return UITableViewCell()
   }
 
   
