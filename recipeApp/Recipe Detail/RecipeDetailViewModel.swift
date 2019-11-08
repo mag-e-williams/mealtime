@@ -16,6 +16,7 @@ class RecipeDetailViewModel {
   var recipeID: Int
   
   var recipeIngredients = [ExtendedIngredient]()
+  var recipeInstructions = [ExtendedIngredient]()
   
   init(id: Int) {
     self.recipeID = id

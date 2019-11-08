@@ -15,12 +15,11 @@ class SearchRecipesClient {
   
     let cleanQuery = (inputString).replacingOccurrences(of: " ", with: "")
     let interpString = (cleanQuery).replacingOccurrences(of: ",", with: ",+")
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(interpString)&number=100&apiKey=cc7e79e045f747eabb5362ba580ccac9"
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(interpString)&number=100&apiKey=0ff5861766ea48b0a55b2008c47bd778"
 
     let recipes = getRecipes(url)
     
     completion(recipes)
-    
   }
   
   func getRecipes(_ url: String) -> Recipes{
