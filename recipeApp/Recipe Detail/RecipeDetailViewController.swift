@@ -12,6 +12,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
   
   var recipeDetail: RecipeDetail?
   
+  @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet weak var topConstraint: NSLayoutConstraint!
+  @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+  
   @IBOutlet var recipeLabel: UILabel!
   @IBOutlet weak var recipeImg: UIImageView!
   
