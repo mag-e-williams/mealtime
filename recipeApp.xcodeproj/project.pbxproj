@@ -34,6 +34,7 @@
 		F48F5D852374D27500345980 /* IngredientsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48F5D842374D27500345980 /* IngredientsTableCell.xib */; };
 		F48F5D872374E0AB00345980 /* InstructionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D862374E0AB00345980 /* InstructionsTableCell.swift */; };
 		F48F5D892374E13F00345980 /* InstructionsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F48F5D882374E13F00345980 /* InstructionsTableCell.xib */; };
+		F48F5D8F2374E9DF00345980 /* RecipeInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D8E2374E9DF00345980 /* RecipeInstructions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		F48F5D842374D27500345980 /* IngredientsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsTableCell.xib; sourceTree = "<group>"; };
 		F48F5D862374E0AB00345980 /* InstructionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTableCell.swift; sourceTree = "<group>"; };
 		F48F5D882374E13F00345980 /* InstructionsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionsTableCell.xib; sourceTree = "<group>"; };
+		F48F5D8E2374E9DF00345980 /* RecipeInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeInstructions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				D9AF2F80236E168900DF3919 /* Recipe.swift */,
 				F48F5D7E2373C00100345980 /* RecipeDetail.swift */,
+				F48F5D8E2374E9DF00345980 /* RecipeInstructions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				F48F5D7923739EFE00345980 /* RecipeDetailViewModel.swift in Sources */,
 				F48F5D812373C50E00345980 /* GetRecipeDetailClient.swift in Sources */,
 				F48F5D872374E0AB00345980 /* InstructionsTableCell.swift in Sources */,
+				F48F5D8F2374E9DF00345980 /* RecipeInstructions.swift in Sources */,
 				F48F5D832374CF9700345980 /* IngredientsTableCell.swift in Sources */,
 				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,
 				D9AF2F60236B639300DF3919 /* ViewController.swift in Sources */,

@@ -19,10 +19,24 @@ class GetRecipeDetailClient {
     
   }
 
+  func fetchRecipeInstructions(inputID: Int,_ completion: @escaping (RecipeInstruction?) -> Void) {
+    
+    let interpString = String(inputID)
+    let url = "https://api.spoonacular.com/recipes/\(interpString)/analyzedInstructions&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+    let recipeDetail = getRecipeInstructions(url)
+    completion(recipeDetail)
+  }
+  
   func getRecipeDetail(_ url: String) -> RecipeDetail{
     let decoder = JSONDecoder()
     let item = try! decoder.decode(RecipeDetail.self, from: try! Data(contentsOf: URL(string: url)!))
     return item
   }
-
+  
+  func getRecipeInstructions(_ url: String) -> RecipeInstruction{
+    let decoder = JSONDecoder()
+    let item = try! decoder.decode(RecipeInstruction.self, from: try! Data(contentsOf: URL(string: url)!))
+    return item
+  }
+  
 }

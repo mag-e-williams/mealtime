@@ -45,6 +45,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
 //  loading all the data into the screen
   
   func loadDetails(){
+    
     self.recipeLabel.text = self.recipeDetail?.title
     let imageURL = URL(string: self.recipeDetail!.image)
     self.recipeImg.downloadImage(from: imageURL!)
