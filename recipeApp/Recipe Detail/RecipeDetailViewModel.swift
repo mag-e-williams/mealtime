@@ -39,6 +39,9 @@ class RecipeDetailViewModel {
     return self.recipeInstructionSteps[indexPath.row].step
   }
   
+  func instructionNumberForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
+    return String(self.recipeInstructionSteps[indexPath.row].number)
+  }
   
   func refresh(completion: @escaping () -> Void) {
     client.fetchRecipeDetail(inputID: self.recipeID) { [unowned self] recipeDetail in

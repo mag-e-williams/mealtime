@@ -11,7 +11,8 @@ import UIKit
 class InstructionsTableCell: UITableViewCell {
   
   @IBOutlet weak var title: UILabel!
-  
+  @IBOutlet weak var stepNumber: UILabel!
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

@@ -91,6 +91,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     } else if tableView == instructionsTable {
       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! InstructionsTableCell
       cell.title?.text = viewModel?.instructionForRowAtIndexPath(indexPath)
+      cell.stepNumber?.text = viewModel?.instructionNumberForRowAtIndexPath(indexPath)
       return cell
       
     }
