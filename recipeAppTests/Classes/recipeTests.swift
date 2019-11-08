@@ -61,7 +61,7 @@ class recipeTests: XCTestCase {
         viewModel.recipes = [recipe1, recipe2, recipe3]
         
         let indexPath1 = IndexPath(row: 0, section: 0)
-        XCTAssertEqual(viewModel.detailViewModelForRowAtIndexPath(indexPath1).recipeID, RecipeDetailViewModel(id: recipe1.id).recipeID)
+        XCTAssertEqual(viewModel.detailViewModelForRowAtIndexPath(indexPath1).recipeID, RecipeDetailViewModel(id: recipe1.id!).recipeID)
     }
 
 }
