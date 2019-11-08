@@ -23,7 +23,6 @@ class SearchRecipesClient {
   }
   
   func getRecipes(_ url: String) -> Recipes{
-    
     let decoder = JSONDecoder()
     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
     print(item)
