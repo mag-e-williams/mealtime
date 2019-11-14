@@ -8,10 +8,14 @@
 import UIKit
 import Foundation
 
-class DiscoverViewController: UIViewController, UITextFieldDelegate {
+class DiscoverViewController: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
   
+  @IBOutlet var discoverCollectionView: UICollectionView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
   }
 
+  
 }
