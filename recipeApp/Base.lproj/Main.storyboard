@@ -86,6 +86,13 @@
                                     <segue destination="9VP-ou-zeg" kind="show" identifier="showRecipes" id="Uf1-Fy-8bW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voice Transcription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iog-8m-pax">
+                                <rect key="frame" x="49" y="667" width="317" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -93,6 +100,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="i3x-ZM-DjK"/>
                     <connections>
+                        <outlet property="detectedVoiceText" destination="iog-8m-pax" id="TzN-gw-ncE"/>
                         <outlet property="ingredientInput" destination="VJe-bt-owG" id="PIm-2h-HXf"/>
                     </connections>
                 </viewController>
@@ -103,7 +111,6 @@
         <!--Profile-->
         <scene sceneID="YSb-BR-Laj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s38-uB-dMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="0j9-Yq-ZbQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="6YV-2p-1Ki"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hH3-nV-np7">
@@ -114,6 +121,7 @@
                         <segue destination="FOZ-GN-C5H" kind="relationship" relationship="rootViewController" id="5Nh-oF-HfS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s38-uB-dMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-107" y="911"/>
         </scene>
@@ -382,10 +390,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="SDz-N3-uPZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aAb-as-qM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="z2m-Yh-4Dq" customClass="TabBarController" customModule="recipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G7t-FY-2gW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -400,6 +408,7 @@
                         <segue destination="3RI-9X-p7n" kind="relationship" relationship="viewControllers" id="n85-cL-lbX"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAb-as-qM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1222" y="104"/>
         </scene>
