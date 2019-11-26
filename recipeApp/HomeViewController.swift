@@ -75,7 +75,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
             
             } else if let error = error{
                 print(error)
-            }    
+            }
         })
     }
 }
