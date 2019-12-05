@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
@@ -133,7 +134,27 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       }
     }
   }
-  
+    
+    func saveRecipe(recipe: RecipeDetail){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        if let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context) {
+            
+            let newRecipe = NSManagedObject(entity: entity, insertInto: context)
+            if let name = recipe.title {
+                newRecipe.setValue(name, forKey: "name")
+            }
+            
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
+        }
+    }
+    
+    
+    
 }
 
 extension UIImageView {
