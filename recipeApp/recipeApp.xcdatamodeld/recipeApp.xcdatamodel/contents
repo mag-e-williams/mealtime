@@ -22,7 +22,7 @@
         <attribute name="first_name" optional="YES" attributeType="String"/>
         <attribute name="last_name" optional="YES" attributeType="String"/>
         <attribute name="preferences" optional="YES" attributeType="String"/>
-        <attribute name="saved_recipes" optional="YES" attributeType="Transformable"/>
+        <relationship name="favoriteRecipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe"/>
     </entity>
     <elements>
         <element name="User" positionX="-63" positionY="-18" width="128" height="133"/>
