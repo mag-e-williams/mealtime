@@ -45,7 +45,7 @@ extension RecipesViewController {
   func configureCollectionView() {
     let cellNib = UINib(nibName: "RecipeCell", bundle: nil)
     collectionView?.register(cellNib, forCellWithReuseIdentifier: RecipeCell.cellID)
-    collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+//    collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
   }
 
 }

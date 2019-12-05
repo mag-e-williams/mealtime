@@ -60,6 +60,10 @@
             </collectionViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="365" height="252"/>
+            <connections>
+                <outlet property="imageView" destination="EdR-Kq-K36" id="Fah-Ho-2V0"/>
+                <outlet property="titleLabel" destination="QyZ-Gv-BvQ" id="dr1-Pd-JiN"/>
+            </connections>
             <point key="canvasLocation" x="167" y="127"/>
         </collectionViewCell>
     </objects>
