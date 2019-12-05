@@ -23,10 +23,10 @@ class SearchRecipesClient {
     completion(recipes)
   }
   
-  func getRecipes(_ url: String) -> Recipes{
+  func getRecipes(_ url: String) -> [RecipeElement]?{
     let decoder = JSONDecoder()
     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
-    return item
+    return item.results
   }
   
 }

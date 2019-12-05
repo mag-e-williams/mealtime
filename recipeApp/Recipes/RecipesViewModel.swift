@@ -39,7 +39,6 @@ class RecipesViewModel {
   
   func refresh(queryString: String, completion: @escaping () -> Void) {
     client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
-
       self.recipes = recipes!
       completion()
     }
