@@ -11,29 +11,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="agN-3x-v0K" customClass="SuggestedCell" customModule="recipeApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eEy-xg-OWq">
-                <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
+                <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KL2-nB-bRU">
-                        <rect key="frame" x="8" y="239" width="344" height="53"/>
+                        <rect key="frame" x="8" y="139" width="234" height="53"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyZ-Gv-BvQ">
-                                <rect key="frame" x="0.0" y="0.0" width="344" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="234" height="20.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXH-qc-OCD">
-                                <rect key="frame" x="0.0" y="20.5" width="344" height="14.5"/>
+                                <rect key="frame" x="0.0" y="20.5" width="234" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjx-d3-iIJ">
-                                <rect key="frame" x="0.0" y="35" width="344" height="18"/>
+                                <rect key="frame" x="0.0" y="35" width="234" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,10 +41,10 @@
                         </subviews>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-Kq-K36">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="231"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="131"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="231" id="WqM-nx-asw"/>
-                            <constraint firstAttribute="width" constant="360" id="np1-4I-RbV"/>
+                            <constraint firstAttribute="width" constant="250" id="5o0-16-PcI"/>
+                            <constraint firstAttribute="height" constant="131" id="V3N-B5-fai"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -59,12 +59,17 @@
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <size key="customSize" width="365" height="252"/>
+            <size key="customSize" width="275" height="160"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="EdR-Kq-K36" id="Fah-Ho-2V0"/>
                 <outlet property="titleLabel" destination="QyZ-Gv-BvQ" id="dr1-Pd-JiN"/>
             </connections>
-            <point key="canvasLocation" x="167" y="127"/>
+            <point key="canvasLocation" x="101.44927536231884" y="95.758928571428569"/>
         </collectionViewCell>
     </objects>
 </document>

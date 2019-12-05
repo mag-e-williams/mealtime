@@ -43,6 +43,7 @@
 		F48F5D9A2375184700345980 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D992375184700345980 /* TabBarController.swift */; };
 		F48F5D9C237518E300345980 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D9B237518E300345980 /* ProfileViewController.swift */; };
 		F48F5D9E2375190D00345980 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D9D2375190D00345980 /* DiscoverViewController.swift */; };
+		F4A6FAEB239990A300B224D6 /* Cuisines.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A6FAEA239990A300B224D6 /* Cuisines.swift */; };
 		F4AC1ADE239917A100D350E7 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */; };
 		F4AC1AE02399182E00D350E7 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */; };
 		F4AC1AE2239974FB00D350E7 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC1AE1239974FB00D350E7 /* CollectionViewModel.swift */; };
@@ -105,6 +106,7 @@
 		F48F5D992375184700345980 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../TabBarController.swift; sourceTree = "<group>"; };
 		F48F5D9B237518E300345980 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F48F5D9D2375190D00345980 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		F4A6FAEA239990A300B224D6 /* Cuisines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisines.swift; sourceTree = "<group>"; };
 		F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
 		F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		F4AC1AE1239974FB00D350E7 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				D9AF2F80236E168900DF3919 /* Recipe.swift */,
 				F48F5D7E2373C00100345980 /* RecipeDetail.swift */,
 				F48F5D8E2374E9DF00345980 /* RecipeInstructions.swift */,
+				F4A6FAEA239990A300B224D6 /* Cuisines.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				F48F5D9C237518E300345980 /* ProfileViewController.swift in Sources */,
 				F4AC1AE2239974FB00D350E7 /* CollectionViewModel.swift in Sources */,
 				F48F5D8F2374E9DF00345980 /* RecipeInstructions.swift in Sources */,
+				F4A6FAEB239990A300B224D6 /* Cuisines.swift in Sources */,
 				F48F5D9E2375190D00345980 /* DiscoverViewController.swift in Sources */,
 				F48F5D832374CF9700345980 /* IngredientsTableCell.swift in Sources */,
 				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,

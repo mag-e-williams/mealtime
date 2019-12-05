@@ -43,7 +43,6 @@ extension DiscoverViewController {
   func configureCollectionView() {
     let cellNib = UINib(nibName: "SuggestedCell", bundle: nil)
     collectionView?.register(cellNib, forCellWithReuseIdentifier: SuggestedCell.cellID)
-//    self.collectionView.backgroundColor = [UIColor, white]
   }
 
 }
