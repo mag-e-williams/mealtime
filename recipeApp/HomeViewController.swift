@@ -26,6 +26,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
+            //first launch
+            
+        } 
+        else{
+            //proceed normally
+        }
+        
         self.ingredientInput.delegate = self
         self.ingredientInput.text = "sugar"
     }
@@ -42,6 +51,8 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         return true
     }
     
+    
+    //SPEECH RECOGNITION
     func recordAndRecognizeSpeech() {
         //initializing audioEngine
         let node = audioEngine.inputNode
