@@ -70,21 +70,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
         self.recipeImg.downloadImage(from: imageURL)
         
-        self.ingredientsTable.reloadData()
-        self.instructionsTable.reloadData()
+        ingredientsTable.reloadData()
+        instructionsTable.reloadData()
         
-        var ingredientsFrame: CGRect = self.ingredientsTable.frame
-        ingredientsFrame.size.height = self.ingredientsTable.contentSize.height
-        self.ingredientsTable.frame = ingredientsFrame
-        
-        var instructionsFrame: CGRect = self.instructionsTable.frame
-        instructionsFrame.size.height = self.instructionsTable.contentSize.height
-        self.instructionsTable.frame = instructionsFrame
-        
-        self.instructionsTable.rowHeight = UITableView.automaticDimension
-        self.instructionsTable.estimatedRowHeight = 600
-        
+     
     }
+  
+
     
     //  Ingredients + Instructions table views
     

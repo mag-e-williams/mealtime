@@ -44,6 +44,8 @@
 		F48F5D9A2375184700345980 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D992375184700345980 /* TabBarController.swift */; };
 		F48F5D9C237518E300345980 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D9B237518E300345980 /* ProfileViewController.swift */; };
 		F48F5D9E2375190D00345980 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D9D2375190D00345980 /* DiscoverViewController.swift */; };
+		F4AC1ADE239917A100D350E7 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */; };
+		F4AC1AE02399182E00D350E7 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */; };
 		FF6EB14633FB94B4DA4FFA97 /* Pods_recipeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BABC711D8A71E93A6628F6 /* Pods_recipeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,8 @@
 		F48F5D992375184700345980 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = ../TabBarController.swift; sourceTree = "<group>"; };
 		F48F5D9B237518E300345980 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F48F5D9D2375190D00345980 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
+		F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,9 +198,8 @@
 				F48F5D992375184700345980 /* TabBarController.swift */,
 				F48F5D952375179B00345980 /* HomeViewController.swift */,
 				F48F5D9B237518E300345980 /* ProfileViewController.swift */,
-				F48F5D9D2375190D00345980 /* DiscoverViewController.swift */,
-				F42EFDC723768AC9000A42D1 /* DiscoverCollectionViewController.swift */,
 				F42EFDC923768B83000A42D1 /* HorizontalPeekingPagesCollectionViewController.swift */,
+				F4AC1ADC2399175200D350E7 /* Discover */,
 				F48F5D6023733DE100345980 /* Recipes */,
 				F48F5D7723739E4200345980 /* Recipe Detail */,
 				F48F5D652373408100345980 /* Network */,
@@ -264,6 +267,17 @@
 				F48F5D882374E13F00345980 /* InstructionsTableCell.xib */,
 			);
 			path = "Recipe Detail";
+			sourceTree = "<group>";
+		};
+		F4AC1ADC2399175200D350E7 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				F48F5D9D2375190D00345980 /* DiscoverViewController.swift */,
+				F42EFDC723768AC9000A42D1 /* DiscoverCollectionViewController.swift */,
+				F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */,
+				F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +369,7 @@
 				D9AF2F68236B639400DF3919 /* Assets.xcassets in Resources */,
 				F48F5D852374D27500345980 /* IngredientsTableCell.xib in Resources */,
 				D9AF2F63236B639300DF3919 /* Main.storyboard in Resources */,
+				F4AC1ADE239917A100D350E7 /* SuggestedCell.xib in Resources */,
 				F48F5D892374E13F00345980 /* InstructionsTableCell.xib in Resources */,
 				F43CB6AD2398B281002CE5A0 /* RecipeCell.xib in Resources */,
 			);
@@ -457,6 +472,7 @@
 				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
 				F48F5D962375179C00345980 /* HomeViewController.swift in Sources */,
+				F4AC1AE02399182E00D350E7 /* SuggestedCell.swift in Sources */,
 				F42EFDCA23768B83000A42D1 /* HorizontalPeekingPagesCollectionViewController.swift in Sources */,
 				D9962BAC2371289E00774B21 /* RecipesViewController.swift in Sources */,
 				F48F5D6223733F0700345980 /* RecipesViewModel.swift in Sources */,
