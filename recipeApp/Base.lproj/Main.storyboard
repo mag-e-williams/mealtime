@@ -363,28 +363,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Name" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMw-wT-Zj8">
-                                <rect key="frame" x="20" y="336" width="374" height="44"/>
+                                <rect key="frame" x="20" y="248" width="330" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL1-Kx-fTl">
-                                <rect key="frame" x="20" y="388" width="94" height="21"/>
+                                <rect key="frame" x="20" y="323" width="94" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGm-OG-C7I">
-                                <rect key="frame" x="20" y="575" width="99" height="21"/>
+                                <rect key="frame" x="20" y="519" width="99" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MzQ-ev-6P7">
-                                <rect key="frame" x="20" y="417" width="374" height="133"/>
+                                <rect key="frame" x="20" y="352" width="374" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -403,7 +403,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ROT-Sc-TXn">
-                                <rect key="frame" x="20" y="604" width="374" height="146"/>
+                                <rect key="frame" x="20" y="548" width="374" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -421,16 +421,20 @@
                                     <outlet property="delegate" destination="VWq-8n-gFD" id="TDD-tt-YMc"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v7O-63-2Rz">
-                                <rect key="frame" x="20" y="180" width="110" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BE2-6T-IFB">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="2DO-FG-HTi"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLR-RE-4xO">
+                                <rect key="frame" x="363" y="20" width="31" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="bookmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -446,11 +450,12 @@
                         <outlet property="instructionsTable" destination="ROT-Sc-TXn" id="08E-qM-Ewc"/>
                         <outlet property="recipeImg" destination="BE2-6T-IFB" id="vqq-Kd-Ogd"/>
                         <outlet property="recipeLabel" destination="pMw-wT-Zj8" id="qRb-FI-3c5"/>
+                        <outlet property="savedButton" destination="hLR-RE-4xO" id="oLW-1d-XGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv7-xT-3dG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3057" y="104"/>
+            <point key="canvasLocation" x="3056.521739130435" y="103.79464285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SDz-N3-uPZ">
@@ -479,6 +484,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="56" height="64"/>
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
