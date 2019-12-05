@@ -658,9 +658,13 @@ PODS:
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
   - MotionInterchange (1.6.0)
+  - SDWebImage (5.3.3):
+    - SDWebImage/Core (= 5.3.3)
+  - SDWebImage/Core (5.3.3)
 
 DEPENDENCIES:
   - MaterialComponents
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -669,6 +673,7 @@ SPEC REPOS:
     - MDFTextAccessibility
     - MotionAnimator
     - MotionInterchange
+    - SDWebImage
 
 SPEC CHECKSUMS:
   MaterialComponents: 3ee5327e02dc3f34df48c68205b5fd7dce171744
@@ -676,7 +681,8 @@ SPEC CHECKSUMS:
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
+  SDWebImage: 51ab1ce3ebd20dec6665ae8ba25c928da323db41
 
-PODFILE CHECKSUM: e2edd74d0bbdc937bb022b49dcd1a5797ba1fa3b
+PODFILE CHECKSUM: cee26c3098bac33389d0e53e169b4713c82b38da
 
 COCOAPODS: 1.8.4
