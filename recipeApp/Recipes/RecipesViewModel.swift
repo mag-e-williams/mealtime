@@ -32,17 +32,18 @@ class RecipesViewModel {
     return -1
   }
   
-  func detailViewModelForRowAtIndexPath(_ indexPath: IndexPath) -> RecipeDetailViewModel {
-    let viewModel = RecipeDetailViewModel(id: recipes[indexPath.row].id!)
+  func detailViewModelForRowAtIndexPath(_ recipe: RecipeElement) -> RecipeDetailViewModel {
+    let viewModel = RecipeDetailViewModel(id: recipe.id!)
     return viewModel
   }
   
-  func refresh(queryString: String, completion: @escaping () -> Void) {
-    client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
-
-      self.recipes = recipes!
-      completion()
-    }
-  }
+//
+//  func refresh(queryString: String, completion: @escaping () -> Void) {
+//    client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
+//
+//      self.recipes = recipes!
+//      completion()
+//    }
+//  }
   
 }

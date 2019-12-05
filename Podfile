@@ -4,6 +4,8 @@
 target 'recipeApp' do
   use_frameworks!
   pod 'MaterialComponents'
+  pod "SDWebImage"
+
 
   target 'recipeAppTests' do
     inherit! :search_paths
