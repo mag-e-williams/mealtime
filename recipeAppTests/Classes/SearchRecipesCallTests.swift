@@ -21,17 +21,9 @@ class searchRecipesCallTests: XCTestCase {
         XCTAssertEqual(recipes[0].id, 1059776)
     }
     
-//    func refresh(queryString: String, completion: @escaping () -> Void) {
-//        client.fetchRecipes(inputString: queryString) { [unowned self] recipes in
-//            
-//            self.recipes = recipes!
-//            completion()
-//        }
+    
+//    func test_fetchRecipes() {
+//        //TEST FETCH_RECIPES
 //    }
-    
-    
-    func test_fetchRecipes() {
-        //TEST FETCH_RECIPES
-    }
     
 }
