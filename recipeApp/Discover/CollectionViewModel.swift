@@ -1,14 +1,14 @@
 //
-//  RepositoriesViewModel.swift
+//  CollectionViewModel.swift
 //  recipeApp
 //
-//  Created by Maggie Williams on 11/6/19.
+//  Created by Maggie Williams on 12/5/19.
 //  Copyright © 2019 CMU. All rights reserved.
 //
 
 import Foundation
 
-class RecipesViewModel {
+class CollectionViewModel {
   var recipes = [RecipeElement]()
   
   let client = SearchRecipesClient()

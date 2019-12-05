@@ -42,6 +42,10 @@
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KLb-Ox-Byd">
                         <rect key="frame" x="0.0" y="0.0" width="360" height="231"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="360" id="gJU-3o-90x"/>
+                            <constraint firstAttribute="height" constant="231" id="pyE-Z4-5Fb"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -56,6 +60,24 @@
             </collectionViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="365" height="252"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="0.0" height="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <integer key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="maskToBounds" value="NO"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="KLb-Ox-Byd" id="8Mj-3i-Kuh"/>
                 <outlet property="titleLabel" destination="4dW-dm-zNf" id="i0s-iI-HkW"/>
