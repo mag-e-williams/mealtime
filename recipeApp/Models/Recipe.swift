@@ -10,12 +10,4 @@ struct RecipeElement: Codable {
     let title: String?
     let image: String?
     let imageType: String?
-//    let nutrition: [Nutrition]?
 }
-//
-//struct Nutrition: Codable {
-//    let title: String?
-//    let amount: Double?
-//    let unit: String?
-//}
-

@@ -128,6 +128,31 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        print("self.recipeDetail is as follows: ")
+        print("---------------------------------")
+        print(self.recipeDetail!)
+        print("---------------------------------")
+        
+        let user = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        user.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(user)
+            for data in result as! [NSManagedObject] {
+                self.loadUser(data: data)
+                print(data.value(forKey: "first_name") as! String)
+            }
+        } catch {
+            print("Failed")
+        }
+        
+        
+        saveRecipe(recipe: self.recipeDetail!)
+    }
+    
     //SAVING RECIPE TO COREDATA
     func saveRecipe(recipe: RecipeDetail){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -136,12 +161,15 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
             
             let newRecipe = NSManagedObject(entity: entity, insertInto: context)
             if let id = recipe.id {
+                print(id)
                 newRecipe.setValue(id, forKey: "id")
             }
             if let name = recipe.title {
+                print(name)
                 newRecipe.setValue(name, forKey: "name")
             }
             if let image = recipe.image {
+                print(image)
                 newRecipe.setValue(image, forKey: "image")
             }
             if let instructions = recipe.instructions {
@@ -160,7 +188,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
                 newRecipe.setValue(dairyFree, forKey: "dairy_free")
             }
             if let gluttenFree = recipe.glutenFree {
-                newRecipe.setValue(gluttenFree, forKey: "glutten_free")
+                newRecipe.setValue(gluttenFree, forKey: "gluten_free")
             }
             if let keto = recipe.ketogenic {
                 newRecipe.setValue(keto, forKey: "keto")
@@ -177,9 +205,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
             if let readyInMinutes = recipe.readyInMinutes {
                 newRecipe.setValue(readyInMinutes, forKey: "ready_in_minutes")
             }
+            print("bottom of if lets")
         }
         do {
+            print("before save")
             try context.save()
+            print("after save")
         } catch {
             print("Failed saving")
         }
