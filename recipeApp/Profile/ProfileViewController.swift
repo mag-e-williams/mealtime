@@ -14,9 +14,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     var user: NSManagedObject?
     var viewModel = ProfileViewModel()
     
+    var recipeViewModel: RecipeDetailViewModel?
+
+    
+    
     @IBOutlet var username: UILabel!
     @IBOutlet var cuisine: UILabel!
     @IBOutlet var restrictions: UILabel!
+    @IBOutlet var saved_recipes: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,5 +43,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.username.text = "Hi, \(user!.value(forKey: "first_name")!)!"
         self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)"
+        self.saved_recipes.text = "\(user!.value(forKey: "dietary_restrictions")!)" 
+    }
+    
+    func loadRecipes() {
+        let saved_recipes = recipeViewModel!.fetchRecipe("Recipe")
+        for recipe in saved_recipes {
+            print(recipe.value(forKey: "name"))
+        }
     }
 }
