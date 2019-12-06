@@ -12,7 +12,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   
   @IBOutlet var filterTable: UITableView!
   let filters = Filters().getFilters()
-
+  
   let viewModel = FilterViewModel()
 
   override func viewDidLoad() {
@@ -20,6 +20,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     let bundle = Bundle(for: type(of: self))
     print("HEREmotherfucker")
+    print(filters)
     let cellNib = UINib(nibName: "TableViewCell", bundle: bundle)
     self.filterTable.register(cellNib, forCellReuseIdentifier: "cell")
     
@@ -27,10 +28,12 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("in tableView number rows")
     return (viewModel.numberOfRows()!)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    print("in tableView cellForRow")
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
     cell.title?.text = viewModel.titleForRowAtIndexPath(indexPath)
     print(viewModel.titleForRowAtIndexPath(indexPath))
