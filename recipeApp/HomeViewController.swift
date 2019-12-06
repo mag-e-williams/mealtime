@@ -13,11 +13,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     
     @IBOutlet weak var ingredientInput: UITextField!
     @IBOutlet weak var detectedVoiceText: UILabel!
-    
-    @IBAction func micButtonPressed(_ sender: UIButton) {
-        self.recordAndRecognizeSpeech()
+//
+//    @IBAction func micButtonPressed(_ sender: UIButton) {
+//        self.recordAndRecognizeSpeech()
+//    }
+//
+  
+    @IBAction func micButtonHold(_ gestureRecognizer: UILongPressGestureRecognizer) {
+       if gestureRecognizer.state == .began {
+          self.recordAndRecognizeSpeech()
+       }
     }
-    
+  
     let audioEngine = AVAudioEngine()
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     let request = SFSpeechAudioBufferRecognitionRequest()
