@@ -8,8 +8,10 @@
 import UIKit
 import Foundation
 
-class FilterViewController: UIViewController {
+class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
+  let filters = Filters().getFilters()
+
   
   
   
