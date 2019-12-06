@@ -86,8 +86,8 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
 
     for title in filterTitles {
       var i = filterList.firstIndex(of: String(title))
-      let indexPath = IndexPath(row: i!, section: 0)
-      self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+//      let indexPath = IndexPath(row: i!, section: 0)
+//      self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         
     }
     

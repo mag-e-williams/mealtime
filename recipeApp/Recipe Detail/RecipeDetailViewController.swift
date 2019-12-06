@@ -45,7 +45,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         viewModel.refresh {
           self.recipeDetail = viewModel.recipeDetail
           self.loadDetails()
-          self.tableHeight.constant = self.ingredientsTable.contentSize.height
 
         }
 
