@@ -137,17 +137,17 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         print(self.recipeDetail!)
         print("---------------------------------")
         
-        let user = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        user.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(user)
-            for data in result as! [NSManagedObject] {
-                self.loadUser(data: data)
-                print(data.value(forKey: "first_name") as! String)
-            }
-        } catch {
-            print("Failed")
-        }
+//        let user = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+//        user.returnsObjectsAsFaults = false
+//        do {
+//            let result = try context.fetch(user)
+//            for data in result as! [NSManagedObject] {
+//                self.loadUser(data: data)
+//                print(data.value(forKey: "first_name") as! String)
+//            }
+//        } catch {
+//            print("Failed")
+//        }
         
         
         saveRecipe(recipe: self.recipeDetail!)
