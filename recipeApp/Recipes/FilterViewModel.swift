@@ -23,4 +23,10 @@ class FilterViewModel {
     return "Title is nil"
   }
   
+  func refresh() {
+    filters = Filters().getFilters()
+  }
+
+
+
 }

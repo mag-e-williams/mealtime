@@ -15,6 +15,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var collectionView: UICollectionView!
 
+  
   let viewModel = RecipesViewModel()
   let apiClient = SearchRecipesClient()
   var recipes: [RecipeElement] = []
