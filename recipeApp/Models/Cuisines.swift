@@ -10,11 +10,11 @@
 import UIKit
 
 struct Cuisine: Codable {
-  let title: String
+  let title: String?
 }
 
-struct Cuisines: Codable {
-  let cuisines = [
+class Cuisines {
+  var data = [
   Cuisine(title: "African"),
   Cuisine(title: "American"),
   Cuisine(title: "British"),
@@ -42,6 +42,10 @@ struct Cuisines: Codable {
   Cuisine(title: "Thai"),
   Cuisine(title: "Vietnamese"),
   ]
+  
+  func getCuisines() -> [Cuisine] {
+    return data
+  }
   
 }
 

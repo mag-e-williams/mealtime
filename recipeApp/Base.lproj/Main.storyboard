@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XM-wz-HQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2395" y="837"/>
+            <point key="canvasLocation" x="1900" y="911"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Gay-pa-RCo">
@@ -362,11 +362,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-6D-3xJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-6D-3xJ">
                                 <rect key="frame" x="0.0" y="467" width="414" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jsC-yd-uKB">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jsC-yd-uKB">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -382,6 +382,10 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wAF-GY-AuC" id="IzG-rm-ntr"/>
+                                    <outlet property="delegate" destination="wAF-GY-AuC" id="ZzT-fX-bBh"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View All Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-yi-xqf">
                                 <rect key="frame" x="20" y="637" width="134" height="21"/>
@@ -397,7 +401,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="ekK-7r-vj4"/>
                     <connections>
-                        <outlet property="collectionView" destination="RUR-bs-Twg" id="w2V-gq-mII"/>
+                        <outlet property="cuisineCollectionView" destination="Am7-6D-3xJ" id="EVr-bP-PMf"/>
+                        <outlet property="suggestedCollectionView" destination="RUR-bs-Twg" id="SPM-QM-xd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EW6-f7-MjF" userLabel="First Responder" sceneMemberID="firstResponder"/>

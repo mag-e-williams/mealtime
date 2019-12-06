@@ -11,8 +11,14 @@ import UIKit
 class CuisineCell: UICollectionViewCell {
 
   static let cellID = "CuisineCellID"
+  
+  static let cellHeight: CGFloat = 370.0
+  static let cellWidth: CGFloat = 200.0
+
   static let cellPadding: CGFloat = 8.0
 
+  
+  
   @IBOutlet var titleLabel: UILabel!
 
   var cuisine: Cuisine? {

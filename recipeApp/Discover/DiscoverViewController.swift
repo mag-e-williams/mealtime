@@ -13,17 +13,22 @@ import UIKit
 class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   
   @IBOutlet var searchBar: UISearchBar!
-  @IBOutlet var collectionView: UICollectionView!
+  @IBOutlet var suggestedCollectionView: UICollectionView!
+  @IBOutlet var cuisineCollectionView: UICollectionView!
 
-  let viewModel = CollectionViewModel()
+  
+  let recipeViewModel = RecipeCollectionViewModel()
+  let cuisineViewModel = CuisineCollectionViewModel()
+  let cuisines = Cuisines().getCuisines()
+  
   let apiClient = SearchRecipesClient()
   var recipes: [RecipeElement] = []
-  var inProgressTask: Cancellable?
-  
 
+  var inProgressTask: Cancellable?
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     
     configureCollectionView()
     refreshContent()
@@ -34,15 +39,17 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   }
   
 
-  
 }
 
 // MARK: UI Configuration
 extension DiscoverViewController {
 
   func configureCollectionView() {
-    let cellNib = UINib(nibName: "SuggestedCell", bundle: nil)
-    collectionView?.register(cellNib, forCellWithReuseIdentifier: SuggestedCell.cellID)
+    let suggestedCellNib = UINib(nibName: "SuggestedCell", bundle: nil)
+    suggestedCollectionView?.register(suggestedCellNib, forCellWithReuseIdentifier: SuggestedCell.cellID)
+    
+    let cuisineCellNib = UINib(nibName: "CuisineCell", bundle: nil)
+    cuisineCollectionView?.register(cuisineCellNib, forCellWithReuseIdentifier: CuisineCell.cellID)
   }
 
 }
@@ -51,15 +58,33 @@ extension DiscoverViewController {
 extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: view.bounds.width - (SuggestedCell.cellPadding * 2), height: SuggestedCell.cellHeight)
+    if collectionView == suggestedCollectionView {
+      return CGSize(width: view.bounds.width - (SuggestedCell.cellPadding * 2), height: SuggestedCell.cellHeight)
+    }
+    if collectionView == cuisineCollectionView {
+      return CGSize(width: view.bounds.width - (CuisineCell.cellPadding * 2), height: CuisineCell.cellHeight)
+    }
+    return CGSize()
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: SuggestedCell.cellPadding, left: SuggestedCell.cellPadding, bottom: SuggestedCell.cellPadding, right: SuggestedCell.cellPadding)
+    if collectionView == suggestedCollectionView {
+      return UIEdgeInsets(top: SuggestedCell.cellPadding, left: SuggestedCell.cellPadding, bottom: SuggestedCell.cellPadding, right: SuggestedCell.cellPadding)
+    }
+    if collectionView == cuisineCollectionView {
+       return UIEdgeInsets(top: CuisineCell.cellPadding, left: CuisineCell.cellPadding, bottom: CuisineCell.cellPadding, right: CuisineCell.cellPadding)
+    }
+    return UIEdgeInsets()
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return SuggestedCell.cellPadding
+    if collectionView == suggestedCollectionView {
+      return SuggestedCell.cellPadding
+    }
+    if collectionView == cuisineCollectionView {
+      return CuisineCell.cellPadding
+    }
+    return 0.0
   }
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -80,31 +105,49 @@ extension DiscoverViewController {
   }
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return recipes.count
+    if collectionView == suggestedCollectionView {
+      return recipes.count
+    }
+    if collectionView == cuisineCollectionView {
+      return cuisines.count
+    }
+    return 0
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestedCell.cellID, for: indexPath) as? SuggestedCell {
-      cell.recipe = recipes[indexPath.row]
-      return cell
-    } else {
-      fatalError("Missing cell for indexPath: \(indexPath)")
+    if collectionView == suggestedCollectionView {
+      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestedCell.cellID, for: indexPath) as? SuggestedCell {
+        cell.recipe = recipes[indexPath.row]
+        return cell
+      } else {
+        fatalError("Missing cell for indexPath: \(indexPath)")
+      }
     }
+    
+    if collectionView == cuisineCollectionView {
+      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CuisineCell.cellID, for: indexPath) as? CuisineCell {
+        cell.cuisine = cuisines[indexPath.row]
+        return cell
+      } else {
+        fatalError("Missing cell for indexPath: \(indexPath)")
+      }
+    }
+    
+    return UICollectionViewCell()
   }
   
-
-
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let detailVC = segue.destination as? RecipeDetailViewController,
       let recipe = sender as? RecipeElement {
-      detailVC.viewModel = viewModel.detailViewModelForRowAtIndexPath(recipe)
+      detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let recipe = recipes[indexPath.row]
-    
-    performSegue(withIdentifier: "toDetailVC", sender: recipe)
+    if collectionView == suggestedCollectionView {
+      let recipe = recipes[indexPath.row]
+      performSegue(withIdentifier: "toDetailVC", sender: recipe)
+    }
   }
   
 
@@ -121,16 +164,16 @@ extension DiscoverViewController {
       return
     }
 
-
     inProgressTask = apiClient.fetchRecipes(inputString: "sugar") { [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
         self?.recipes = recipes
-        self?.collectionView?.reloadData()
-      } else {
+        self?.suggestedCollectionView?.reloadData()
+      }
+      else {
         return
       }
-      } as? Cancellable
+    } as? Cancellable
   }
 
   func showError() {

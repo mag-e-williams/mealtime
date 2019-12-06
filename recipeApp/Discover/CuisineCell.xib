@@ -19,6 +19,9 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisine Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqp-RJ-KfU">
                         <rect key="frame" x="16" y="46" width="124" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="124" id="w90-o5-bGg"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -41,7 +44,7 @@
             <connections>
                 <outlet property="titleLabel" destination="Eqp-RJ-KfU" id="Mrk-u5-b6d"/>
             </connections>
-            <point key="canvasLocation" x="108.69565217391305" y="139.95535714285714"/>
+            <point key="canvasLocation" x="51" y="37"/>
         </collectionViewCell>
     </objects>
 </document>
