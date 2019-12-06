@@ -16,34 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        //FIRST LAUNCH
-//        let user = ProfileViewModel()
-//        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
-//            UserDefaults.standard.set(false, forKey: "TermsAccepted")
-//            //CREATE AND SET BASE USER INFORMATION
-//        }
-//        print("here outside")
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-//        request.returnsObjectsAsFaults = false
-//        do {
-//            print("hm")
-//            let result = try context.fetch(request)
-//            print("dude")
-//            print(request)
-//            print(result)
-//            for data in result as! [NSManagedObject] {
-//                print("lol")
-//                user.loadUser(data: data)
-//                print(data.value(forKey: "first_name") as! String)
-//            }
-//        } catch {
-//            print("Failed")
-//        }
-        //SETS IT SO THAT TERMS ARE ACCEPTED
-//        UserDefaults.standard.set(false, forKey: "TermsAccepted")
+        let userViewModel = ProfileViewModel()
+        let user = userViewModel.createUser("User")
+        user?.setValue("Change", forKey: "first_name")
+        user?.setValue("Me", forKey: "last_name")
+        user?.setValue("fillerEmail@gmail.com", forKey: "email")
+        user?.setValue("No dietary restrictions yet", forKey: "dietary_restrictions")
+        user?.setValue("No preferences yet", forKey: "preferences")
+        user?.setValue([], forKey: "saved_recipes")
         return true
     }
 
