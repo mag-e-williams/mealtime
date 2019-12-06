@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dA1-ga-mMe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="104"/>
+            <point key="canvasLocation" x="-439" y="104"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -71,6 +71,9 @@
                                 <state key="normal" image="mic.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="100"/>
                                 </state>
+                                <connections>
+                                    <action selector="micButtonPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="Fjx-1q-aqM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="104"/>
+            <point key="canvasLocation" x="625" y="104"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="KUS-8h-dpx">
@@ -152,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEg-NA-V3P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900.0000000000002" y="103.79464285714285"/>
+            <point key="canvasLocation" x="1687" y="104"/>
         </scene>
         <!--Profile-->
         <scene sceneID="YSb-BR-Laj">
@@ -169,14 +172,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s38-uB-dMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="911"/>
+            <point key="canvasLocation" x="-439" y="911"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="2sC-Ct-GZ7">
             <objects>
                 <viewController id="FOZ-GN-C5H" customClass="ProfileViewController" customModule="recipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hLT-fa-6Bf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iar-tz-4Cd">
@@ -270,14 +273,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60W-Ow-va8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979.71014492753636" y="911.38392857142856"/>
+            <point key="canvasLocation" x="625" y="911"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="N2U-qS-Eul">
             <objects>
                 <viewController id="J8l-OK-pFq" customClass="EditProfileViewController" customModule="recipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Zb-6R-Cih">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bxx-kh-Wnp">
@@ -378,12 +381,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXB-PE-VFi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979.71014492753636" y="1714.9553571428571"/>
+            <point key="canvasLocation" x="519" y="1722"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="vzs-3r-LrZ">
             <objects>
-                <viewController id="QOO-Jq-FUH" sceneMemberID="viewController">
+                <viewController id="QOO-Jq-FUH" customClass="FilterViewController" customModule="recipeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MQi-FQ-JQc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XM-wz-HQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="911"/>
+            <point key="canvasLocation" x="1687" y="911"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Gay-pa-RCo">
@@ -420,7 +423,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mC3-GY-DIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="-700"/>
+            <point key="canvasLocation" x="-280" y="-700"/>
         </scene>
         <!--Discover View Controller-->
         <scene sceneID="VeB-eG-mw3">
@@ -505,17 +508,17 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View All Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-yi-xqf">
-                                <rect key="frame" x="20" y="637" width="134" height="21"/>
+                                <rect key="frame" x="20" y="635" width="134" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qX-FZ-bvV">
-                                <rect key="frame" x="186" y="181" width="90" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qX-FZ-bvV">
+                                <rect key="frame" x="343" y="179" width="51" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="all suggested " image="chevron.left" catalog="system">
+                                <state key="normal" title="see all " image="chevron.left" catalog="system">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
@@ -523,11 +526,11 @@
                                     <segue destination="Nfx-cc-6St" kind="show" identifier="showAllRecipes" id="CBa-XP-ew7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37E-IV-cof">
-                                <rect key="frame" x="162" y="641" width="72" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37E-IV-cof">
+                                <rect key="frame" x="346" y="639" width="48" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="all recipes " image="chevron.left" catalog="system">
+                                <state key="normal" title="see all" image="chevron.left" catalog="system">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
@@ -535,11 +538,11 @@
                                     <segue destination="Nfx-cc-6St" kind="show" id="rxW-UO-TOQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQb-Ha-sTH">
-                                <rect key="frame" x="180" y="456" width="77" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQb-Ha-sTH">
+                                <rect key="frame" x="346" y="456" width="48" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="all cuisines " image="chevron.left" catalog="system">
+                                <state key="normal" title="see all" image="chevron.left" catalog="system">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                 </state>
@@ -552,7 +555,7 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="QrS-d4-906"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ekK-7r-vj4"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ekK-7r-vj4"/>
                     <connections>
                         <outlet property="cuisineCollectionView" destination="Am7-6D-3xJ" id="EVr-bP-PMf"/>
                         <outlet property="suggestedCollectionView" destination="RUR-bs-Twg" id="SPM-QM-xd6"/>
@@ -560,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EW6-f7-MjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934.78260869565224" y="-701.11607142857144"/>
+            <point key="canvasLocation" x="1687" y="-700"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MY3-V7-ELJ">
@@ -576,7 +579,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTg-IQ-y8g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="-701"/>
+            <point key="canvasLocation" x="2806" y="-700"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="sdU-Hi-ZOg">
@@ -734,7 +737,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAb-as-qM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1222" y="104"/>
+            <point key="canvasLocation" x="-1558" y="104"/>
         </scene>
     </scenes>
     <resources>
@@ -752,7 +755,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="OO6-Pj-YBo"/>
-        <segue reference="txj-eO-NUI"/>
-        <segue reference="CBa-XP-ew7"/>
+        <segue reference="5Nh-oF-HfS"/>
+        <segue reference="L9c-Bw-lQ2"/>
     </inferredMetricsTieBreakers>
 </document>
