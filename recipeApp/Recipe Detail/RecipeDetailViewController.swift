@@ -31,6 +31,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
       super.viewDidLoad()
+//        viewModel?.resetData()
       
       let bundle = Bundle(for: type(of: self))
       
@@ -49,9 +50,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
       }
-        let fetchedRecipe = viewModel?.fetchRecipe("Recipe")
+        guard let fetchedRecipe = viewModel?.fetchRecipe("Recipe") else { return }
         print("fetched recipe")
-        print(fetchedRecipe)
+//        print(fetchedRecipe)
+        for recipe in fetchedRecipe {
+            print(recipe.value(forKey: "name"))
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -156,13 +160,16 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
         
         print("new recipe")
-        print(newRecipe)
+        print(newRecipe!)
         do {
             try context.save()
             print("context was saved")
         } catch {
             print("Failed saving")
         }
+//        let fetchedRecipe = viewModel?.fetchRecipe("Recipe")
+//        print("all fetched recipes")
+//        print(fetchedRecipe)
     }
 }
 

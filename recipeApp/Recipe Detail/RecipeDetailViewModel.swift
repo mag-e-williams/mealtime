@@ -57,6 +57,14 @@ class RecipeDetailViewModel {
   }
     
     
+    func resetData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        context.reset()
+        UserDefaults.standard.set(false, forKey: "TermsAccepted")
+    }
+    
+    
     
   func numberOfIngredientsTableRows() -> Int? {
     return self.recipeIngredients.count
