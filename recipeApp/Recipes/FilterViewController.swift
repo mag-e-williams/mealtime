@@ -11,36 +11,40 @@ import Foundation
 class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   @IBOutlet var filterTable: UITableView!
-  let filters = Filters().getFilters()
+ 
+  @IBAction func closeButton(_ sender: UIBarButtonItem) {
+    dismiss(animated: true, completion: nil)
+  }
   
+  @IBAction func doneButton(_ sender: UIBarButtonItem) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  let filters = Filters().getFilters()
   let viewModel = FilterViewModel()
+  
+  var selectedFilters = [Filters]()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    filterTable?.allowsMultipleSelection = true
     let bundle = Bundle(for: type(of: self))
-    print("HEREmotherfucker")
-//    print(filters)
     let cellNib = UINib(nibName: "TableViewCell", bundle: bundle)
     self.filterTable.register(cellNib, forCellReuseIdentifier: "cell")
     
+    viewModel.refresh()
     self.filterTable.reloadData()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print("in tableView number rows")
-    print(viewModel.numberOfRows())
     return (viewModel.numberOfRows()!)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("in tableView cellForRow")
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
     cell.title?.text = viewModel.titleForRowAtIndexPath(indexPath)
-    print(viewModel.titleForRowAtIndexPath(indexPath))
     return cell
   }
-  
   
   
 }

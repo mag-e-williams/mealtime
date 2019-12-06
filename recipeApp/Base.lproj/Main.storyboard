@@ -147,7 +147,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="medium"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QOO-Jq-FUH" kind="presentation" identifier="Refine Search " id="dcC-th-q1L"/>
+                                    <segue destination="QOO-Jq-FUH" kind="popoverPresentation" popoverAnchorView="xa8-6K-f5b" id="z0h-Y0-3CO">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,10 +238,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mY-kK-8KS">
-                                <rect key="frame" x="372" y="119" width="22" height="22"/>
+                                <rect key="frame" x="368" y="113" width="30" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="pencil" catalog="system">
+                                <state key="normal">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
                                 <connections>
@@ -406,10 +408,14 @@
                                     <navigationItem title="Filter Search" id="uUH-HL-1p5">
                                         <barButtonItem key="leftBarButtonItem" image="multiply" catalog="system" id="Kno-be-1Xr">
                                             <connections>
-                                                <segue destination="Nfx-cc-6St" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="OW2-NT-keX"/>
+                                                <action selector="closeButton:" destination="QOO-Jq-FUH" id="Txx-5D-lCh"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="DONE" id="9EP-xY-Orv"/>
+                                        <barButtonItem key="rightBarButtonItem" title="DONE" id="9EP-xY-Orv">
+                                            <connections>
+                                                <action selector="doneButton:" destination="QOO-Jq-FUH" id="J05-Qu-2tU"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -438,12 +444,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="1Ie-0Y-Nbv"/>
                     <connections>
-                        <outlet property="filterTable" destination="cvd-Ay-H1r" id="QkW-11-V7y"/>
+                        <outlet property="filterTable" destination="cvd-Ay-H1r" id="eyz-oI-uVh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XM-wz-HQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686.9565217391305" y="910.71428571428567"/>
+            <point key="canvasLocation" x="1687" y="840"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Gay-pa-RCo">
@@ -785,7 +791,6 @@
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
         <image name="mic.circle.fill" catalog="system" width="64" height="60"/>
         <image name="multiply" catalog="system" width="64" height="54"/>
-        <image name="pencil" catalog="system" width="64" height="56"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="safari" catalog="system" width="64" height="60"/>
@@ -794,6 +799,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="si4-8W-6bT"/>
         <segue reference="5Nh-oF-HfS"/>
-        <segue reference="OW2-NT-keX"/>
+        <segue reference="L9c-Bw-lQ2"/>
     </inferredMetricsTieBreakers>
 </document>
