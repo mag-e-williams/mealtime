@@ -20,11 +20,9 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     dismiss(animated: true, completion: nil)
   }
   
-  let filters = Filters().getFilters()
+  var filters = Filters().getFilters()
   let viewModel = FilterViewModel()
   
-  var selectedFilters = [Filters]()
-
   override func viewDidLoad() {
     super.viewDidLoad()
     filterTable?.allowsMultipleSelection = true
@@ -36,15 +34,52 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     self.filterTable.reloadData()
   }
   
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (viewModel.numberOfRows()!)
   }
   
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
     cell.title?.text = viewModel.titleForRowAtIndexPath(indexPath)
+    
+    if filters[indexPath.row].isSelected! {
+      if !cell.isSelected {
+         tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+      }
+    } else {
+      if cell.isSelected {
+        tableView.deselectRow(at: indexPath, animated: false)
+      }
+    }
+    
     return cell
   }
+ 
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
+   // update ViewModel item
+    viewModel.filters[indexPath.row].isSelected = true
+    viewModel.didToggleSelection?(!viewModel.selectedFilters.isEmpty)
+    print(viewModel.selectedFilters)
+    
+  }
+     
+   func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         
+         // update ViewModel item
+    viewModel.filters[indexPath.row].isSelected = false
+    viewModel.didToggleSelection?(!viewModel.selectedFilters.isEmpty)
+    print(viewModel.selectedFilters)
+
+  }
+     
+   func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    if viewModel.selectedFilters.count > 2 {
+         return nil
+     }
+      return indexPath
+    }
   
 }

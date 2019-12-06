@@ -8,11 +8,28 @@
 
 import Foundation
 
-class FilterViewModel {
+class FilterViewModel:NSObject {
   var filters = [Filter]()
-    
+//  var selectedFilters = [Filter]()
+
   func numberOfRows() -> Int? {
     return filters.count
+  }
+  
+  var didToggleSelection: ((_ hasSelection: Bool) -> ())? {
+    didSet {
+      didToggleSelection?(!selectedFilters.isEmpty)
+    }
+  }
+  
+  var selectedFilters: [Filter] {
+    return filters.filter { return $0.isSelected! }
+  }
+  
+  override init() {
+    super.init()
+    filters = Filters().getFilters()
+    
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
@@ -26,7 +43,5 @@ class FilterViewModel {
   func refresh() {
     filters = Filters().getFilters()
   }
-
-
 
 }

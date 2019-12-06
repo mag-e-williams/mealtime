@@ -22,14 +22,22 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   var inProgressTask: Cancellable?
   
   var query: String?
+  var filters: [Filter]?
 
-
+  var queryFilters: [Filter]?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     if self.query == nil {
       self.searchBar.text = " "
     } else {
       self.searchBar.text = self.query!
+    }
+    
+    if self.filters == nil {
+      self.filters = []
+    } else {
+      self.queryFilters = self.filters
     }
     
     configureCollectionView()
