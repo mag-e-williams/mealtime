@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CollectionViewModel {
+class RecipeCollectionViewModel {
   var recipes = [RecipeElement]()
   
   let client = SearchRecipesClient()
