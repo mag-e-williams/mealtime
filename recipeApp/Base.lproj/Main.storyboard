@@ -277,6 +277,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fr-Ld-6LX">
+                                <rect key="frame" x="20" y="288" width="374" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -286,12 +293,13 @@
                     <connections>
                         <outlet property="cuisine" destination="9AW-Uf-UX9" id="Kvo-Th-7xG"/>
                         <outlet property="restrictions" destination="BT7-b2-yTQ" id="UJF-nE-M9G"/>
+                        <outlet property="saved_recipes" destination="5fr-Ld-6LX" id="Mlv-5a-ykZ"/>
                         <outlet property="username" destination="2vU-fH-ZA4" id="WJG-jY-hcX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60W-Ow-va8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="911"/>
+            <point key="canvasLocation" x="624.63768115942037" y="910.71428571428567"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="N2U-qS-Eul">
