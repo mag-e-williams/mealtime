@@ -14,6 +14,21 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   @IBOutlet var filterTable: UITableView!
  
   @IBAction func closeButton(_ sender: UIBarButtonItem) {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
+    let userViewModel = ProfileViewModel()
+    let user = userViewModel.fetchUser("User")
+    
+    let newString = ""
+    
+    user?.setValue(newString, forKey: "filters")
+    do {
+      try context.save()
+    } catch {
+      print("Failed saving")
+    }
+    
     dismiss(animated: true, completion: nil)
   }
   
@@ -46,6 +61,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   
   @IBAction func doneButton(_ sender: UIBarButtonItem) {
     let filterTitlesArray = viewModel.selectedFilters.map { $0.title! }
+    
     let stringRepresentation = filterTitlesArray.joined(separator:",")
     print("HERE******************************************************")
     print(stringRepresentation)
@@ -53,7 +69,11 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let context = appDelegate.persistentContainer.viewContext
     let userViewModel = ProfileViewModel()
     let user = userViewModel.fetchUser("User")
-    user?.setValue(stringRepresentation, forKey: "filters")
+    let prevfilterString = user!.value(forKey: "filters") as! String
+    
+    let newString = prevfilterString + "," + stringRepresentation
+    
+    user?.setValue(newString, forKey: "filters")
     do {
       try context.save()
     } catch {
@@ -65,6 +85,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   
   var filters = Filters().getFilters()
   let viewModel = FilterViewModel()
+  let alreadySelected = [String]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -82,12 +103,15 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     let filterString = user!.value(forKey: "filters") as! String
     let filterTitles = filterString.split { $0 == "," }
-    var filterObjArray = [Filter]()
-
+    print(filterTitles)
+    
     for title in filterTitles {
-      var i = filterList.firstIndex(of: String(title))
-//      let indexPath = IndexPath(row: i!, section: 0)
-//      self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+      let i = filterList.firstIndex(of: String(title))
+      if i != nil {
+        let indexPath = IndexPath(row: i!, section: 0)
+        self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+      }
+
         
     }
     
