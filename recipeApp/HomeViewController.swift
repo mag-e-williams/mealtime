@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
        if gestureRecognizer.state == .began {
           self.recordAndRecognizeSpeech()
        }
+//        self.stopRecording()
     }
   
     let audioEngine = AVAudioEngine()
@@ -36,6 +37,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         self.ingredientInput.delegate = self
         self.ingredientInput.text = "sugar"
     }
+    
+    func stopRecording() {
+        audioEngine.stop()
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipes" {
