@@ -135,26 +135,47 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    
+    
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-        let userViewModel = ProfileViewModel()
-        let user = userViewModel.fetchUser("User")
-        print("self.recipeDetail is as follows: ")
-        print("---------------------------------")
-        print(self.recipeDetail!)
-        print("---------------------------------")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let recipe = self.recipeDetail!
+        let newRecipe = viewModel!.createRecipe("Recipe")
+        
+        newRecipe?.setValue(recipe.id!, forKey: "id")
+        newRecipe?.setValue(recipe.title!, forKey: "name")
+        newRecipe?.setValue(recipe.image!, forKey: "image")
+        newRecipe?.setValue(recipe.servings!, forKey: "servings")
+        newRecipe?.setValue(recipe.readyInMinutes!, forKey: "ready_in_minutes")
+        newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
+        newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
+        
+        print(newRecipe)
+        //could be problematic
+//        newRecipe?.setValue(recipe.extendedIngredients!, forKey: "ingredients")
+        do {
+            try context.save()
+            print("context was saved")
+        } catch {
+            print("Failed saving")
+        }
+        
         //SAVE RECIPE DETAIL UNDER THE USER
-        let user_recipes = user?.value(forKey: "saved_recipes")
-        if user_recipes == nil {
-            user?.setValue([self.recipeDetail!], forKey: "saved_recipes")
-        }
-        else {
-            let new_user_recipes = [user_recipes] + [self.recipeDetail!]
-            user?.setValue(new_user_recipes, forKey: "saved_recipes")
-        }
-        print("pls help")
-        print(user?.value(forKey: "saved_recipes")!)
+//        if let user_recipes = user?.value(forKey: "saved_recipes") {
+//            print("not nil")
+//            print(user_recipes)
+//            let new_user_recipes = [user_recipes] + [self.recipeDetail!]
+//            user?.setValue(new_user_recipes, forKey: "saved_recipes")
+//        }
+//        else {
+//            print("user_recipes is nil")
+//            user?.setValue([self.recipeDetail!], forKey: "saved_recipes")
+//        }
+//        print("pls help")
+//        print(user?.value(forKey: "saved_recipes")!)
+//        print(type(of: user?.value(forKey: "saved_recipes")!))
     }
     
     //SAVING RECIPE TO COREDATA

@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         print(user!.value(forKey: "email")!)
         print(user!.value(forKey: "preferences")!)
         print(user!.value(forKey: "dietary_restrictions")!)
-//        print(user!.value(forKey: "saved_recipes"))
         loadDetails()
     }
     
