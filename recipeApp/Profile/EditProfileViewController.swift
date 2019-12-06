@@ -25,22 +25,12 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        //IF THE FIRST LAUNCH CREATE BASE USER
-        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
-            UserDefaults.standard.set(false, forKey: "TermsAccepted")
-            //CREATE AND SET BASE USER INFORMATION
-            user = viewModel.createUser("User")
-            UserDefaults.standard.set(true, forKey: "TermsAccepted")
-        }
-        else {
-            //PULL DATA AND UPDATE IT
-            user = viewModel.fetchUser("User")
-        }
+        user = viewModel.fetchUser("User")
         
         if let firstName = self.firstName.text {
             print(firstName)
             user?.setValue(firstName, forKey: "first_name")
-            print(user?.value(forKey: "first_name"))
+            print(user!.value(forKey: "first_name")!)
         }
         if let lastName = self.lastName.text {
             print(lastName)
