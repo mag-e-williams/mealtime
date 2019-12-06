@@ -10,7 +10,6 @@ import Foundation
 
 class FilterViewModel:NSObject {
   var filters = [Filter]()
-//  var selectedFilters = [Filter]()
 
   func numberOfRows() -> Int? {
     return filters.count
@@ -23,12 +22,15 @@ class FilterViewModel:NSObject {
   }
   
   var selectedFilters: [Filter] {
-    return filters.filter { return $0.isSelected! }
+    get {
+      return filters.filter { return $0.isSelected! }
+    }
   }
   
   override init() {
     super.init()
     filters = Filters().getFilters()
+    
     
   }
   
