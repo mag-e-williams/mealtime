@@ -28,6 +28,8 @@
 		F43CB6AF2398BE6F002CE5A0 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CB6AE2398BE6F002CE5A0 /* RecipeCell.swift */; };
 		F43CB6B12398C48F002CE5A0 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CB6B02398C48F002CE5A0 /* Cancellable.swift */; };
 		F46BBDA8239A215300E63804 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BBDA7239A215300E63804 /* FilterViewController.swift */; };
+		F46BBDAA239A2B2C00E63804 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BBDA9239A2B2C00E63804 /* FilterViewModel.swift */; };
+		F46BBDAC239A2BB100E63804 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46BBDAB239A2BB100E63804 /* Filters.swift */; };
 		F48F5D6223733F0700345980 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6123733F0700345980 /* RecipesViewModel.swift */; };
 		F48F5D642373407B00345980 /* SearchRecipesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D632373407B00345980 /* SearchRecipesClient.swift */; };
 		F48F5D6F2373900A00345980 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F5D6E2373900A00345980 /* TableViewCell.swift */; };
@@ -97,6 +99,8 @@
 		F43CB6AE2398BE6F002CE5A0 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		F43CB6B02398C48F002CE5A0 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		F46BBDA7239A215300E63804 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F46BBDA9239A2B2C00E63804 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		F46BBDAB239A2BB100E63804 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		F48F5D6123733F0700345980 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		F48F5D632373407B00345980 /* SearchRecipesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipesClient.swift; sourceTree = "<group>"; };
 		F48F5D6E2373900A00345980 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				F48F5D7E2373C00100345980 /* RecipeDetail.swift */,
 				F48F5D8E2374E9DF00345980 /* RecipeInstructions.swift */,
 				F4A6FAEA239990A300B224D6 /* Cuisines.swift */,
+				F46BBDAB239A2BB100E63804 /* Filters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,11 +258,12 @@
 			children = (
 				D9962BAB2371289E00774B21 /* RecipesViewController.swift */,
 				F48F5D6123733F0700345980 /* RecipesViewModel.swift */,
-				F48F5D6E2373900A00345980 /* TableViewCell.swift */,
-				F48F5D702373907A00345980 /* TableViewCell.xib */,
 				F43CB6AC2398B281002CE5A0 /* RecipeCell.xib */,
 				F43CB6AE2398BE6F002CE5A0 /* RecipeCell.swift */,
 				F46BBDA7239A215300E63804 /* FilterViewController.swift */,
+				F46BBDA9239A2B2C00E63804 /* FilterViewModel.swift */,
+				F48F5D6E2373900A00345980 /* TableViewCell.swift */,
+				F48F5D702373907A00345980 /* TableViewCell.xib */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -505,8 +511,10 @@
 				F4A6FAEF2399A98800B224D6 /* CuisineCell.swift in Sources */,
 				F48F5D832374CF9700345980 /* IngredientsTableCell.swift in Sources */,
 				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,
+				F46BBDAC239A2BB100E63804 /* Filters.swift in Sources */,
 				D9AF2F5E236B639300DF3919 /* AppDelegate.swift in Sources */,
 				F48F5D962375179C00345980 /* HomeViewController.swift in Sources */,
+				F46BBDAA239A2B2C00E63804 /* FilterViewModel.swift in Sources */,
 				F4A6FAF42399DA9500B224D6 /* CuisineCollectionViewModel.swift in Sources */,
 				F4AC1AE02399182E00D350E7 /* SuggestedCell.swift in Sources */,
 				F42EFDCA23768B83000A42D1 /* HorizontalPeekingPagesCollectionViewController.swift in Sources */,

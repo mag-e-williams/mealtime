@@ -45,9 +45,6 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
           self.recipeDetail = viewModel.recipeDetail
           self.loadDetails()
           self.tableHeight.constant = self.ingredientsTable.contentSize.height
-//          print("FUCCCCCCCKKKKKKKKKKKKKKKKKKSKSKKDJFALVBLRYTCOI34YBPVWT")
-//          print(self.tableHeight.constant)
-//          print(self.ingredientsTable.contentSize.height)
 
         }
 
