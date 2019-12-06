@@ -145,7 +145,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="medium"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QOO-Jq-FUH" kind="showDetail" identifier="Refine Search " id="dcC-th-q1L"/>
+                                    <segue destination="QOO-Jq-FUH" kind="presentation" identifier="Refine Search " id="dcC-th-q1L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -402,7 +402,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Filter Search" id="uUH-HL-1p5">
-                                        <barButtonItem key="leftBarButtonItem" image="multiply" catalog="system" id="Kno-be-1Xr"/>
+                                        <barButtonItem key="leftBarButtonItem" image="multiply" catalog="system" id="Kno-be-1Xr">
+                                            <connections>
+                                                <segue destination="Nfx-cc-6St" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="OW2-NT-keX"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="DONE" id="9EP-xY-Orv"/>
                                     </navigationItem>
                                 </items>
@@ -771,6 +775,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="si4-8W-6bT"/>
         <segue reference="5Nh-oF-HfS"/>
-        <segue reference="L9c-Bw-lQ2"/>
+        <segue reference="OW2-NT-keX"/>
     </inferredMetricsTieBreakers>
 </document>
