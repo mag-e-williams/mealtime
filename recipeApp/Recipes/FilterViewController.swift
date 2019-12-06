@@ -69,7 +69,15 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let context = appDelegate.persistentContainer.viewContext
     let userViewModel = ProfileViewModel()
     let user = userViewModel.fetchUser("User")
-    let prevfilterString = user!.value(forKey: "filters") as! String
+    
+    let prevfilterString : String
+    if user!.value(forKey: "filters") == nil {
+        prevfilterString = ""
+    }
+    else{
+        prevfilterString = user!.value(forKey: "filters") as! String
+    }
+    
     
     let newString = prevfilterString + "," + stringRepresentation
     
@@ -101,7 +109,13 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let userViewModel = ProfileViewModel()
     let user = userViewModel.fetchUser("User")
     
-    let filterString = user!.value(forKey: "filters") as! String
+    let filterString: String
+    if user!.value(forKey: "filters") == nil{
+        filterString = ""
+    }
+    else {
+        filterString = user!.value(forKey: "filters") as! String
+    }
     let filterTitles = filterString.split { $0 == "," }
     print(filterTitles)
     

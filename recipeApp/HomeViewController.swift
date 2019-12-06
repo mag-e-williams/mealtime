@@ -31,7 +31,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ingredientInput.delegate = self
-        self.ingredientInput.text = "sugar"
     }
     
     
