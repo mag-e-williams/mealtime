@@ -14,9 +14,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     var recipeDetail: RecipeDetail?
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var savedButton: UIButton!
+    
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
 
     
     @IBOutlet var recipeLabel: UILabel!
@@ -30,23 +30,28 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     var recipeID: Int?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let bundle = Bundle(for: type(of: self))
-        
-        let ingredientsCellNib = UINib(nibName: "IngredientsTableCell", bundle: bundle)
-        self.ingredientsTable.register(ingredientsCellNib, forCellReuseIdentifier: "cell")
-        
-        let instructionsCellNib = UINib(nibName: "InstructionsTableCell", bundle: bundle)
-        self.instructionsTable.register(instructionsCellNib, forCellReuseIdentifier: "cell")
-        
-        
-        if let viewModel = viewModel {
-            viewModel.refresh {
-                self.recipeDetail = viewModel.recipeDetail
-                self.loadDetails()
-            }
+      super.viewDidLoad()
+      
+      let bundle = Bundle(for: type(of: self))
+      
+      let ingredientsCellNib = UINib(nibName: "IngredientsTableCell", bundle: bundle)
+      self.ingredientsTable.register(ingredientsCellNib, forCellReuseIdentifier: "cell")
+      
+      let instructionsCellNib = UINib(nibName: "InstructionsTableCell", bundle: bundle)
+      self.instructionsTable.register(instructionsCellNib, forCellReuseIdentifier: "cell")
+
+      if let viewModel = viewModel {
+        viewModel.refresh {
+          self.recipeDetail = viewModel.recipeDetail
+          self.loadDetails()
+          self.tableHeight.constant = self.ingredientsTable.contentSize.height
+//          print("FUCCCCCCCKKKKKKKKKKKKKKKKKKSKSKKDJFALVBLRYTCOI34YBPVWT")
+//          print(self.tableHeight.constant)
+//          print(self.ingredientsTable.contentSize.height)
+
         }
+
+      }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +59,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+  
     //  loading all the data into the screen
     
     func loadDetails(){
@@ -75,7 +84,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         ingredientsTable.reloadData()
         instructionsTable.reloadData()
         
-     
+ 
     }
   
 

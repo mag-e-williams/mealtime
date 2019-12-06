@@ -25,7 +25,11 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.searchBar.text = self.query!
+    if self.query == nil {
+      self.searchBar.text = " "
+    } else {
+      self.searchBar.text = self.query!
+    }
     
     configureCollectionView()
     refreshContent()
@@ -125,7 +129,7 @@ extension RecipesViewController {
     }
 
 
-    inProgressTask = apiClient.fetchRecipes(inputString: self.query!) { [weak self] (recipes) in
+    inProgressTask = apiClient.fetchRecipes(inputString: self.searchBar.text!) { [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
         self?.recipes = recipes

@@ -30,9 +30,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    seeAllSuggestedButton.semanticContentAttribute = UIApplication.shared
-      .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
-    
     configureCollectionView()
     refreshContent()
   }
@@ -143,6 +140,10 @@ extension DiscoverViewController {
     if let detailVC = segue.destination as? RecipeDetailViewController,
       let recipe = sender as? RecipeElement {
       detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
+    }
+    if segue.identifier == "showAllRecipes" {
+        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+        showRecipes.query = " "
     }
   }
   
