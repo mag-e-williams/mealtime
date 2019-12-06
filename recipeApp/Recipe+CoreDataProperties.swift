@@ -21,7 +21,6 @@ extension Recipe {
     @NSManaged public var gluten_free: Bool
     @NSManaged public var id: Int16
     @NSManaged public var image: String?
-//    @NSManaged public var ingredients: NSObject?
     @NSManaged public var instructions: String?
     @NSManaged public var keto: Bool
     @NSManaged public var name: String?
