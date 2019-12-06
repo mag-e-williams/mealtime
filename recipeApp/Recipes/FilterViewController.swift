@@ -62,6 +62,9 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
    // update ViewModel item
     viewModel.filters[indexPath.row].isSelected = true
     viewModel.didToggleSelection?(!viewModel.selectedFilters.isEmpty)
+    let userViewModel = ProfileViewModel()
+    let user = userViewModel.fetchUser("User")
+    user?.setValue(viewModel.selectedFilters, forKey: "filters")
     print(viewModel.selectedFilters)
     
   }

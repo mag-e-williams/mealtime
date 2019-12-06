@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user?.setValue("fillerEmail@gmail.com", forKey: "email")
             user?.setValue("No dietary restrictions yet", forKey: "dietary_restrictions")
             user?.setValue("No preferences yet", forKey: "preferences")
+            user?.setValue("", forKey: "filters")
             UserDefaults.standard.set(true, forKey: "TermsAccepted")
         }
         return true

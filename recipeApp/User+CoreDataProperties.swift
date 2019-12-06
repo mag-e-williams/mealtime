@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  
 //
-//  Created by Kasdan on 12/5/19.
+//  Created by Kasdan on 12/6/19.
 //
 //
 
@@ -21,6 +21,7 @@ extension User {
     @NSManaged public var first_name: String?
     @NSManaged public var last_name: String?
     @NSManaged public var preferences: String?
-//    @NSManaged public var saved_recipes: NSObject?
+    @NSManaged public var filters: String?
+    @NSManaged public var favorites: Recipe?
 
 }
