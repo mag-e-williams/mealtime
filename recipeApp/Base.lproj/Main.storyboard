@@ -434,6 +434,9 @@
                                 <state key="normal" image="bookmark" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="VWq-8n-gFD" eventType="touchUpInside" id="9OM-OD-GTB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
