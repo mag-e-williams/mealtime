@@ -16,7 +16,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   @IBOutlet var suggestedCollectionView: UICollectionView!
   @IBOutlet var cuisineCollectionView: UICollectionView!
 
-  
+  @IBOutlet var seeAllSuggestedButton: UIButton!
+
   let recipeViewModel = RecipeCollectionViewModel()
   let cuisineViewModel = CuisineCollectionViewModel()
   let cuisines = Cuisines().getCuisines()
@@ -29,6 +30,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    seeAllSuggestedButton.semanticContentAttribute = UIApplication.shared
+      .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
     
     configureCollectionView()
     refreshContent()
