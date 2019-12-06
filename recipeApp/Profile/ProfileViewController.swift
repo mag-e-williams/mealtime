@@ -11,26 +11,32 @@ import CoreData
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
     
-    var user: User?
+    var user: NSManagedObject?
     var viewModel = ProfileViewModel()
     
     @IBOutlet var username: UILabel!
+    @IBOutlet var cuisine: UILabel!
+    @IBOutlet var restrictions: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                viewModel.loadUser(data: data)
-                print(data.value(forKey: "first_name") as! String)
-            }
-        } catch {
-            print("Failed")
-        }
+//        viewModel.resetData()
+        user = viewModel.fetchUser("User")
+        print("")
+        print("is it saved")
+        print(user!.value(forKey: "first_name")!)
+        print(user!.value(forKey: "last_name")!)
+        print(user!.value(forKey: "email")!)
+        print(user!.value(forKey: "preferences")!)
+        print(user!.value(forKey: "dietary_restrictions")!)
+//        print(user!.value(forKey: "saved_recipes"))
+        loadDetails()
+    }
+    
+    func loadDetails() {
+        self.username.text = "Hi, \(user!.value(forKey: "first_name")!)!"
+        self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
+        self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)"
     }
     
 }

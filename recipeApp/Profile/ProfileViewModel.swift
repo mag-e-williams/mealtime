@@ -12,38 +12,63 @@ import UIKit
 
 class ProfileViewModel {
     
-    func createUser() {
+    func createUser(_ entity: String) -> NSManagedObject? {
+        // Helpers
+        var result: NSManagedObject?
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        if let entity = NSEntityDescription.entity(forEntityName: "User", in: context) {
-            let newUser = NSManagedObject(entity: entity, insertInto: context)
-            newUser.setValue("TEST", forKey: "first_name")
-            newUser.setValue("DUDE", forKey: "last_name")
-            newUser.setValue("idk@gmail.com", forKey: "email")
-            newUser.setValue("Chinese", forKey: "preferences")
-            newUser.setValue("nuts", forKey: "dietary_restrictions")
-            newUser.setValue([], forKey: "saved_recipes")
+        // Create Entity Description
+        let entityDescription = NSEntityDescription.entity(forEntityName: entity, in: context)
+        if let entityDescription = entityDescription {
+            // Create Managed Object
+            result = NSManagedObject(entity: entityDescription, insertInto: context)
         }
+        return result
     }
     
-    func loadUser(data: NSManagedObject){
-        let user = User()
-        if let firstName = data.value(forKey: "first_name") as? String {
-            user.first_name = firstName
+    func fetchUser(_ entity: String) -> NSManagedObject? {
+        // Create Fetch Request
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+
+        // Helpers
+        var result = NSManagedObject()
+
+        do {
+            // Execute Fetch Request
+            let records = try context.fetch(fetchRequest)
+            if let records = records[0] as? NSManagedObject {
+                result = records
+                print(result)
+            }
+
+        } catch {
+            print("Unable to fetch managed objects for entity \(entity).")
         }
-        if let lastName = data.value(forKey: "last_name") as? String {
-            user.last_name = lastName
-        }
-        if let email = data.value(forKey: "email") as? String {
-            user.email = email
-        }
-        if let dietaryRestrictions = data.value(forKey: "dietary_restrictions") as? String {
-            user.dietary_restrictions = dietaryRestrictions
-        }
-        if let preferences = data.value(forKey: "preferences") as? String {
-            user.preferences = preferences
-        }
+
+        return result
     }
+    
+//    
+//    func loadUser(data: NSManagedObject){
+//        let user = User()
+//        if let firstName = data.value(forKey: "first_name") as? String {
+//            user.first_name = firstName
+//        }
+//        if let lastName = data.value(forKey: "last_name") as? String {
+//            user.last_name = lastName
+//        }
+//        if let email = data.value(forKey: "email") as? String {
+//            user.email = email
+//        }
+//        if let dietaryRestrictions = data.value(forKey: "dietary_restrictions") as? String {
+//            user.dietary_restrictions = dietaryRestrictions
+//        }
+//        if let preferences = data.value(forKey: "preferences") as? String {
+//            user.preferences = preferences
+//        }
+//    }
     
     func saveUser(user: User){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -72,5 +97,11 @@ class ProfileViewModel {
         } catch {
             print("Failed saving")
         }
+    }
+    
+    func resetData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        context.reset()
     }
 }

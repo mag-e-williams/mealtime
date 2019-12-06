@@ -18,15 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //FIRST LAUNCH
-        let user = ProfileViewModel()
-        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
-            UserDefaults.standard.set(false, forKey: "TermsAccepted")
-            //CREATE AND SET BASE USER INFORMATION
-            user.createUser()
-            print("here")
-            print(user)
-        }
-        print("here outside")
+//        let user = ProfileViewModel()
+//        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
+//            UserDefaults.standard.set(false, forKey: "TermsAccepted")
+//            //CREATE AND SET BASE USER INFORMATION
+//        }
+//        print("here outside")
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
@@ -46,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print("Failed")
 //        }
         //SETS IT SO THAT TERMS ARE ACCEPTED
-        UserDefaults.standard.set(false, forKey: "TermsAccepted")
+//        UserDefaults.standard.set(false, forKey: "TermsAccepted")
         return true
     }
 
