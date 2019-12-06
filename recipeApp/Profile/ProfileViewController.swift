@@ -40,5 +40,4 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)"
     }
-    
 }

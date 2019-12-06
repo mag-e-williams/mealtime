@@ -16,14 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let userViewModel = ProfileViewModel()
-        let user = userViewModel.createUser("User")
-        user?.setValue("Change", forKey: "first_name")
-        user?.setValue("Me", forKey: "last_name")
-        user?.setValue("fillerEmail@gmail.com", forKey: "email")
-        user?.setValue("No dietary restrictions yet", forKey: "dietary_restrictions")
-        user?.setValue("No preferences yet", forKey: "preferences")
-        user?.setValue([], forKey: "saved_recipes")
+        if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
+            print("here")
+            UserDefaults.standard.set(false, forKey: "TermsAccepted")
+            let userViewModel = ProfileViewModel()
+            let user = userViewModel.createUser("User")
+            user?.setValue("Edit with Pencil", forKey: "first_name")
+            user?.setValue("Smith", forKey: "last_name")
+            user?.setValue("fillerEmail@gmail.com", forKey: "email")
+            user?.setValue("No dietary restrictions yet", forKey: "dietary_restrictions")
+            user?.setValue("No preferences yet", forKey: "preferences")
+            user?.setValue([], forKey: "saved_recipes")
+            UserDefaults.standard.set(true, forKey: "TermsAccepted")
+        }
         return true
     }
 
