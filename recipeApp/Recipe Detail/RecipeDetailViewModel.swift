@@ -40,6 +40,30 @@ class RecipeDetailViewModel {
   }
     
     
+  func fetchRecipe(_ entity: String) -> NSManagedObject? {
+      // Create Fetch Request
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let context = appDelegate.persistentContainer.viewContext
+      let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+
+      // Helpers
+      var result = NSManagedObject()
+
+      do {
+          // Execute Fetch Request
+          let records = try context.fetch(fetchRequest)
+          if let records = records[0] as? NSManagedObject {
+              result = records
+              print(result)
+          }
+
+      } catch {
+          print("Unable to fetch managed objects for entity \(entity).")
+      }
+
+      return result
+  }
+    
     
     
   func numberOfIngredientsTableRows() -> Int? {

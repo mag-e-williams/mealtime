@@ -49,6 +49,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
       }
+        let fetchedRecipe = viewModel?.fetchRecipe("Recipe")
+        print("fetched recipe")
+        print(fetchedRecipe)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,97 +156,13 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
         
         print(newRecipe)
-        //could be problematic
-//        newRecipe?.setValue(recipe.extendedIngredients!, forKey: "ingredients")
         do {
             try context.save()
             print("context was saved")
         } catch {
             print("Failed saving")
         }
-        
-        //SAVE RECIPE DETAIL UNDER THE USER
-//        if let user_recipes = user?.value(forKey: "saved_recipes") {
-//            print("not nil")
-//            print(user_recipes)
-//            let new_user_recipes = [user_recipes] + [self.recipeDetail!]
-//            user?.setValue(new_user_recipes, forKey: "saved_recipes")
-//        }
-//        else {
-//            print("user_recipes is nil")
-//            user?.setValue([self.recipeDetail!], forKey: "saved_recipes")
-//        }
-//        print("pls help")
-//        print(user?.value(forKey: "saved_recipes")!)
-//        print(type(of: user?.value(forKey: "saved_recipes")!))
     }
-    
-    //SAVING RECIPE TO COREDATA
-//    func saveRecipe(recipe: RecipeDetail){
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        if let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context) {
-//            
-//            let newRecipe = NSManagedObject(entity: entity, insertInto: context)
-//            if let id = recipe.id {
-//                print(id)
-//                newRecipe.setValue(id, forKey: "id")
-//            }
-//            if let name = recipe.title {
-//                print(name)
-//                newRecipe.setValue(name, forKey: "name")
-//            }
-//            if let image = recipe.image {
-//                print(image)
-//                newRecipe.setValue(image, forKey: "image")
-//            }
-//            if let instructions = recipe.instructions {
-//                newRecipe.setValue(instructions, forKey: "instructions")
-//            }
-//            if let ingredients = recipe.extendedIngredients {
-//                newRecipe.setValue(ingredients, forKey: "ingredients")
-//            }
-//            if let price = recipe.pricePerServing {
-//                newRecipe.setValue(price, forKey: "price")
-//            }
-//            if let cheap = recipe.cheap {
-//                newRecipe.setValue(cheap, forKey: "cheap")
-//            }
-//            if let dairyFree = recipe.dairyFree {
-//                newRecipe.setValue(dairyFree, forKey: "dairy_free")
-//            }
-//            if let gluttenFree = recipe.glutenFree {
-//                newRecipe.setValue(gluttenFree, forKey: "gluten_free")
-//            }
-//            if let keto = recipe.ketogenic {
-//                newRecipe.setValue(keto, forKey: "keto")
-//            }
-//            if let vegan = recipe.vegan {
-//                newRecipe.setValue(vegan, forKey: "vegan")
-//            }
-//            if let vegetarian = recipe.vegetarian {
-//                newRecipe.setValue(vegetarian, forKey: "vegetarian")
-//            }
-//            if let servings = recipe.servings {
-//                newRecipe.setValue(servings, forKey: "servings")
-//            }
-//            if let readyInMinutes = recipe.readyInMinutes {
-//                newRecipe.setValue(readyInMinutes, forKey: "ready_in_minutes")
-//            }
-//            print("bottom of if lets")
-//        }
-//        do {
-//            print("before save")
-//            try context.save()
-//            print("after save")
-//        } catch {
-//            print("Failed saving")
-//        }
-        //TODO: NEED TO ADD CODE TO ADD THIS RECIPE TO THE USERS LIST OF SAVED RECIPES 
-//    }
-    
-    
-    
 }
 
 extension UIImageView {

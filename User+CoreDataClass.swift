@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-//@objc(User)
+@objc(User)
 public class User: NSManagedObject {
 
 }
