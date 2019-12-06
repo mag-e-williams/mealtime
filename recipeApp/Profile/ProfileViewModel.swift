@@ -38,13 +38,20 @@ class ProfileViewModel {
         do {
             // Execute Fetch Request
             let records = try context.fetch(fetchRequest)
-            if let records = records[0] as? NSManagedObject {
-                result = records
+            print(records)
+            if let records = records as? [NSManagedObject?] {
+                if records == [] {
+                    return nil
+                }
+                result = records[0]!
                 print(result)
+                print(records)
+                return records[0]
             }
 
         } catch {
             print("Unable to fetch managed objects for entity \(entity).")
+            return nil
         }
 
         return result

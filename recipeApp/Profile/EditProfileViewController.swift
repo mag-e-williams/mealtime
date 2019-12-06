@@ -19,6 +19,16 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     let viewModel = ProfileViewModel()
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+//        lastName.resignFirstResponder()
+//        email.resignFirstResponder()
+//        dietaryRestrictions.resignFirstResponder()
+//        preferences.resignFirstResponder()
+        return true
+    }
+    
+    
     @IBAction func saveFields() {
         let user : NSManagedObject?
         print("saveFields called")

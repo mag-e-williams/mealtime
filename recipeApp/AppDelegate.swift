@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        UserDefaults.standard.set(false, forKey: "TermsAccepted")
+        print("dope")
         if !UserDefaults.standard.bool(forKey: "TermsAccepted") {
             print("here")
             UserDefaults.standard.set(false, forKey: "TermsAccepted")
