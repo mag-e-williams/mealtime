@@ -17,6 +17,32 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     dismiss(animated: true, completion: nil)
   }
   
+  let filterList =   ["African",
+  "American",
+  "British",
+  "Cajun",
+  "Caribbean",
+  "Chinese",
+  "Eastern European",
+  "European",
+  "French",
+  "German",
+  "Greek",
+  "Indian",
+  "Irish",
+  "Italian",
+  "Japanese",
+  "Jewish",
+  "Korean",
+  "Latin American",
+  "Mediterranean",
+  "Mexican",
+  "Middle Eastern",
+  "Nordic",
+  "Southern",
+  "Spanish",
+  "Thai",
+  "Vietnamese"]
   
   @IBAction func doneButton(_ sender: UIBarButtonItem) {
     let filterTitlesArray = viewModel.selectedFilters.map { $0.title! }
@@ -57,12 +83,12 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let filterString = user!.value(forKey: "filters") as! String
     let filterTitles = filterString.split { $0 == "," }
     var filterObjArray = [Filter]()
-    
+
     for title in filterTitles {
-      for filter in viewModel.filters {
-        if filter.title == String(title) {
-        }
-      }
+      var i = filterList.firstIndex(of: String(title))
+      let indexPath = IndexPath(row: i!, section: 0)
+      self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        
     }
     
     
@@ -90,7 +116,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     return cell
   }
- 
+   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
   
    // update ViewModel item
