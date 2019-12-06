@@ -20,7 +20,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     
     let bundle = Bundle(for: type(of: self))
     print("HEREmotherfucker")
-    print(filters)
+//    print(filters)
     let cellNib = UINib(nibName: "TableViewCell", bundle: bundle)
     self.filterTable.register(cellNib, forCellReuseIdentifier: "cell")
     
@@ -29,6 +29,7 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     print("in tableView number rows")
+    print(viewModel.numberOfRows())
     return (viewModel.numberOfRows()!)
   }
   
