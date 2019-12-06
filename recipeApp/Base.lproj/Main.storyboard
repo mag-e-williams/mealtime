@@ -68,6 +68,7 @@
                                 <connections>
                                     <action selector="micButtonPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="bFE-Gt-vSx"/>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QcR-ck-GDz"/>
+                                    <segue destination="Nfx-cc-6St" kind="show" identifier="showRecipes" id="XRm-c3-qfl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voice Transcription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iog-8m-pax">
@@ -776,6 +777,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="si4-8W-6bT"/>
         <segue reference="5Nh-oF-HfS"/>
-        <segue reference="L9c-Bw-lQ2"/>
+        <segue reference="XRm-c3-qfl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -79,6 +79,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in if let result = result {
                 let bestString = result.bestTranscription.formattedString
                 self.detectedVoiceText.text = bestString
+                self.ingredientInput.text = bestString
             
             } else if let error = error{
                 print(error)
