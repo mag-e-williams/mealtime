@@ -4,10 +4,9 @@
 //
 //  Created by Maggie on 12/5/19.
 //  Copyright © 2019 CMU. All rights reserved.
-//
+
 
 import UIKit
-
 
 
 class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
