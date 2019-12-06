@@ -29,7 +29,6 @@ class RecipeCell: UICollectionViewCell {
       let imageURL = URL(string: recipe.image!)
       imageView.sd_setImage(with:imageURL)
       titleLabel.text = recipe.title
-      
     }
   }
 
