@@ -10,8 +10,32 @@ import Foundation
 
 class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
+  @IBOutlet var filterTable: UITableView!
   let filters = Filters().getFilters()
 
+  let viewModel = FilterViewModel()
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let bundle = Bundle(for: type(of: self))
+    print("HEREmotherfucker")
+    let cellNib = UINib(nibName: "TableViewCell", bundle: bundle)
+    self.filterTable.register(cellNib, forCellReuseIdentifier: "cell")
+    
+    self.filterTable.reloadData()
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return (viewModel.numberOfRows()!)
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+    cell.title?.text = viewModel.titleForRowAtIndexPath(indexPath)
+    print(viewModel.titleForRowAtIndexPath(indexPath))
+    return cell
+  }
   
   
   

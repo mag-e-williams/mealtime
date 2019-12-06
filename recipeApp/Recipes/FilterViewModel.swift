@@ -22,5 +22,8 @@ class FilterViewModel {
     }
     return "Title is nil"
   }
+  func refreshContent() {
+    
+  }
   
 }

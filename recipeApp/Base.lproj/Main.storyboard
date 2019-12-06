@@ -417,12 +417,19 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QOO-Jq-FUH" id="1ia-tc-UiB"/>
+                                    <outlet property="delegate" destination="QOO-Jq-FUH" id="wiz-0F-nVp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1gR-7T-So2"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Ie-0Y-Nbv"/>
+                    <connections>
+                        <outlet property="filterTable" destination="cvd-Ay-H1r" id="QkW-11-V7y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XM-wz-HQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -777,6 +784,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="si4-8W-6bT"/>
         <segue reference="5Nh-oF-HfS"/>
-        <segue reference="XRm-c3-qfl"/>
+        <segue reference="OW2-NT-keX"/>
     </inferredMetricsTieBreakers>
 </document>
