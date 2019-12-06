@@ -13,16 +13,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     
     @IBOutlet weak var ingredientInput: UITextField!
     @IBOutlet weak var detectedVoiceText: UILabel!
-//
-//    @IBAction func micButtonPressed(_ sender: UIButton) {
-//        self.recordAndRecognizeSpeech()
-//    }
-//
-  
-    @IBAction func micButtonHold(_ gestureRecognizer: UILongPressGestureRecognizer) {
-       if gestureRecognizer.state == .began {
-          self.recordAndRecognizeSpeech()
-       }
+    
+    @IBAction func micButtonPressed(_ sender: UIButton) {
+        self.recordAndRecognizeSpeech()
+    }
+    
+    @IBAction func stopRecording(_ sender: UIButton) {
+        audioEngine.stop()
     }
   
     let audioEngine = AVAudioEngine()
@@ -36,6 +33,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         self.ingredientInput.delegate = self
         self.ingredientInput.text = "sugar"
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRecipes" {
@@ -81,6 +79,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in if let result = result {
                 let bestString = result.bestTranscription.formattedString
                 self.detectedVoiceText.text = bestString
+                self.ingredientInput.text = bestString
             
             } else if let error = error{
                 print(error)
