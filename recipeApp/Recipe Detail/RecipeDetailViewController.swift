@@ -155,6 +155,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
         newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
         
+        print("new recipe")
         print(newRecipe)
         do {
             try context.save()

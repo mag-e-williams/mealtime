@@ -46,22 +46,14 @@ class RecipeDetailViewModel {
       let context = appDelegate.persistentContainer.viewContext
       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
 
-      // Helpers
-      var result = [NSManagedObject()]
-
       do {
           // Execute Fetch Request
           let records = try context.fetch(fetchRequest) as? [NSManagedObject]
-        if let records = records![0] as? NSManagedObject {
-            result = [records]
-              print(result)
-          }
-
+          return records
       } catch {
           print("Unable to fetch managed objects for entity \(entity).")
+          return nil
       }
-
-      return result
   }
     
     
