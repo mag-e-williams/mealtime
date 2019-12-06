@@ -11,36 +11,37 @@ import UIKit
 
 struct Filter: Codable {
   let title: String?
+  var isSelected: Bool?
 }
 
 class Filters {
   var data = [
-  Filter(title: "African"),
-  Filter(title: "American"),
-  Filter(title: "British"),
-  Filter(title: "Cajun"),
-  Filter(title: "Caribbean"),
-  Filter(title: "Chinese"),
-  Filter(title: "Eastern European"),
-  Filter(title: "European"),
-  Filter(title: "French"),
-  Filter(title: "German"),
-  Filter(title: "Greek"),
-  Filter(title: "Indian"),
-  Filter(title: "Irish"),
-  Filter(title: "Italian"),
-  Filter(title: "Japanese"),
-  Filter(title: "Jewish"),
-  Filter(title: "Korean"),
-  Filter(title: "Latin American"),
-  Filter(title: "Mediterranean"),
-  Filter(title: "Mexican"),
-  Filter(title: "Middle Eastern"),
-  Filter(title: "Nordic"),
-  Filter(title: "Southern"),
-  Filter(title: "Spanish"),
-  Filter(title: "Thai"),
-  Filter(title: "Vietnamese"),
+    Filter(title: "African", isSelected: false),
+    Filter(title: "American", isSelected: false),
+    Filter(title: "British", isSelected: false),
+    Filter(title: "Cajun", isSelected: false),
+    Filter(title: "Caribbean", isSelected: false),
+    Filter(title: "Chinese", isSelected: false),
+    Filter(title: "Eastern European", isSelected: false),
+    Filter(title: "European", isSelected: false),
+    Filter(title: "French", isSelected: false),
+    Filter(title: "German", isSelected: false),
+    Filter(title: "Greek", isSelected: false),
+    Filter(title: "Indian", isSelected: false),
+    Filter(title: "Irish", isSelected: false),
+    Filter(title: "Italian", isSelected: false),
+    Filter(title: "Japanese", isSelected: false),
+    Filter(title: "Jewish", isSelected: false),
+    Filter(title: "Korean", isSelected: false),
+    Filter(title: "Latin American", isSelected: false),
+    Filter(title: "Mediterranean", isSelected: false),
+    Filter(title: "Mexican", isSelected: false),
+    Filter(title: "Middle Eastern", isSelected: false),
+    Filter(title: "Nordic", isSelected: false),
+    Filter(title: "Southern", isSelected: false),
+    Filter(title: "Spanish", isSelected: false),
+    Filter(title: "Thai", isSelected: false),
+    Filter(title: "Vietnamese", isSelected: false),
   ]
   
   func getFilters() -> [Filter] {
