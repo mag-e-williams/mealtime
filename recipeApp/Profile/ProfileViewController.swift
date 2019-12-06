@@ -34,6 +34,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loadDetails() {
+        print("user is")
+        print(user!)
         self.username.text = "Hi, \(user!.value(forKey: "first_name")!)!"
         self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)"
