@@ -66,11 +66,12 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="100"/>
                                 </state>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="0av-1g-3a2" appends="YES" id="T2e-kl-pVK"/>
+                                    <action selector="micButtonPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="bFE-Gt-vSx"/>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QcR-ck-GDz"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Voice Transcription" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iog-8m-pax">
-                                <rect key="frame" x="49" y="532" width="317" height="21"/>
+                                <rect key="frame" x="49" y="532" width="317" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -94,7 +95,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="625" y="104"/>
+            <point key="canvasLocation" x="624.63768115942037" y="103.79464285714285"/>
         </scene>
         <!--Recipes View Controller-->
         <scene sceneID="KUS-8h-dpx">
@@ -775,6 +776,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="si4-8W-6bT"/>
         <segue reference="5Nh-oF-HfS"/>
-        <segue reference="OW2-NT-keX"/>
+        <segue reference="L9c-Bw-lQ2"/>
     </inferredMetricsTieBreakers>
 </document>

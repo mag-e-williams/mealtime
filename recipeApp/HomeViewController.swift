@@ -13,17 +13,13 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     
     @IBOutlet weak var ingredientInput: UITextField!
     @IBOutlet weak var detectedVoiceText: UILabel!
-//
-//    @IBAction func micButtonPressed(_ sender: UIButton) {
-//        self.recordAndRecognizeSpeech()
-//    }
-//
-  
-    @IBAction func micButtonHold(_ gestureRecognizer: UILongPressGestureRecognizer) {
-       if gestureRecognizer.state == .began {
-          self.recordAndRecognizeSpeech()
-       }
-//        self.stopRecording()
+    
+    @IBAction func micButtonPressed(_ sender: UIButton) {
+        self.recordAndRecognizeSpeech()
+    }
+    
+    @IBAction func stopRecording(_ sender: UIButton) {
+        audioEngine.stop()
     }
   
     let audioEngine = AVAudioEngine()
@@ -36,10 +32,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         super.viewDidLoad()
         self.ingredientInput.delegate = self
         self.ingredientInput.text = "sugar"
-    }
-    
-    func stopRecording() {
-        audioEngine.stop()
     }
     
     
