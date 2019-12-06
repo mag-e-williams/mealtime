@@ -21,7 +21,7 @@ extension User {
     @NSManaged public var first_name: String?
     @NSManaged public var last_name: String?
     @NSManaged public var preferences: String?
-    @NSManaged public var filter: String?
+    @NSManaged public var filters: String?
     @NSManaged public var favorites: Recipe?
 
 }

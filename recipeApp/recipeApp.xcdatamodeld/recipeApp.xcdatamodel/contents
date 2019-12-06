@@ -19,7 +19,7 @@
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="dietary_restrictions" optional="YES" attributeType="String"/>
         <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="filter" optional="YES" attributeType="String"/>
+        <attribute name="filters" optional="YES" attributeType="String"/>
         <attribute name="first_name" optional="YES" attributeType="String"/>
         <attribute name="last_name" optional="YES" attributeType="String"/>
         <attribute name="preferences" optional="YES" attributeType="String"/>
