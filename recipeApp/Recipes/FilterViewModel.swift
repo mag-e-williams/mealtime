@@ -36,7 +36,6 @@ class FilterViewModel:NSObject {
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
     if let title = filters[indexPath.row].title{
-        print(title)
         return title
     }
     return "Title is nil"
