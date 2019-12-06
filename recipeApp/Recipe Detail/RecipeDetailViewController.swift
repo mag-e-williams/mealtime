@@ -136,92 +136,90 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+        let userViewModel = ProfileViewModel()
+        let user = userViewModel.fetchUser("User")
         print("self.recipeDetail is as follows: ")
         print("---------------------------------")
         print(self.recipeDetail!)
         print("---------------------------------")
-        
-//        let user = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-//        user.returnsObjectsAsFaults = false
-//        do {
-//            let result = try context.fetch(user)
-//            for data in result as! [NSManagedObject] {
-//                self.loadUser(data: data)
-//                print(data.value(forKey: "first_name") as! String)
-//            }
-//        } catch {
-//            print("Failed")
-//        }
-        
-        
-        saveRecipe(recipe: self.recipeDetail!)
+        //SAVE RECIPE DETAIL UNDER THE USER
+        let user_recipes = user?.value(forKey: "saved_recipes")
+        if user_recipes == nil {
+            user?.setValue([self.recipeDetail!], forKey: "saved_recipes")
+        }
+        else {
+            let new_user_recipes = [user_recipes] + [self.recipeDetail!]
+            user?.setValue(new_user_recipes, forKey: "saved_recipes")
+        }
+        print("pls help")
+        print(user?.value(forKey: "saved_recipes")!)
     }
     
     //SAVING RECIPE TO COREDATA
-    func saveRecipe(recipe: RecipeDetail){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        if let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context) {
-            
-            let newRecipe = NSManagedObject(entity: entity, insertInto: context)
-            if let id = recipe.id {
-                print(id)
-                newRecipe.setValue(id, forKey: "id")
-            }
-            if let name = recipe.title {
-                print(name)
-                newRecipe.setValue(name, forKey: "name")
-            }
-            if let image = recipe.image {
-                print(image)
-                newRecipe.setValue(image, forKey: "image")
-            }
-            if let instructions = recipe.instructions {
-                newRecipe.setValue(instructions, forKey: "instructions")
-            }
-            if let ingredients = recipe.extendedIngredients {
-                newRecipe.setValue(ingredients, forKey: "ingredients")
-            }
-            if let price = recipe.pricePerServing {
-                newRecipe.setValue(price, forKey: "price")
-            }
-            if let cheap = recipe.cheap {
-                newRecipe.setValue(cheap, forKey: "cheap")
-            }
-            if let dairyFree = recipe.dairyFree {
-                newRecipe.setValue(dairyFree, forKey: "dairy_free")
-            }
-            if let gluttenFree = recipe.glutenFree {
-                newRecipe.setValue(gluttenFree, forKey: "gluten_free")
-            }
-            if let keto = recipe.ketogenic {
-                newRecipe.setValue(keto, forKey: "keto")
-            }
-            if let vegan = recipe.vegan {
-                newRecipe.setValue(vegan, forKey: "vegan")
-            }
-            if let vegetarian = recipe.vegetarian {
-                newRecipe.setValue(vegetarian, forKey: "vegetarian")
-            }
-            if let servings = recipe.servings {
-                newRecipe.setValue(servings, forKey: "servings")
-            }
-            if let readyInMinutes = recipe.readyInMinutes {
-                newRecipe.setValue(readyInMinutes, forKey: "ready_in_minutes")
-            }
-            print("bottom of if lets")
-        }
-        do {
-            print("before save")
-            try context.save()
-            print("after save")
-        } catch {
-            print("Failed saving")
-        }
+//    func saveRecipe(recipe: RecipeDetail){
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        if let entity = NSEntityDescription.entity(forEntityName: "Recipe", in: context) {
+//            
+//            let newRecipe = NSManagedObject(entity: entity, insertInto: context)
+//            if let id = recipe.id {
+//                print(id)
+//                newRecipe.setValue(id, forKey: "id")
+//            }
+//            if let name = recipe.title {
+//                print(name)
+//                newRecipe.setValue(name, forKey: "name")
+//            }
+//            if let image = recipe.image {
+//                print(image)
+//                newRecipe.setValue(image, forKey: "image")
+//            }
+//            if let instructions = recipe.instructions {
+//                newRecipe.setValue(instructions, forKey: "instructions")
+//            }
+//            if let ingredients = recipe.extendedIngredients {
+//                newRecipe.setValue(ingredients, forKey: "ingredients")
+//            }
+//            if let price = recipe.pricePerServing {
+//                newRecipe.setValue(price, forKey: "price")
+//            }
+//            if let cheap = recipe.cheap {
+//                newRecipe.setValue(cheap, forKey: "cheap")
+//            }
+//            if let dairyFree = recipe.dairyFree {
+//                newRecipe.setValue(dairyFree, forKey: "dairy_free")
+//            }
+//            if let gluttenFree = recipe.glutenFree {
+//                newRecipe.setValue(gluttenFree, forKey: "gluten_free")
+//            }
+//            if let keto = recipe.ketogenic {
+//                newRecipe.setValue(keto, forKey: "keto")
+//            }
+//            if let vegan = recipe.vegan {
+//                newRecipe.setValue(vegan, forKey: "vegan")
+//            }
+//            if let vegetarian = recipe.vegetarian {
+//                newRecipe.setValue(vegetarian, forKey: "vegetarian")
+//            }
+//            if let servings = recipe.servings {
+//                newRecipe.setValue(servings, forKey: "servings")
+//            }
+//            if let readyInMinutes = recipe.readyInMinutes {
+//                newRecipe.setValue(readyInMinutes, forKey: "ready_in_minutes")
+//            }
+//            print("bottom of if lets")
+//        }
+//        do {
+//            print("before save")
+//            try context.save()
+//            print("after save")
+//        } catch {
+//            print("Failed saving")
+//        }
         //TODO: NEED TO ADD CODE TO ADD THIS RECIPE TO THE USERS LIST OF SAVED RECIPES 
-    }
+//    }
     
     
     
