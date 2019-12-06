@@ -6,6 +6,7 @@
 //  Copyright © 2019 CMU. All rights reserved.
 //
 import UIKit
+import CoreData
 import Foundation
 
 class FilterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -16,10 +17,22 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     dismiss(animated: true, completion: nil)
   }
   
+  
   @IBAction func doneButton(_ sender: UIBarButtonItem) {
+    let filterTitlesArray = viewModel.selectedFilters.map { $0.title! }
+    let stringRepresentation = filterTitlesArray.joined(separator:",")
+    print("HERE******************************************************")
+    print(stringRepresentation)
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
     let userViewModel = ProfileViewModel()
     let user = userViewModel.fetchUser("User")
-    user?.setValue(viewModel.selectedFilters, forKey: "filters")
+    user?.setValue(stringRepresentation, forKey: "filters")
+    do {
+      try context.save()
+    } catch {
+      print("Failed saving")
+    }
     
     dismiss(animated: true, completion: nil)
   }
@@ -30,12 +43,29 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   override func viewDidLoad() {
     super.viewDidLoad()
     filterTable?.allowsMultipleSelection = true
+    
     let bundle = Bundle(for: type(of: self))
     let cellNib = UINib(nibName: "TableViewCell", bundle: bundle)
     self.filterTable.register(cellNib, forCellReuseIdentifier: "cell")
     
     viewModel.refresh()
     self.filterTable.reloadData()
+    
+    let userViewModel = ProfileViewModel()
+    let user = userViewModel.fetchUser("User")
+    
+    let filterString = user!.value(forKey: "filters") as! String
+    let filterTitles = filterString.split { $0 == "," }
+    var filterObjArray = [Filter]()
+    
+    for title in filterTitles {
+      for filter in viewModel.filters {
+        if filter.title == String(title) {
+        }
+      }
+    }
+    
+    
   }
   
   
@@ -66,23 +96,15 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
    // update ViewModel item
     viewModel.filters[indexPath.row].isSelected = true
     viewModel.didToggleSelection?(!viewModel.selectedFilters.isEmpty)
-    print(viewModel.selectedFilters)
-    
   }
      
    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-         
-         // update ViewModel item
+    // update ViewModel item
     viewModel.filters[indexPath.row].isSelected = false
     viewModel.didToggleSelection?(!viewModel.selectedFilters.isEmpty)
-    print(viewModel.selectedFilters)
-
   }
      
    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-    if viewModel.selectedFilters.count > 2 {
-         return nil
-     }
       return indexPath
     }
   

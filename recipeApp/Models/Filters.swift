@@ -10,7 +10,7 @@
 import UIKit
 
 struct Filter: Codable {
-  let title: String?
+  var title: String?
   var isSelected: Bool?
 }
 
