@@ -706,21 +706,6 @@
             </objects>
             <point key="canvasLocation" x="-1222" y="104"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="fwp-tB-ea8">
-            <objects>
-                <viewController id="4Wf-k6-ucg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nZN-xw-nmJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="F2S-FH-4Kd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7hl-oJ-vDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3562" y="971"/>
-        </scene>
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="56" height="64"/>
