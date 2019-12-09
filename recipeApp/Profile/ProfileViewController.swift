@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.resetData()
+//        viewModel.resetData()in
 //        deleteRecipes()
         user = viewModel.fetchUser("User")
 ////        print("")
@@ -35,26 +35,32 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
 ////        print(user!.value(forKey: "email")!)
 ////        print(user!.value(forKey: "preferences")!)
 ////        print(user!.value(forKey: "dietary_restrictions")!)
-        loadDetails()
-        loadRecipes()
+        displayDetails()
+        displayRecipes()
     }
     
-    func loadDetails() {
-        print("user is")
-        print(user!)
+    func displayDetails() {
         self.username.text = "Hi, \(user!.value(forKey: "first_name")!)!"
         self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)" 
     }
     
-    func loadRecipes() {
+    func loadRecipes() -> Set<Int> {
         let recipeViewModel = RecipeDetailViewModel(id: 1)  
-        var recipe_string = ""
-        guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return }
+        var recipeSet = Set<Int>()
+        guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return [] }
         for recipe in recipes {
-            print("the IDs")
-            print(recipe.value(forKey: "id")!)
-            recipe_string += "\(recipe.value(forKey: "id")!)\n"
+            let recipeID = (recipe.value(forKey: "id")! as AnyObject).integerValue
+            recipeSet.insert(recipeID!)
+        }
+        return recipeSet
+    }
+    
+    func displayRecipes() {  
+        var recipe_string = ""
+        let recipeSet = loadRecipes()
+        for x in recipeSet {
+            recipe_string += "\(x)\n"
         }
         self.saved_recipes.text = recipe_string
     }
