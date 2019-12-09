@@ -16,7 +16,7 @@ class SearchRecipesClient {
     let cleanQuery = (inputString).replacingOccurrences(of: ",", with: "")
     let interpString = (cleanQuery).replacingOccurrences(of: " ", with: ",+")
     
-    let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(interpString)&number=50&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+    let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(interpString)&number=10&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
 
     let recipes = getRecipes(url)
     
@@ -27,6 +27,7 @@ class SearchRecipesClient {
     let decoder = JSONDecoder()
     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
     return item.results
+    
   }
   
 }

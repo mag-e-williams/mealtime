@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             user?.setValue("No preferences yet", forKey: "preferences")
             user?.setValue("", forKey: "filters")
             UserDefaults.standard.set(true, forKey: "TermsAccepted")
+            saveContext()
         }
         return true
     }

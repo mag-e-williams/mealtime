@@ -26,14 +26,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        viewModel.resetData()
+//        deleteRecipes()
         user = viewModel.fetchUser("User")
-//        print("")
-//        print("is it saved")
-//        print(user!.value(forKey: "first_name")!)
-//        print(user!.value(forKey: "last_name")!)
-//        print(user!.value(forKey: "email")!)
-//        print(user!.value(forKey: "preferences")!)
-//        print(user!.value(forKey: "dietary_restrictions")!)
+////        print("")
+////        print("is it saved")
+////        print(user!.value(forKey: "first_name")!)
+////        print(user!.value(forKey: "last_name")!)
+////        print(user!.value(forKey: "email")!)
+////        print(user!.value(forKey: "preferences")!)
+////        print(user!.value(forKey: "dietary_restrictions")!)
         loadDetails()
         loadRecipes()
     }
@@ -56,5 +57,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             recipe_string += "\(recipe.value(forKey: "id")!)\n"
         }
         self.saved_recipes.text = recipe_string
+    }
+    
+    func deleteRecipes() {
+        let recipeViewModel = RecipeDetailViewModel(id: 1)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let recipes = recipeViewModel.fetchRecipe("Recipe")
+        for recipe in recipes! {
+            context.delete(recipe)
+        }
+        appDelegate.saveContext()
     }
 }
