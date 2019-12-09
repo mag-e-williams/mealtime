@@ -11,6 +11,8 @@ struct RecipeElement: Codable {
     let image: String?
     let imageType: String?
     let cuisines: [String]?
-    let preparationMinutes, cookingMinutes: Int?
+    let readyInMinutes, cookingMinutes: Int?
+    let averageRating: Double?
     let diets: [String]?
+    
 }

@@ -19,6 +19,8 @@ class RecipeCell: UICollectionViewCell {
 
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var titleLabel: UILabel!
+  @IBOutlet var prepTime: UILabel!
+  @IBOutlet var rating: UILabel!
 
   var recipe: RecipeElement? {
     didSet {
@@ -29,6 +31,23 @@ class RecipeCell: UICollectionViewCell {
       let imageURL = URL(string: recipe.image!)
       imageView.sd_setImage(with:imageURL)
       titleLabel.text = recipe.title
+        let ratingString : String
+        let prepTimeString : String
+        if recipe.averageRating == nil {
+            ratingString = "Rating: N/A"
+        }
+        else {
+            ratingString = "Rating: \(recipe.averageRating! * 10)"
+        }
+        
+        if recipe.readyInMinutes == nil {
+            prepTimeString = "Prep Time: N/A"
+        }
+        else {
+            prepTimeString = "Prep Time: \(recipe.readyInMinutes!) minutes"
+        }
+      prepTime.text = prepTimeString
+      rating.text = ratingString 
     }
   }
 

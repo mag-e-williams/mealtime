@@ -80,6 +80,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="KLb-Ox-Byd" id="8Mj-3i-Kuh"/>
+                <outlet property="prepTime" destination="7U2-tL-Cdy" id="s66-kJ-9XS"/>
+                <outlet property="rating" destination="Q36-cM-zhP" id="Hmj-fg-3OP"/>
                 <outlet property="titleLabel" destination="4dW-dm-zNf" id="i0s-iI-HkW"/>
             </connections>
             <point key="canvasLocation" x="44.20289855072464" y="89.732142857142847"/>
