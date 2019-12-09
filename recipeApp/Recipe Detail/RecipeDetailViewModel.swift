@@ -101,10 +101,6 @@ class RecipeDetailViewModel {
     
     client.fetchRecipeInstructions(inputID: self.recipeID) { [unowned self] recipeInstructions in
       self.recipeInstructions = recipeInstructions!
-        print("look")
-        print(recipeInstructions)
-        print("split")
-        print(self.recipeInstructions)
       self.recipeInstructionSteps = self.recipeInstructions[0].steps
       completion()
     }
