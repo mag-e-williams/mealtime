@@ -4,7 +4,7 @@
         <attribute name="cheap" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="dairy_free" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="gluten_free" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="instructions" optional="YES" attributeType="String"/>
         <attribute name="keto" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

@@ -51,8 +51,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         var recipe_string = ""
         guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return }
         for recipe in recipes {
-            print(recipe.value(forKey: "name")!)
-            recipe_string += "\(recipe.value(forKey: "name")!)\n"
+            print("the IDs")
+            print(recipe.value(forKey: "id")!)
+            recipe_string += "\(recipe.value(forKey: "id")!)\n"
         }
         self.saved_recipes.text = recipe_string
     }
