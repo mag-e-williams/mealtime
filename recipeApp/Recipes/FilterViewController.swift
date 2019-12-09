@@ -61,7 +61,8 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   
   @IBAction func doneButton(_ sender: UIBarButtonItem) {
     let filterTitlesArray = viewModel.selectedFilters.map { $0.title! }
-    
+    print("filter array")
+    print(filterTitlesArray)
     let stringRepresentation = filterTitlesArray.joined(separator:",")
     print("HERE******************************************************")
     print(stringRepresentation)
@@ -69,6 +70,9 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let context = appDelegate.persistentContainer.viewContext
     let userViewModel = ProfileViewModel()
     let user = userViewModel.fetchUser("User")
+    
+//    print("string Representation")
+//    print(stringRepresentation)
     
     let prevfilterString : String
     if user!.value(forKey: "filters") == nil {
@@ -78,8 +82,19 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
         prevfilterString = user!.value(forKey: "filters") as! String
     }
     
+    var newString = ""
+    if stringRepresentation != "" {
+        newString = prevfilterString + "," + stringRepresentation
+    }
+    else {
+        newString = prevfilterString
+    }
     
-    let newString = prevfilterString + "," + stringRepresentation
+    if newString.count != 0 {
+        if newString[newString.index(newString.startIndex, offsetBy: 0)] == "," {
+            newString.remove(at: newString.startIndex)
+        }
+    }
     
     user?.setValue(newString, forKey: "filters")
     do {
@@ -88,12 +103,16 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
       print("Failed saving")
     }
     
+    print("filters printed here")
+    print(newString)
+    
     dismiss(animated: true, completion: nil)
   }
   
   var filters = Filters().getFilters()
   let viewModel = FilterViewModel()
-  let alreadySelected = [String]()
+  var unselected: [String] = []
+    
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -119,17 +138,14 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
     let filterTitles = filterString.split { $0 == "," }
     print(filterTitles)
     
+    print("dude")
     for title in filterTitles {
       let i = filterList.firstIndex(of: String(title))
       if i != nil {
         let indexPath = IndexPath(row: i!, section: 0)
         self.filterTable.selectRow(at: indexPath, animated: false, scrollPosition: .none)
       }
-
-        
     }
-    
-    
   }
   
   
@@ -141,13 +157,17 @@ class FilterViewController: UIViewController, UITableViewDataSource, UITableView
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
     cell.title?.text = viewModel.titleForRowAtIndexPath(indexPath)
-    
+    print("cmon")
     if filters[indexPath.row].isSelected! {
       if !cell.isSelected {
+        print("confused")
          tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
       }
     } else {
       if cell.isSelected {
+        unselected.append((cell.title?.text!)!)
+        print("unselect")
+        print(cell.title?.text)
         tableView.deselectRow(at: indexPath, animated: false)
       }
     }

@@ -10,4 +10,7 @@ struct RecipeElement: Codable {
     let title: String?
     let image: String?
     let imageType: String?
+    let cuisines: [String]?
+    let preparationMinutes, cookingMinutes: Int?
+    let diets: [String]?
 }

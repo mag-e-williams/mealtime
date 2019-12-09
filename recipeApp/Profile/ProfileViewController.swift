@@ -25,16 +25,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewModel.resetData()in
+//        viewModel.resetData()
 //        deleteRecipes()
         user = viewModel.fetchUser("User")
-////        print("")
-////        print("is it saved")
-////        print(user!.value(forKey: "first_name")!)
-////        print(user!.value(forKey: "last_name")!)
-////        print(user!.value(forKey: "email")!)
-////        print(user!.value(forKey: "preferences")!)
-////        print(user!.value(forKey: "dietary_restrictions")!)
         displayDetails()
         displayRecipes()
     }
@@ -63,6 +56,19 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             recipe_string += "\(x)\n"
         }
         self.saved_recipes.text = recipe_string
+    }
+    
+    
+    let client = GetRecipeDetailClient()
+    func createSavedRecipeArray() -> [RecipeDetail] {
+        let recipeSet = loadRecipes()
+        var recipeElements : [RecipeDetail] = []
+        for recipeID in recipeSet {
+            let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+            let recipeDetail = client.getRecipeDetail(url)
+            recipeElements.append(recipeDetail)
+        }
+        return recipeElements
     }
     
     func deleteRecipes() {

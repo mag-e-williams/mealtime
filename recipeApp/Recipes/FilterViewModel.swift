@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FilterViewModel:NSObject {
   var filters = [Filter]()
@@ -30,8 +31,6 @@ class FilterViewModel:NSObject {
   override init() {
     super.init()
     filters = Filters().getFilters()
-    
-    
   }
   
   func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
@@ -44,5 +43,36 @@ class FilterViewModel:NSObject {
   func refresh() {
     filters = Filters().getFilters()
   }
+    
+    
+    func filterOutCuisines(_ recipes: [RecipeElement]) -> [RecipeElement] {
+        let userViewModel = ProfileViewModel()
+        let user = userViewModel.fetchUser("User")
+        let filterString : String
+        var filteredList : [RecipeElement] = []
+        
+        
+        if user!.value(forKey: "filters") == nil {
+            filterString = ""
+        }
+        else{
+            filterString = user!.value(forKey: "filters") as! String
+        }
+        let filterArray = filterString.split { String($0) == "," }
+        
+        if filterArray == [] {
+            return recipes
+        }
+        for recipe in recipes {
+            for cuisine in recipe.cuisines! {
+                if filterArray.contains(Substring(cuisine)) {
+                    print("appended")
+                    filteredList.append(recipe)
+                }
+            }
+        }
+        
+        return filteredList
+    }
 
 }

@@ -63,5 +63,6 @@ class ProfileViewModel {
         let context = appDelegate.persistentContainer.viewContext
         context.reset()
         UserDefaults.standard.set(false, forKey: "TermsAccepted")
+        appDelegate.saveContext()
     }
 }

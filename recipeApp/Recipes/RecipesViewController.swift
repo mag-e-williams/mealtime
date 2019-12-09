@@ -17,6 +17,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
 
   
   let viewModel = RecipesViewModel()
+  let filterViewModel = FilterViewModel()
   let apiClient = SearchRecipesClient()
   var recipes: [RecipeElement] = []
   var inProgressTask: Cancellable?
@@ -141,7 +142,8 @@ extension RecipesViewController {
     inProgressTask = apiClient.fetchRecipes(inputString: self.searchBar.text!) { [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
-        self?.recipes = recipes
+        let filteredRecipes = self?.filterViewModel.filterOutCuisines(recipes)
+        self?.recipes = filteredRecipes!
         self?.collectionView?.reloadData()
       } else {
         return
