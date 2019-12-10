@@ -44,8 +44,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 extension DiscoverViewController {
 
   func configureCollectionView() {
-    let suggestedCellNib = UINib(nibName: "SuggestedCell", bundle: nil)
-    suggestedCollectionView?.register(suggestedCellNib, forCellWithReuseIdentifier: SuggestedCell.cellID)
+    let suggestedCellNib = UINib(nibName: "RecipeCell", bundle: nil)
+    suggestedCollectionView?.register(suggestedCellNib, forCellWithReuseIdentifier: RecipeCell.cellID)
     
     let cuisineCellNib = UINib(nibName: "CuisineCell", bundle: nil)
     cuisineCollectionView?.register(cuisineCellNib, forCellWithReuseIdentifier: CuisineCell.cellID)
@@ -58,7 +58,7 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     if collectionView == suggestedCollectionView {
-      return CGSize(width: view.bounds.width - (SuggestedCell.cellPadding * 2), height: SuggestedCell.cellHeight)
+      return CGSize(width: view.bounds.width - (RecipeCell.cellPadding * 2), height: RecipeCell.cellHeight)
     }
     if collectionView == cuisineCollectionView {
       return CGSize(width: view.bounds.width - (CuisineCell.cellPadding * 2), height: CuisineCell.cellHeight)
@@ -68,7 +68,7 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     if collectionView == suggestedCollectionView {
-      return UIEdgeInsets(top: SuggestedCell.cellPadding, left: SuggestedCell.cellPadding, bottom: SuggestedCell.cellPadding, right: SuggestedCell.cellPadding)
+      return UIEdgeInsets(top: RecipeCell.cellPadding, left: RecipeCell.cellPadding, bottom: RecipeCell.cellPadding, right: RecipeCell.cellPadding)
     }
     if collectionView == cuisineCollectionView {
        return UIEdgeInsets(top: CuisineCell.cellPadding, left: CuisineCell.cellPadding, bottom: CuisineCell.cellPadding, right: CuisineCell.cellPadding)
@@ -78,7 +78,7 @@ extension DiscoverViewController: UICollectionViewDelegateFlowLayout {
 
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     if collectionView == suggestedCollectionView {
-      return SuggestedCell.cellPadding
+      return RecipeCell.cellPadding
     }
     if collectionView == cuisineCollectionView {
       return CuisineCell.cellPadding
@@ -115,7 +115,7 @@ extension DiscoverViewController {
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if collectionView == suggestedCollectionView {
-      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SuggestedCell.cellID, for: indexPath) as? SuggestedCell {
+      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.cellID, for: indexPath) as? RecipeCell {
         cell.recipe = recipes[indexPath.row]
         return cell
       } else {

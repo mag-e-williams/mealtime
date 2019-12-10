@@ -14,6 +14,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var collectionView: UICollectionView!
+  @IBOutlet var numResults: UILabel!
 
   
   let viewModel = RecipesViewModel()
@@ -43,6 +44,13 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     
     configureCollectionView()
     refreshContent()
+    
+    if (self.query != "" && self.query != nil) {
+      numResults.text = "\(recipes.count) results for \"\(self.query ?? "")\""
+    } else {
+      numResults.text = "\(recipes.count) results"
+    }
+    
   }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {

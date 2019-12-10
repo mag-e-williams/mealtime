@@ -37,7 +37,7 @@ class RecipeCell: UICollectionViewCell {
             ratingString = "N/A"
         }
         else {
-            ratingString = "\(recipe.calories! * 10) cal"
+            ratingString = "\(recipe.calories!) cal"
         }
         
         if recipe.readyInMinutes == nil {

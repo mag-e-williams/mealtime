@@ -20,6 +20,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
 
     
     @IBOutlet var recipeLabel: UILabel!
+
     @IBOutlet weak var recipeImg: UIImageView!
     
     @IBOutlet var ingredientsTable: UITableView!
