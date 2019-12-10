@@ -8,6 +8,7 @@ struct Recipes: Codable {
 struct RecipeElement: Codable {
     let id: Int?
     let title: String?
+    let calories: Int?
     let image: String?
     let imageType: String?
     let cuisines: [String]?

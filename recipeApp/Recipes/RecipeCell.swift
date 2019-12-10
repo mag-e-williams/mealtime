@@ -15,7 +15,7 @@ class RecipeCell: UICollectionViewCell {
   static let cellHeight: CGFloat = 370.0
   static let cellWidth: CGFloat = 360.0
 
-  static let cellPadding: CGFloat = 8.0
+  static let cellPadding: CGFloat = 10.0
 
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var titleLabel: UILabel!
@@ -33,18 +33,18 @@ class RecipeCell: UICollectionViewCell {
       titleLabel.text = recipe.title
         let ratingString : String
         let prepTimeString : String
-        if recipe.averageRating == nil {
-            ratingString = "Rating: N/A"
+        if recipe.calories == nil {
+            ratingString = "N/A"
         }
         else {
-            ratingString = "Rating: \(recipe.averageRating! * 10)"
+            ratingString = "\(recipe.calories! * 10) cal"
         }
         
         if recipe.readyInMinutes == nil {
-            prepTimeString = "Prep Time: N/A"
+            prepTimeString = "N/A"
         }
         else {
-            prepTimeString = "Prep Time: \(recipe.readyInMinutes!) minutes"
+            prepTimeString = "\(recipe.readyInMinutes!) min"
         }
       prepTime.text = prepTimeString
       rating.text = ratingString 
