@@ -19,8 +19,25 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     let viewModel = ProfileViewModel()
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.firstName.delegate = self
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+//        let nextTag = textField.tag + 1
+        print("return pressed")
+        self.view.endEditing(true)
+        return false
+//        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+//            print("in if")
+//            nextResponder.becomeFirstResponder()
+//        } else {
+//            print("in else")
+//            textField.resignFirstResponder()
+//        }
+//        textField.resignFirstResponder()
 //        lastName.resignFirstResponder()
 //        email.resignFirstResponder()
 //        dietaryRestrictions.resignFirstResponder()
