@@ -11,16 +11,17 @@ import CoreData
 
 class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var recipeDetail: RecipeDetail?
+//    var recipeDetail: RecipeDetail?
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var savedButton: UIButton!
     
-    @IBOutlet weak var tableHeight: NSLayoutConstraint!
-
+//    @IBOutlet weak var tableHeight: NSLayoutConstraint!
+//    @IBOutlet weak var tabBar: UITabBar!
     
     @IBOutlet var recipeLabel: UILabel!
-
+    @IBOutlet var prepTime: UILabel!
+  
     @IBOutlet weak var recipeImg: UIImageView!
     
     @IBOutlet var ingredientsTable: UITableView!
@@ -29,7 +30,36 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     var viewModel: RecipeDetailViewModel?
     var recipeID: Int?
+//    var tabItems: [UITabBarItem]
+  
+    var recipeDetail: RecipeDetail? {
+      didSet {
+        guard let recipeDetail = recipeDetail else {
+          return
+        }
+        
+       
+          let ratingString : String
+          let prepTimeString : String
+//          if recipeDetail.calories == nil {
+//              ratingString = "N/A"
+//          }
+//          else {
+//              ratingString = "\(recipeDetail.calories!) cal"
+//          }
+          
+          if recipeDetail.readyInMinutes == nil {
+              prepTimeString = "N/A"
+          }
+          else {
+              prepTimeString = "\(recipeDetail.readyInMinutes!) min"
+          }
+        prepTime.text = prepTimeString
+//        rating.text = ratingString
+      }
+    }
     
+  
     override func viewDidLoad() {
       super.viewDidLoad()
 //        viewModel?.resetData()
@@ -42,6 +72,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       let instructionsCellNib = UINib(nibName: "InstructionsTableCell", bundle: bundle)
       self.instructionsTable.register(instructionsCellNib, forCellReuseIdentifier: "cell")
 
+      
       if let viewModel = viewModel {
         viewModel.refresh {
           self.recipeDetail = viewModel.recipeDetail
@@ -50,12 +81,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
       }
-        guard let fetchedRecipe = viewModel?.fetchRecipe("Recipe") else { return }
-        print("fetched recipe")
-//        print(fetchedRecipe)
-        for recipe in fetchedRecipe {
-            print(recipe.value(forKey: "name"))
-        }
+      
+
+//      tabItems = tabBar.items!
+      
+
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,6 +141,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         if tableView == ingredientsTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! IngredientsTableCell
             cell.title?.text = viewModel?.ingredientTitleForRowAtIndexPath(indexPath)
+            cell.ingredientAmount?.text = viewModel?.ingredientAmountForRowAtIndexPath(indexPath)
             return cell
         } else if tableView == instructionsTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! InstructionsTableCell
