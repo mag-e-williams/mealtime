@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         user = viewModel.fetchUser("User")
         displayDetails()
         displayRecipes()
+        let _ = createSavedRecipeArray()
     }
     
     func displayDetails() {
@@ -68,6 +69,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             let recipeDetail = client.getRecipeDetail(url)
             recipeElements.append(recipeDetail)
         }
+        print("profile stuff")
+        print(recipeElements)
         return recipeElements
     }
     
