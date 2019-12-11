@@ -38,6 +38,9 @@ class RecipeCell: UICollectionViewCell {
         if recipe.calories == nil {
             ratingString = "N/A"
         }
+        else if recipe.cookingMinutes == -1 {
+            ratingString = "Health Score: \(recipe.calories!)"
+        }
         else {
             ratingString = "\(recipe.calories!) cal"
         }

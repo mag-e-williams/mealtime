@@ -6,14 +6,32 @@ struct Recipes: Codable {
 }
 
 struct RecipeElement: Codable {
-    let id: Int?
-    let title: String?
-    let calories: Int?
-    let image: String?
-    let imageType: String?
-    let cuisines: [String]?
-    let readyInMinutes, cookingMinutes: Int?
-    let averageRating: Double?
-    let diets: [String]?
+    var id: Int?
+    var title: String?
+    var calories: Int?
+    var image: String?
+    var imageType: String?
+    var cuisines: [String]?
+    var readyInMinutes, cookingMinutes: Int?
+    var averageRating: Double?
+    var diets: [String]?
+        
+    
+//    init(id: Int?, title: String?, calories: Int?, image: String?, imageType: String?, cuisines: [String]?, readyInMinutes: Int?, cookingMinutes: Int?, averageRating: Double?, diets: [String]?) {
+//        self.id = id
+//        self.title = title
+//        self.calories = calories
+//        self.image = image
+//        self.imageType = imageType
+//        self.cuisines = cuisines
+//        self.readyInMinutes = readyInMinutes
+//        self.cookingMinutes = cookingMinutes
+//        self.averageRating = averageRating
+//        self.diets = diets
+//    }
     
 }
+
+//extension RecipeElement: Codable {
+//        
+//}

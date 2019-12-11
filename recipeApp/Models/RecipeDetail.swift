@@ -23,7 +23,7 @@ struct RecipeDetail: Codable {
 //    let analyzedInstructions: [JSONAny]?
     let cheap: Bool?
     let creditsText: String?
-//    let cuisines: [JSONAny]?
+//    let cuisines: [String]?
     let dairyFree: Bool?
 //    let diets: [JSONAny]?
     let gaps: String?

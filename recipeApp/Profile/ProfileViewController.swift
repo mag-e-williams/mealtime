@@ -29,15 +29,11 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("what")
 //        viewModel.resetData()
 //        deleteRecipes()
 //        user = viewModel.fetchUser("User")
-//        print("loaded users")
 //        displayDetails()
-        print("displayed details")
 //        displayRecipes()
-//        let _ = createSavedRecipeArray()
 
         configureCollectionView()
         refreshContent()
@@ -71,16 +67,30 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     
     
     let client = GetRecipeDetailClient()
-    func createSavedRecipeArray() -> [RecipeDetail] {
+    let client1 = SearchRecipesClient()
+    
+    func createSavedRecipeArray() -> [RecipeElement] {
         let recipeSet = loadRecipes()
-        var recipeElements : [RecipeDetail] = []
+        var recipeElements : [RecipeElement] = []
         for recipeID in recipeSet {
             let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+            let dummyURL = "https://api.spoonacular.com/recipes/complexSearch?query=cheese&number=1&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
             let recipeDetail = client.getRecipeDetail(url)
-            recipeElements.append(recipeDetail)
+            var dummyRecipeElement = client1.getRecipes(dummyURL)
+            
+            dummyRecipeElement![0].id = recipeDetail.id
+            dummyRecipeElement![0].title = recipeDetail.title
+            dummyRecipeElement![0].calories = recipeDetail.healthScore
+            dummyRecipeElement![0].image = recipeDetail.image
+            dummyRecipeElement![0].imageType = recipeDetail.imageType
+            dummyRecipeElement![0].readyInMinutes = recipeDetail.readyInMinutes
+            dummyRecipeElement![0].cookingMinutes = -1
+            dummyRecipeElement![0].diets = []
+            dummyRecipeElement![0].cuisines = []
+            
+            recipeElements.append(dummyRecipeElement![0])
         }
-        print("profile stuff")
-        print(recipeElements)
+//        print(recipeElements)
         return recipeElements
     }
     
@@ -203,7 +213,6 @@ extension ProfileViewController {
     let recipes = createSavedRecipeArray()
     self.recipes = recipes as [AnyObject]
     self.savedRecipeCollectionView?.reloadData()
-    print("HEREHEREHEREHEREHERE")
     print(recipes)
       
   }
