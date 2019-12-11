@@ -24,6 +24,8 @@ class RecipeCell: UICollectionViewCell {
   @IBOutlet var rating: UILabel!
   @IBOutlet var savedButton: UIButton!
 
+  var dataViewModel = ProfileViewModel()
+
   
   var recipe: RecipeElement? {
     didSet {
@@ -34,29 +36,37 @@ class RecipeCell: UICollectionViewCell {
       let imageURL = URL(string: recipe.image!)
       imageView.sd_setImage(with:imageURL)
       titleLabel.text = recipe.title
-        let ratingString : String
-        let prepTimeString : String
-        if recipe.calories == nil {
-            ratingString = "N/A"
-        }
-        else if recipe.cookingMinutes == -1 {
-            ratingString = "Health Score: \(recipe.calories!)"
-        }
-        else {
-            ratingString = "\(recipe.calories!) cal"
-        }
-        
-        if recipe.readyInMinutes == nil {
-            prepTimeString = "N/A"
-        }
-        else {
-            prepTimeString = "\(recipe.readyInMinutes!) min"
-        }
+      let ratingString : String
+      let prepTimeString : String
+      if recipe.calories == nil {
+          ratingString = "N/A"
+      }
+      else if recipe.cookingMinutes == -1 {
+          ratingString = "Health Score: \(recipe.calories!)"
+      }
+      else {
+          ratingString = "\(recipe.calories!) cal"
+      }
+      
+      if recipe.readyInMinutes == nil {
+          prepTimeString = "N/A"
+      }
+      else {
+          prepTimeString = "\(recipe.readyInMinutes!) min"
+      }
       prepTime.text = prepTimeString
       rating.text = ratingString
-      savedButton.tintColor = colorSchemeGreen
-//      let image = UIImage(named: "heart.fill")
-      savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+      
+      let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+      print("HEREJJJJJJJJJJ")
+      print(savedRecipeIDs)
+      if (savedRecipeIDs.contains(recipe.id!)) {
+        savedButton.tintColor = colorSchemeGreen
+        //      let image = UIImage(named: "heart.fill")
+        savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+      }
+      
+      
     }
   }
   

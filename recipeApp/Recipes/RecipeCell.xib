@@ -75,10 +75,10 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cH-y9-B0h">
-                        <rect key="frame" x="156" y="204.5" width="25.5" height="22"/>
+                        <rect key="frame" x="161" y="204.5" width="20.5" height="22"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="heart" catalog="system">
-                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                         </state>
                     </button>
                 </subviews>
