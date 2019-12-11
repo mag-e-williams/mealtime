@@ -21,6 +21,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet var recipeLabel: UILabel!
     @IBOutlet var prepTime: UILabel!
+    @IBOutlet var rating: UILabel!
   
     @IBOutlet weak var recipeImg: UIImageView!
     
@@ -41,12 +42,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
        
           let ratingString : String
           let prepTimeString : String
-//          if recipeDetail.calories == nil {
-//              ratingString = "N/A"
-//          }
-//          else {
-//              ratingString = "\(recipeDetail.calories!) cal"
-//          }
+          if recipeDetail.healthScore == nil {
+              ratingString = "N/A"
+          }
+          else {
+              ratingString = "Health Score: \(recipeDetail.healthScore!)"
+          }
           
           if recipeDetail.readyInMinutes == nil {
               prepTimeString = "N/A"
@@ -55,7 +56,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
               prepTimeString = "\(recipeDetail.readyInMinutes!) min"
           }
         prepTime.text = prepTimeString
-//        rating.text = ratingString
+        rating.text = ratingString
       }
     }
     

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="z2m-Yh-4Dq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="z2m-Yh-4Dq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1076,6 +1075,7 @@
                         <outlet property="ingredientsTable" destination="MzQ-ev-6P7" id="90e-Aj-RuA"/>
                         <outlet property="instructionsTable" destination="ROT-Sc-TXn" id="08E-qM-Ewc"/>
                         <outlet property="prepTime" destination="0Ck-A7-jCm" id="ulX-K4-edy"/>
+                        <outlet property="rating" destination="B5U-Lv-ccp" id="3Rd-GV-rQ4"/>
                         <outlet property="recipeImg" destination="BE2-6T-IFB" id="vqq-Kd-Ogd"/>
                         <outlet property="recipeLabel" destination="pMw-wT-Zj8" id="qRb-FI-3c5"/>
                         <outlet property="savedButton" destination="hLR-RE-4xO" id="oLW-1d-XGM"/>
@@ -1218,6 +1218,7 @@
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Wkq-fQ-BMH"/>
         <segue reference="XCU-A5-IMV"/>
         <segue reference="txj-eO-NUI"/>
         <segue reference="CBa-XP-ew7"/>
