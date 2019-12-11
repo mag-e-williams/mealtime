@@ -11,10 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LaC-lX-mGw" customClass="RecipeCell" customModule="recipeApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="190" height="248"/>
+            <rect key="frame" x="0.0" y="0.0" width="190" height="239"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dW6-LF-DZV">
-                <rect key="frame" x="0.0" y="0.0" width="190" height="248"/>
+                <rect key="frame" x="0.0" y="0.0" width="190" height="239"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KLb-Ox-Byd">
@@ -24,50 +24,58 @@
                             <constraint firstAttribute="height" constant="150" id="cZz-C2-wk5"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-8o-8B3">
-                        <rect key="frame" x="21" y="210" width="57.5" height="30"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Prep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U2-tL-Cdy">
-                                <rect key="frame" x="0.0" y="0.0" width="57.5" height="15.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q36-cM-zhP">
-                                <rect key="frame" x="0.0" y="15.5" width="57.5" height="14.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dW-dm-zNf">
-                        <rect key="frame" x="8" y="158" width="174" height="18"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <rect key="frame" x="8" y="158" width="174" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MF9-eV-qt6">
-                        <rect key="frame" x="8" y="210" width="11" height="30"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qop-bs-ndM">
+                        <rect key="frame" x="8" y="200" width="68.5" height="31"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tVy-76-s1p">
-                                <rect key="frame" x="0.0" y="1" width="11" height="15"/>
-                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                </preferredSymbolConfiguration>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Ur-Yr-who">
-                                <rect key="frame" x="0.0" y="17.5" width="11" height="11.5"/>
-                                <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
-                                </preferredSymbolConfiguration>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MF9-eV-qt6">
+                                <rect key="frame" x="0.0" y="0.0" width="11" height="31"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" ambiguous="YES" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tVy-76-s1p">
+                                        <rect key="frame" x="0.0" y="1" width="11" height="16"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        </preferredSymbolConfiguration>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" ambiguous="YES" image="flame" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6Ur-Yr-who">
+                                        <rect key="frame" x="0.0" y="18.5" width="11" height="11.5"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="small">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        </preferredSymbolConfiguration>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Z6-8o-8B3">
+                                <rect key="frame" x="11" y="0.0" width="57.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Prep Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U2-tL-Cdy">
+                                        <rect key="frame" x="0.0" y="0.0" width="57.5" height="16.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q36-cM-zhP">
+                                        <rect key="frame" x="0.0" y="16.5" width="57.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="2Z6-8o-8B3" firstAttribute="leading" secondItem="MF9-eV-qt6" secondAttribute="trailing" constant="4" id="TOQ-gz-084"/>
+                        </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cH-y9-B0h">
-                        <rect key="frame" x="156.5" y="216" width="25.5" height="22"/>
+                        <rect key="frame" x="156" y="204.5" width="25.5" height="22"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="heart" catalog="system">
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -75,25 +83,21 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="qop-bs-ndM" secondAttribute="bottom" constant="8" id="06A-KX-PUV"/>
                     <constraint firstItem="4dW-dm-zNf" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="8" id="2GR-6g-Sac"/>
+                    <constraint firstItem="qop-bs-ndM" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="50" id="6SD-nq-lpn"/>
+                    <constraint firstItem="8cH-y9-B0h" firstAttribute="centerY" secondItem="qop-bs-ndM" secondAttribute="centerY" id="6VI-Tg-20i"/>
                     <constraint firstItem="KLb-Ox-Byd" firstAttribute="top" secondItem="dW6-LF-DZV" secondAttribute="top" id="8cr-rE-Y0h"/>
-                    <constraint firstAttribute="bottom" secondItem="8cH-y9-B0h" secondAttribute="bottom" constant="10" id="97y-ZN-5pk"/>
                     <constraint firstItem="KLb-Ox-Byd" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" id="FDB-1y-awb"/>
-                    <constraint firstAttribute="bottom" secondItem="MF9-eV-qt6" secondAttribute="bottom" constant="8" id="GY7-hF-scR"/>
+                    <constraint firstAttribute="trailing" secondItem="8cH-y9-B0h" secondAttribute="trailing" constant="8.5" id="SBT-3T-SLT"/>
+                    <constraint firstItem="qop-bs-ndM" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" constant="8" id="WCl-wU-kDm"/>
                     <constraint firstAttribute="trailing" secondItem="4dW-dm-zNf" secondAttribute="trailing" constant="8" id="ZAN-yp-Zzh"/>
-                    <constraint firstItem="8cH-y9-B0h" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="66" id="egE-hA-mLC"/>
-                    <constraint firstItem="2Z6-8o-8B3" firstAttribute="leading" secondItem="MF9-eV-qt6" secondAttribute="trailing" constant="2" id="ehN-Pv-P2o"/>
-                    <constraint firstItem="MF9-eV-qt6" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" constant="8" id="hPR-VG-61j"/>
-                    <constraint firstItem="2Z6-8o-8B3" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="60" id="iWV-gs-GSm"/>
-                    <constraint firstAttribute="bottom" secondItem="2Z6-8o-8B3" secondAttribute="bottom" constant="8" id="kXC-xb-SkQ"/>
                     <constraint firstItem="4dW-dm-zNf" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" constant="8" id="kq8-ht-8jB"/>
-                    <constraint firstItem="MF9-eV-qt6" firstAttribute="top" secondItem="2Z6-8o-8B3" secondAttribute="top" id="mOm-XB-yss"/>
-                    <constraint firstAttribute="trailing" secondItem="8cH-y9-B0h" secondAttribute="trailing" constant="8" id="q8K-dU-zUg"/>
                     <constraint firstAttribute="trailing" secondItem="KLb-Ox-Byd" secondAttribute="trailing" id="u72-bI-P4T"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-            <size key="customSize" width="202" height="226"/>
+            <size key="customSize" width="202" height="217"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <integer key="value" value="5"/>
@@ -119,7 +123,7 @@
                 <outlet property="savedButton" destination="8cH-y9-B0h" id="ZoN-Oh-i3h"/>
                 <outlet property="titleLabel" destination="4dW-dm-zNf" id="i0s-iI-HkW"/>
             </connections>
-            <point key="canvasLocation" x="-75.362318840579718" y="66.964285714285708"/>
+            <point key="canvasLocation" x="-75.362318840579718" y="63.950892857142854"/>
         </collectionViewCell>
     </objects>
     <resources>

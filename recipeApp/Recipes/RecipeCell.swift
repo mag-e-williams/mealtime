@@ -16,7 +16,8 @@ class RecipeCell: UICollectionViewCell {
   static let cellWidth: CGFloat = 360.0
 
   static let cellPadding: CGFloat = 10.0
-
+  let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
+  
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var prepTime: UILabel!
@@ -53,7 +54,7 @@ class RecipeCell: UICollectionViewCell {
         }
       prepTime.text = prepTimeString
       rating.text = ratingString
-      savedButton.tintColor = UIColor(red: 153, green: 204, blue: 51)
+      savedButton.tintColor = colorSchemeGreen
 //      let image = UIImage(named: "heart.fill")
       savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
