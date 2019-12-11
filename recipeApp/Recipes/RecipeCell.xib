@@ -66,30 +66,30 @@
                             </imageView>
                         </subviews>
                     </stackView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r2y-nL-6bL">
-                        <rect key="frame" x="162" y="211.5" width="20" height="27.5"/>
-                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Elu-pM-6mT"/>
-                            <constraint firstAttribute="width" constant="20" id="nqA-xe-Cnk"/>
-                        </constraints>
-                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cH-y9-B0h">
+                        <rect key="frame" x="156.5" y="216" width="25.5" height="22"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="heart" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4dW-dm-zNf" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="8" id="2GR-6g-Sac"/>
                     <constraint firstItem="KLb-Ox-Byd" firstAttribute="top" secondItem="dW6-LF-DZV" secondAttribute="top" id="8cr-rE-Y0h"/>
+                    <constraint firstAttribute="bottom" secondItem="8cH-y9-B0h" secondAttribute="bottom" constant="10" id="97y-ZN-5pk"/>
                     <constraint firstItem="KLb-Ox-Byd" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" id="FDB-1y-awb"/>
                     <constraint firstAttribute="bottom" secondItem="MF9-eV-qt6" secondAttribute="bottom" constant="8" id="GY7-hF-scR"/>
-                    <constraint firstAttribute="trailing" secondItem="r2y-nL-6bL" secondAttribute="trailing" constant="8" id="LkZ-5B-ZID"/>
                     <constraint firstAttribute="trailing" secondItem="4dW-dm-zNf" secondAttribute="trailing" constant="8" id="ZAN-yp-Zzh"/>
+                    <constraint firstItem="8cH-y9-B0h" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="66" id="egE-hA-mLC"/>
                     <constraint firstItem="2Z6-8o-8B3" firstAttribute="leading" secondItem="MF9-eV-qt6" secondAttribute="trailing" constant="2" id="ehN-Pv-P2o"/>
                     <constraint firstItem="MF9-eV-qt6" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" constant="8" id="hPR-VG-61j"/>
                     <constraint firstItem="2Z6-8o-8B3" firstAttribute="top" secondItem="KLb-Ox-Byd" secondAttribute="bottom" constant="60" id="iWV-gs-GSm"/>
                     <constraint firstAttribute="bottom" secondItem="2Z6-8o-8B3" secondAttribute="bottom" constant="8" id="kXC-xb-SkQ"/>
                     <constraint firstItem="4dW-dm-zNf" firstAttribute="leading" secondItem="dW6-LF-DZV" secondAttribute="leading" constant="8" id="kq8-ht-8jB"/>
                     <constraint firstItem="MF9-eV-qt6" firstAttribute="top" secondItem="2Z6-8o-8B3" secondAttribute="top" id="mOm-XB-yss"/>
+                    <constraint firstAttribute="trailing" secondItem="8cH-y9-B0h" secondAttribute="trailing" constant="8" id="q8K-dU-zUg"/>
                     <constraint firstAttribute="trailing" secondItem="KLb-Ox-Byd" secondAttribute="trailing" id="u72-bI-P4T"/>
-                    <constraint firstAttribute="bottom" secondItem="r2y-nL-6bL" secondAttribute="bottom" constant="8" id="weJ-1j-WTD"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,6 +116,7 @@
                 <outlet property="imageView" destination="KLb-Ox-Byd" id="8Mj-3i-Kuh"/>
                 <outlet property="prepTime" destination="7U2-tL-Cdy" id="s66-kJ-9XS"/>
                 <outlet property="rating" destination="Q36-cM-zhP" id="Hmj-fg-3OP"/>
+                <outlet property="savedButton" destination="8cH-y9-B0h" id="ZoN-Oh-i3h"/>
                 <outlet property="titleLabel" destination="4dW-dm-zNf" id="i0s-iI-HkW"/>
             </connections>
             <point key="canvasLocation" x="-75.362318840579718" y="66.964285714285708"/>

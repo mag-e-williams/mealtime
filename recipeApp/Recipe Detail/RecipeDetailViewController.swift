@@ -26,8 +26,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet var ingredientsTable: UITableView!
     @IBOutlet var instructionsTable: UITableView!
-    
-    
+
+  
     var viewModel: RecipeDetailViewModel?
     var recipeID: Int?
 //    var tabItems: [UITabBarItem]

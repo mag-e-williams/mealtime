@@ -21,7 +21,9 @@ class RecipeCell: UICollectionViewCell {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var prepTime: UILabel!
   @IBOutlet var rating: UILabel!
+  @IBOutlet var savedButton: UIButton!
 
+  
   var recipe: RecipeElement? {
     didSet {
       guard let recipe = recipe else {
@@ -50,6 +52,7 @@ class RecipeCell: UICollectionViewCell {
       rating.text = ratingString 
     }
   }
+  
 
   override func awakeFromNib() {
     super.awakeFromNib()
