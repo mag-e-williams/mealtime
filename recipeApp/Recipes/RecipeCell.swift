@@ -38,14 +38,14 @@ class RecipeCell: UICollectionViewCell {
       titleLabel.text = recipe.title
       let ratingString : String
       let prepTimeString : String
-      if recipe.calories == nil {
+      if recipe.healthScore == nil {
           ratingString = "N/A"
       }
-      else if recipe.cookingMinutes == -1 {
-          ratingString = "Health Score: \(recipe.calories!)"
-      }
+//      else if recipe.cookingMinutes == -1 {
+//          ratingString = "Health Score: \(recipe.calories!)"
+//      }
       else {
-          ratingString = "\(recipe.calories!) cal"
+          ratingString = "Health Score: \(recipe.healthScore!)"
       }
       
       if recipe.readyInMinutes == nil {
