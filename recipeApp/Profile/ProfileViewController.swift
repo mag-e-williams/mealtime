@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         user = viewModel.fetchUser("User")
         displayDetails()
         displayRecipes()
-        let _ = createSavedRecipeArray()
+//        let _ = createSavedRecipeArray()
     }
     
     func displayDetails() {
