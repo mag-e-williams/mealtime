@@ -58,8 +58,6 @@ class RecipeCell: UICollectionViewCell {
       rating.text = ratingString
       
       let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
-      print("HEREJJJJJJJJJJ")
-      print(savedRecipeIDs)
       if (savedRecipeIDs.contains(recipe.id!)) {
         savedButton.tintColor = colorSchemeGreen
         //      let image = UIImage(named: "heart.fill")
