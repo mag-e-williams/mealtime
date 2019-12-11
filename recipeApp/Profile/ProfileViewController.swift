@@ -15,16 +15,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     var viewModel = ProfileViewModel()
     
     var recipeViewModel: RecipeDetailViewModel?
-    let recipeViewModelCollection = RecipeCollectionViewModel()
+    let recipeCollectionViewModel = RecipeCollectionViewModel()
 
     let apiClient = SearchRecipesClient()
-    var recipes: [RecipeDetail] = []
+    var recipes: [AnyObject] = []
     var inProgressTask: Cancellable?
     
     @IBOutlet var username: UILabel!
     @IBOutlet var cuisine: UILabel!
     @IBOutlet var restrictions: UILabel!
-    @IBOutlet var saved_recipes: UILabel!
+//    @IBOutlet var saved_recipes: UILabel!
     @IBOutlet var savedRecipeCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -38,6 +38,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         print("displayed details")
 //        displayRecipes()
 //        let _ = createSavedRecipeArray()
+
+        configureCollectionView()
+        refreshContent()
     }
     
     func displayDetails() {
@@ -45,7 +48,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)" 
     }
-    
+
     func loadRecipes() -> Set<Int> {
         let recipeViewModel = RecipeDetailViewModel(id: 1)  
         var recipeSet = Set<Int>()
@@ -63,7 +66,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         for x in recipeSet {
             recipe_string += "\(x)\n"
         }
-        self.saved_recipes.text = recipe_string
+//        self.saved_recipes.text = recipe_string
     }
     
     
@@ -100,6 +103,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
 
 // MARK: UI Configuration
 extension ProfileViewController {
+  
   func configureCollectionView() {
     let savedCellNib = UINib(nibName: "RecipeCell", bundle: nil)
     savedRecipeCollectionView?.register(savedCellNib, forCellWithReuseIdentifier: RecipeCell.cellID)
@@ -155,8 +159,8 @@ extension ProfileViewController {
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if collectionView == savedRecipeCollectionView {
-      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SavedCell.cellID, for: indexPath) as? SavedCell {
-        cell.recipe = recipes[indexPath.row]
+      if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.cellID, for: indexPath) as? RecipeCell {
+        cell.recipe = recipes[indexPath.row] as? RecipeElement
         return cell
       } else {
         fatalError("Missing cell for indexPath: \(indexPath)")
@@ -169,12 +173,12 @@ extension ProfileViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let detailVC = segue.destination as? RecipeDetailViewController,
       let recipe = sender as? RecipeElement {
-      detailVC.viewModel = recipeViewModelCollection.detailViewModelForRowAtIndexPath(recipe)
+      detailVC.viewModel = recipeCollectionViewModel.detailViewModelForRowAtIndexPath(recipe)
     }
-    if segue.identifier == "showAllRecipes" {
-        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
-        showRecipes.query = " "
-    }
+//    if segue.identifier == "showAllRecipes" {
+//        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+//        showRecipes.query = " "
+//    }
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -195,16 +199,17 @@ extension ProfileViewController {
       inProgressTask = nil
       return
     }
+    
     let recipes = createSavedRecipeArray()
-    self.recipes = recipes
+    self.recipes = recipes as [AnyObject]
     self.savedRecipeCollectionView?.reloadData()
-    }
+    print("HEREHEREHEREHEREHERE")
+    print(recipes)
       
   }
 
   func showError() {
-
   }
-
+}
 
 
