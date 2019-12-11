@@ -49,7 +49,10 @@ class RecipeCell: UICollectionViewCell {
             prepTimeString = "\(recipe.readyInMinutes!) min"
         }
       prepTime.text = prepTimeString
-      rating.text = ratingString 
+      rating.text = ratingString
+      savedButton.tintColor = UIColor(red: 153, green: 204, blue: 51)
+//      let image = UIImage(named: "heart.fill")
+      savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
   }
   
@@ -65,4 +68,14 @@ class RecipeCell: UICollectionViewCell {
     titleLabel.text = nil
   }
 
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
 }
