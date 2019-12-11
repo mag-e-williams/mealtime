@@ -32,6 +32,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     var dataViewModel = ProfileViewModel()
 
     let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
+    let lightTextColor = UIColor(red: 164, green: 165, blue: 166)
 
   
     var viewModel: RecipeDetailViewModel?
@@ -99,11 +100,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
       }
-      
-
-
-//      tabItems = tabBar.items!
-      
+            
 
       
     }
@@ -206,30 +203,51 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let recipe = self.recipeDetail!
-        let newRecipe = viewModel!.createRecipe("Recipe")
-        
-        newRecipe?.setValue(recipe.id!, forKey: "id")
-        newRecipe?.setValue(recipe.title!, forKey: "name")
-        newRecipe?.setValue(recipe.image!, forKey: "image")
-        newRecipe?.setValue(recipe.servings!, forKey: "servings")
-        newRecipe?.setValue(recipe.readyInMinutes!, forKey: "ready_in_minutes")
-        newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
-        newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
-        
-        print("new recipe")
-        print(newRecipe!)
-        do {
-            try context.save()
-            print("context was saved")
-        } catch {
-            print("Failed saving")
+        let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+
+        if let id = self.recipeDetail?.id {
+          if (!savedRecipeIDs.contains(id)) {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let recipe = self.recipeDetail!
+            let newRecipe = viewModel!.createRecipe("Recipe")
+
+            newRecipe?.setValue(recipe.id!, forKey: "id")
+            newRecipe?.setValue(recipe.title!, forKey: "name")
+            newRecipe?.setValue(recipe.image!, forKey: "image")
+            newRecipe?.setValue(recipe.servings!, forKey: "servings")
+            newRecipe?.setValue(recipe.readyInMinutes!, forKey: "ready_in_minutes")
+            newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
+            newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
+            
+            print("new recipe")
+            print(newRecipe!)
+            do {
+                try context.save()
+                print("context was saved")
+            } catch {
+                print("Failed saving")
+            }
+          } else if (savedRecipeIDs.contains(id)) {
+            
+          
+          
+          }
         }
+
 //        let fetchedRecipe = viewModel?.fetchRecipe("Recipe")
 //        print("all fetched recipes")
 //        print(fetchedRecipe)
+      
+        if let id = self.recipeDetail?.id {
+           if (savedRecipeIDs.contains(id)) {
+            self.savedButton.tintColor = colorSchemeGreen
+            self.savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+           } else if (!savedRecipeIDs.contains(id)) {
+            self.savedButton.tintColor = lightTextColor
+            self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
+          }
+        }
     }
 }
 

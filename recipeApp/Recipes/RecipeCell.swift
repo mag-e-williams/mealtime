@@ -17,7 +17,8 @@ class RecipeCell: UICollectionViewCell {
 
   static let cellPadding: CGFloat = 10.0
   let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
-  
+  let lightTextColor = UIColor(red: 164, green: 165, blue: 166)
+
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var prepTime: UILabel!
@@ -62,6 +63,9 @@ class RecipeCell: UICollectionViewCell {
         savedButton.tintColor = colorSchemeGreen
         //      let image = UIImage(named: "heart.fill")
         savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+      } else if (!savedRecipeIDs.contains(recipe.id!)) {
+        self.savedButton.tintColor = lightTextColor
+        self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
       }
       
       
