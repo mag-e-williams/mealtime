@@ -26,6 +26,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet var ingredientsTable: UITableView!
     @IBOutlet var instructionsTable: UITableView!
+    
+    var dataViewModel = ProfileViewModel()
+
+    let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
 
   
     var viewModel: RecipeDetailViewModel?
@@ -83,6 +87,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       }
       
 
+
 //      tabItems = tabBar.items!
       
 
@@ -116,6 +121,15 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
         self.recipeImg.downloadImage(from: imageURL)
         
+        let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+             
+        if let id = self.recipeDetail?.id {
+           if (savedRecipeIDs.contains(id)) {
+           self.savedButton.tintColor = colorSchemeGreen
+           self.savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+          }
+        }
+      
         ingredientsTable.reloadData()
         instructionsTable.reloadData()
         
@@ -221,3 +235,5 @@ extension UIImageView {
         }
     }
 }
+
+
