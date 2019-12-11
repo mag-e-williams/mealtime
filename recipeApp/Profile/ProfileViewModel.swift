@@ -41,7 +41,10 @@ class ProfileViewModel {
             print(records)
             if let records = records as? [NSManagedObject?] {
                 if records == [] {
-                    return nil
+                    print("the user is nil")
+                    let newUser = createUser("User")
+                    return newUser
+//                    return nil
                 }
                 result = records[0]!
                 print(result)
@@ -99,6 +102,26 @@ class ProfileViewModel {
         let context = appDelegate.persistentContainer.viewContext
         context.reset()
         UserDefaults.standard.set(false, forKey: "TermsAccepted")
+        appDelegate.saveContext()
+    }
+    
+    func deleteUser() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let user = fetchUser("User")
+        context.delete(user!)
+        appDelegate.saveContext()
+    }
+    
+    
+    func deleteRecipes() {
+        let recipeViewModel = RecipeDetailViewModel(id: 1)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let recipes = recipeViewModel.fetchRecipe("Recipe")
+        for recipe in recipes! {
+            context.delete(recipe)
+        }
         appDelegate.saveContext()
     }
 }

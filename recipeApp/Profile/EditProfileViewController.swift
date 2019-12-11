@@ -43,7 +43,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         if let firstName = self.firstName.text {
             print(firstName)
             user?.setValue(firstName, forKey: "first_name")
-            print(user!.value(forKey: "first_name")!)
+//            print(user?.value(forKey: "first_name")!)
         }
         if let lastName = self.lastName.text {
             print(lastName)

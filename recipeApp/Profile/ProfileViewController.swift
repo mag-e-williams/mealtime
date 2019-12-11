@@ -31,69 +31,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 //        viewModel.resetData()
 //        deleteRecipes()
+//        viewModel.deleteUser()
         user = viewModel.fetchUser("User")
-        print("this is user")
-//        print(user.firstName)
-        
-//        displayDetails()
-//        displayRecipes()
+        displayDetails()
 
         configureCollectionView()
         refreshContent()
     }
     
     func displayDetails() {
-        self.username.text = "Hi, \(user!.value(forKey: "first_name")!)!"
-        self.cuisine.text = "\(user!.value(forKey: "preferences")!)"
-        self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)" 
-    }
-
-    
-    func displayRecipes() {  
-        var recipe_string = ""
-        let recipeSet = viewModel.profileLoadSavedRecipes()
-        for x in recipeSet {
-            recipe_string += "\(x)\n"
-        }
-//        self.saved_recipes.text = recipe_string
-    }
-    
-    
-//    let client = GetRecipeDetailClient()
-//    let client1 = SearchRecipesClient() 
-//    func createSavedRecipeArray() -> [RecipeElement] {
-//        let recipeSet = loadRecipes()
-//        var recipeElements : [RecipeElement] = []
-//        for recipeID in recipeSet {
-//            let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
-//            let dummyURL = "https://api.spoonacular.com/recipes/complexSearch?query=cheese&number=1&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
-//            let recipeDetail = client.getRecipeDetail(url)
-//            var dummyRecipeElement = client1.getRecipes(dummyURL)
-//            
-//            dummyRecipeElement![0].id = recipeDetail.id
-//            dummyRecipeElement![0].title = recipeDetail.title
-//            dummyRecipeElement![0].calories = recipeDetail.healthScore
-//            dummyRecipeElement![0].image = recipeDetail.image
-//            dummyRecipeElement![0].imageType = recipeDetail.imageType
-//            dummyRecipeElement![0].readyInMinutes = recipeDetail.readyInMinutes
-//            dummyRecipeElement![0].cookingMinutes = -1
-//            dummyRecipeElement![0].diets = []
-//            dummyRecipeElement![0].cuisines = []
-//            
-//            recipeElements.append(dummyRecipeElement![0])
-//        }
-//        return recipeElements
-//    }
-    
-    func deleteRecipes() {
-        let recipeViewModel = RecipeDetailViewModel(id: 1)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let recipes = recipeViewModel.fetchRecipe("Recipe")
-        for recipe in recipes! {
-            context.delete(recipe)
-        }
-        appDelegate.saveContext()
+        self.username.text = "Hi, \(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
+        self.cuisine.text = "\(user?.value(forKey: "preferences") ?? "No Favorite Cuisines Yet!")"
+        self.restrictions.text = "\(user?.value(forKey: "dietary_restrictions") ?? "No Dietary Restrictions Yet!")" 
     }
     
 }
