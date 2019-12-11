@@ -24,7 +24,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     @IBOutlet var username: UILabel!
     @IBOutlet var cuisine: UILabel!
     @IBOutlet var restrictions: UILabel!
-//    @IBOutlet var saved_recipes: UILabel!
     @IBOutlet var savedRecipeCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -34,7 +33,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
 //        viewModel.deleteUser()
         user = viewModel.fetchUser("User")
         displayDetails()
-
+        
+        configureCollectionView()
+        refreshContent()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         configureCollectionView()
         refreshContent()
     }
@@ -151,6 +155,10 @@ extension ProfileViewController {
     }
     
     let recipes = viewModel.createSavedRecipeArray()
+    print("the titles")
+    for x in recipes{
+        print(x.title!)
+    }
     self.recipes = recipes as [AnyObject]
     self.savedRecipeCollectionView?.reloadData()
     print(recipes)
