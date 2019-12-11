@@ -57,6 +57,42 @@ class ProfileViewModel {
         return result
     }
     
+    func profileLoadSavedRecipes() -> Set<Int> {
+        let recipeViewModel = RecipeDetailViewModel(id: 1)  
+        var recipeSet = Set<Int>()
+        guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return [] }
+        for recipe in recipes {
+            let recipeID = (recipe.value(forKey: "id")! as AnyObject).integerValue
+            recipeSet.insert(recipeID!)
+        }
+        return recipeSet
+    }
+    
+    let client = GetRecipeDetailClient()
+    let client1 = SearchRecipesClient() 
+    func createSavedRecipeArray() -> [RecipeElement] {
+        let recipeSet = profileLoadSavedRecipes()
+        var recipeElements : [RecipeElement] = []
+        for recipeID in recipeSet {
+            let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+            let dummyURL = "https://api.spoonacular.com/recipes/complexSearch?query=cheese&number=1&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
+            let recipeDetail = client.getRecipeDetail(url)
+            var dummyRecipeElement = client1.getRecipes(dummyURL)
+            
+            dummyRecipeElement![0].id = recipeDetail.id
+            dummyRecipeElement![0].title = recipeDetail.title
+            dummyRecipeElement![0].calories = recipeDetail.healthScore
+            dummyRecipeElement![0].image = recipeDetail.image
+            dummyRecipeElement![0].imageType = recipeDetail.imageType
+            dummyRecipeElement![0].readyInMinutes = recipeDetail.readyInMinutes
+            dummyRecipeElement![0].cookingMinutes = -1
+            dummyRecipeElement![0].diets = []
+            dummyRecipeElement![0].cuisines = []
+            
+            recipeElements.append(dummyRecipeElement![0])
+        }
+        return recipeElements
+    }
     
     func resetData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
