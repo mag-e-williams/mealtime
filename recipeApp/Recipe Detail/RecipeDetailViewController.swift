@@ -22,6 +22,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet var recipeLabel: UILabel!
     @IBOutlet var prepTime: UILabel!
     @IBOutlet var rating: UILabel!
+    @IBOutlet var servings: UILabel!
   
     @IBOutlet weak var recipeImg: UIImageView!
     
@@ -42,6 +43,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
        
           let ratingString : String
           let prepTimeString : String
+          let servingString: String
           if recipeDetail.healthScore == nil {
               ratingString = "N/A"
           }
@@ -55,15 +57,26 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
           else {
               prepTimeString = "\(recipeDetail.readyInMinutes!) min"
           }
+        if recipeDetail.servings == nil {
+            servingString = "N/A"
+        }
+        else {
+            if recipeDetail.servings! == 1 {
+                servingString = "\(recipeDetail.servings!) Serving"
+            }
+            else {
+                servingString = "\(recipeDetail.servings!) Servings"
+            }
+        }
         prepTime.text = prepTimeString
         rating.text = ratingString
+        servings.text = servingString
       }
     }
     
   
     override func viewDidLoad() {
       super.viewDidLoad()
-//        viewModel?.resetData()
       
       let bundle = Bundle(for: type(of: self))
       

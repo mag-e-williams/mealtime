@@ -16,6 +16,7 @@ struct RecipeElement: Codable {
     var averageRating: Double?
     var diets: [String]?
     var healthScore: Int?
+    var servings: Int?
         
     
 //    init(id: Int?, title: String?, calories: Int?, image: String?, imageType: String?, cuisines: [String]?, readyInMinutes: Int?, cookingMinutes: Int?, averageRating: Double?, diets: [String]?) {
