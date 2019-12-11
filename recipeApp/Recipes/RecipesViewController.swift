@@ -33,7 +33,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     if self.query == nil {
       self.searchBar.text = " "
     } else {
-      self.searchBar.text = self.query!
+//      self.searchBar.text = self.query!
     }
     
     if self.filters == nil {
@@ -147,11 +147,15 @@ extension RecipesViewController {
     }
 
 
-    inProgressTask = apiClient.fetchRecipes(inputString: self.searchBar.text!) { [weak self] (recipes) in
+    inProgressTask = apiClient.fetchRecipes(inputString: self.query!) { [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
+        print("recipes")
+        print(recipes)
         let filteredRecipes = self?.filterViewModel.filterOutCuisines(recipes)
         self?.recipes = filteredRecipes!
+        print("filtered")
+        print(self?.recipes)
         self?.collectionView?.reloadData()
       } else {
         return

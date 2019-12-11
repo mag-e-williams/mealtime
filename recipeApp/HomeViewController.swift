@@ -9,9 +9,9 @@
 import UIKit
 import Speech
 
-class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecognizerDelegate {
+class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecognizerDelegate, UISearchBarDelegate {
     
-    @IBOutlet weak var ingredientInput: UITextField!
+    @IBOutlet weak var ingredientInput: UISearchBar!
     @IBOutlet weak var detectedVoiceText: UILabel!
     
     @IBAction func micButtonPressed(_ sender: UIButton) {
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.ingredientInput.delegate = self
+        ingredientInput.delegate = self
     }
     
     
@@ -41,9 +41,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate, SFSpeechRecogni
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        ingredientInput.resignFirstResponder()
-        return true
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        performSegue(withIdentifier: "showRecipes", sender: self)
     }
     
     

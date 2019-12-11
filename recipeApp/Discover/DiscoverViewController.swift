@@ -9,7 +9,7 @@
 import UIKit
 
 
-class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
   
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var suggestedCollectionView: UICollectionView!
@@ -28,10 +28,15 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    searchBar.delegate = self
     configureCollectionView()
     refreshContent()
   }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+//        performSegue(withIdentifier: "showRecipes", sender: self)
+    }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
