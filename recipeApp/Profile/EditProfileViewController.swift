@@ -23,6 +23,42 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.firstName.delegate = self
+        let user = viewModel.fetchUser("User")
+        if user?.value(forKey: "first_name") == nil || user?.value(forKey: "first_name") as? String == "" {
+            firstName.placeholder = "First Name Placeholder"
+        }
+        else {
+            firstName.text = user?.value(forKey: "first_name") as? String
+        }
+        if user?.value(forKey: "last_name") == nil || user?.value(forKey: "last_name") as? String == "" {
+            lastName.placeholder = "Last Name Placeholder"
+        }
+        else {
+            lastName.text = user?.value(forKey: "last_name") as? String
+        }
+        if user?.value(forKey: "email") == nil || user?.value(forKey: "email") as? String == "" {
+            email.placeholder = "Email Placeholder"
+        }
+        else {
+            email.text = user?.value(forKey: "email") as? String
+        }
+        if user?.value(forKey: "preferences") == nil || user?.value(forKey: "preferences") as? String == "" {
+            preferences.placeholder = "Cuisines Placeholder"
+        }
+        else {
+            preferences.text = user?.value(forKey: "preferences") as? String
+        }
+        if user?.value(forKey: "dietary_restrictions") == nil || user?.value(forKey: "dietary_restrictions") as? String == "" {
+            dietaryRestrictions.placeholder = "Dietary Restrictions Placeholder"
+        }
+        else {
+            dietaryRestrictions.text = user?.value(forKey: "dietary_restrictions") as? String
+        }
+//        firstName.placeholder = user?.value(forKey: "first_name") as! String? ?? "First Name Placeholder" 
+//        lastName.placeholder = user?.value(forKey: "last_name") as! String? ?? "Last Name Placeholder"
+//        email.placeholder = user?.value(forKey: "email") as! String? ?? "Email Placeholder"
+//        preferences.placeholder = user?.value(forKey: "preferences") as! String? ?? "Cuisines Placeholder"
+//        dietaryRestrictions.placeholder = user?.value(forKey: "dietary_restrictions") as! String? ?? "Dietary Restrictions Placeholder"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
