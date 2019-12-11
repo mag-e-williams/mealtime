@@ -31,7 +31,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         super.viewDidLoad()
 //        viewModel.resetData()
 //        deleteRecipes()
-//        user = viewModel.fetchUser("User")
+        user = viewModel.fetchUser("User")
+        print("this is user")
+//        print(user.firstName)
+        
 //        displayDetails()
 //        displayRecipes()
 
@@ -45,20 +48,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
         self.restrictions.text = "\(user!.value(forKey: "dietary_restrictions")!)" 
     }
 
-    func loadRecipes() -> Set<Int> {
-        let recipeViewModel = RecipeDetailViewModel(id: 1)  
-        var recipeSet = Set<Int>()
-        guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return [] }
-        for recipe in recipes {
-            let recipeID = (recipe.value(forKey: "id")! as AnyObject).integerValue
-            recipeSet.insert(recipeID!)
-        }
-        return recipeSet
-    }
     
     func displayRecipes() {  
         var recipe_string = ""
-        let recipeSet = loadRecipes()
+        let recipeSet = viewModel.profileLoadSavedRecipes()
         for x in recipeSet {
             recipe_string += "\(x)\n"
         }
@@ -66,33 +59,31 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     
-    let client = GetRecipeDetailClient()
-    let client1 = SearchRecipesClient()
-    
-    func createSavedRecipeArray() -> [RecipeElement] {
-        let recipeSet = loadRecipes()
-        var recipeElements : [RecipeElement] = []
-        for recipeID in recipeSet {
-            let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
-            let dummyURL = "https://api.spoonacular.com/recipes/complexSearch?query=cheese&number=1&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
-            let recipeDetail = client.getRecipeDetail(url)
-            var dummyRecipeElement = client1.getRecipes(dummyURL)
-            
-            dummyRecipeElement![0].id = recipeDetail.id
-            dummyRecipeElement![0].title = recipeDetail.title
-            dummyRecipeElement![0].calories = recipeDetail.healthScore
-            dummyRecipeElement![0].image = recipeDetail.image
-            dummyRecipeElement![0].imageType = recipeDetail.imageType
-            dummyRecipeElement![0].readyInMinutes = recipeDetail.readyInMinutes
-            dummyRecipeElement![0].cookingMinutes = -1
-            dummyRecipeElement![0].diets = []
-            dummyRecipeElement![0].cuisines = []
-            
-            recipeElements.append(dummyRecipeElement![0])
-        }
-//        print(recipeElements)
-        return recipeElements
-    }
+//    let client = GetRecipeDetailClient()
+//    let client1 = SearchRecipesClient() 
+//    func createSavedRecipeArray() -> [RecipeElement] {
+//        let recipeSet = loadRecipes()
+//        var recipeElements : [RecipeElement] = []
+//        for recipeID in recipeSet {
+//            let url = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+//            let dummyURL = "https://api.spoonacular.com/recipes/complexSearch?query=cheese&number=1&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
+//            let recipeDetail = client.getRecipeDetail(url)
+//            var dummyRecipeElement = client1.getRecipes(dummyURL)
+//            
+//            dummyRecipeElement![0].id = recipeDetail.id
+//            dummyRecipeElement![0].title = recipeDetail.title
+//            dummyRecipeElement![0].calories = recipeDetail.healthScore
+//            dummyRecipeElement![0].image = recipeDetail.image
+//            dummyRecipeElement![0].imageType = recipeDetail.imageType
+//            dummyRecipeElement![0].readyInMinutes = recipeDetail.readyInMinutes
+//            dummyRecipeElement![0].cookingMinutes = -1
+//            dummyRecipeElement![0].diets = []
+//            dummyRecipeElement![0].cuisines = []
+//            
+//            recipeElements.append(dummyRecipeElement![0])
+//        }
+//        return recipeElements
+//    }
     
     func deleteRecipes() {
         let recipeViewModel = RecipeDetailViewModel(id: 1)
@@ -210,7 +201,7 @@ extension ProfileViewController {
       return
     }
     
-    let recipes = createSavedRecipeArray()
+    let recipes = viewModel.createSavedRecipeArray()
     self.recipes = recipes as [AnyObject]
     self.savedRecipeCollectionView?.reloadData()
     print(recipes)
