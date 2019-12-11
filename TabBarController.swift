@@ -24,9 +24,10 @@ class TabBarController:  UITabBarController, UITabBarControllerDelegate {
     profileViewController = ProfileViewController()
     discoverViewController = DiscoverViewController()
 
-
   
   }
+
+  
   
 //  //MARK: UITabbar Delegate
 //  func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
@@ -40,3 +41,5 @@ class TabBarController:  UITabBarController, UITabBarControllerDelegate {
 //  }
   
 }
+
+

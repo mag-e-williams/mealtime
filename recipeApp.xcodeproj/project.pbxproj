@@ -59,6 +59,7 @@
 		F4AC1ADE239917A100D350E7 /* SuggestedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */; };
 		F4AC1AE02399182E00D350E7 /* SuggestedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */; };
 		F4AC1AE2239974FB00D350E7 /* RecipeCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC1AE1239974FB00D350E7 /* RecipeCollectionViewModel.swift */; };
+		F4C5047D239FA88F0016AEB1 /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5047C239FA88F0016AEB1 /* TopTabBarController.swift */; };
 		FF6EB14633FB94B4DA4FFA97 /* Pods_recipeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BABC711D8A71E93A6628F6 /* Pods_recipeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,7 @@
 		F4AC1ADD239917A100D350E7 /* SuggestedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestedCell.xib; sourceTree = "<group>"; };
 		F4AC1ADF2399182E00D350E7 /* SuggestedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedCell.swift; sourceTree = "<group>"; };
 		F4AC1AE1239974FB00D350E7 /* RecipeCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewModel.swift; sourceTree = "<group>"; };
+		F4C5047C239FA88F0016AEB1 /* TopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 				F48F5D842374D27500345980 /* IngredientsTableCell.xib */,
 				F48F5D862374E0AB00345980 /* InstructionsTableCell.swift */,
 				F48F5D882374E13F00345980 /* InstructionsTableCell.xib */,
+				F4C5047C239FA88F0016AEB1 /* TopTabBarController.swift */,
 			);
 			path = "Recipe Detail";
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				F46BBDA8239A215300E63804 /* FilterViewController.swift in Sources */,
 				D9E98E23239A67E800284CBE /* Recipe+CoreDataClass.swift in Sources */,
 				F4A6FAEF2399A98800B224D6 /* CuisineCell.swift in Sources */,
+				F4C5047D239FA88F0016AEB1 /* TopTabBarController.swift in Sources */,
 				F48F5D832374CF9700345980 /* IngredientsTableCell.swift in Sources */,
 				F48F5D7F2373C00100345980 /* RecipeDetail.swift in Sources */,
 				F46BBDAC239A2BB100E63804 /* Filters.swift in Sources */,
