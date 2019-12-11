@@ -54,11 +54,6 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         else {
             dietaryRestrictions.text = user?.value(forKey: "dietary_restrictions") as? String
         }
-//        firstName.placeholder = user?.value(forKey: "first_name") as! String? ?? "First Name Placeholder" 
-//        lastName.placeholder = user?.value(forKey: "last_name") as! String? ?? "Last Name Placeholder"
-//        email.placeholder = user?.value(forKey: "email") as! String? ?? "Email Placeholder"
-//        preferences.placeholder = user?.value(forKey: "preferences") as! String? ?? "Cuisines Placeholder"
-//        dietaryRestrictions.placeholder = user?.value(forKey: "dietary_restrictions") as! String? ?? "Dietary Restrictions Placeholder"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

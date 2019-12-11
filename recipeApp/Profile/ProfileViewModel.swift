@@ -113,6 +113,19 @@ class ProfileViewModel {
         appDelegate.saveContext()
     }
     
+    func deleteSingleRecipe(_ id: Int) {
+        let recipeViewModel = RecipeDetailViewModel(id: 1)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let recipes = recipeViewModel.fetchRecipe("Recipe")
+        for recipe in recipes! {
+            if recipe.value(forKey: "id") as? Int == id {
+                context.delete(recipe)
+            }
+        }
+        appDelegate.saveContext()
+    }
+    
     
     func deleteRecipes() {
         let recipeViewModel = RecipeDetailViewModel(id: 1)
