@@ -28,14 +28,14 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    searchBar.delegate = self
+    searchBar.delegate = self
     configureCollectionView()
     refreshContent()
   }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-//        performSegue(withIdentifier: "showRecipes", sender: self)
+        performSegue(withIdentifier: "showRecipes", sender: self)
     }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {

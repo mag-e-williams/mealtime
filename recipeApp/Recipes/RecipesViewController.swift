@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class RecipesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
   
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var collectionView: UICollectionView!
@@ -30,6 +30,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    searchBar.delegate = self
     if self.query == nil {
       self.searchBar.text = " "
     } else {

@@ -264,7 +264,7 @@
                     <connections>
                         <outlet property="collectionView" destination="47g-8p-9fQ" id="ohs-92-D4t"/>
                         <outlet property="numResults" destination="s0w-s1-kHD" id="L1v-Z4-vDK"/>
-                        <outlet property="searchBar" destination="ghD-vU-T08" id="xjp-ap-rML"/>
+                        <outlet property="searchBar" destination="zka-ww-7bd" id="GMo-gF-8wa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEg-NA-V3P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -845,6 +845,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ekK-7r-vj4"/>
                     <connections>
                         <outlet property="cuisineCollectionView" destination="Am7-6D-3xJ" id="EVr-bP-PMf"/>
+                        <outlet property="searchBar" destination="qRi-0c-e27" id="cew-Xj-m0A"/>
                         <outlet property="suggestedCollectionView" destination="RUR-bs-Twg" id="SPM-QM-xd6"/>
                     </connections>
                 </viewController>
@@ -1210,8 +1211,8 @@
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XCU-A5-IMV"/>
+        <segue reference="si4-8W-6bT"/>
         <segue reference="txj-eO-NUI"/>
-        <segue reference="CBa-XP-ew7"/>
+        <segue reference="XRm-c3-qfl"/>
     </inferredMetricsTieBreakers>
 </document>
