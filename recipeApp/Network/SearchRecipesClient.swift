@@ -57,7 +57,7 @@ class SearchRecipesClient {
   func fetchSuggestedRecipes(number: Int = 100, query: [String] = [""], cuisines: [String] = [""],_ completion: @escaping ([RecipeElement]?) -> Void) {
    
     let queryString = (query.joined(separator:",")).replacingOccurrences(of: " ", with: ",+")
-    let cuisineString = (cuisines.joined(separator:",")).replacingOccurrences(of: " ", with: ",+")
+    let cuisineString = (cuisines.joined(separator:",")).replacingOccurrences(of: " ", with: ",")
     let interpNumber = String(number)
     let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(queryString)&cuisine=\(cuisineString)&number=\(interpNumber)&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
      let recipes = getSuggestedRecipes(url)

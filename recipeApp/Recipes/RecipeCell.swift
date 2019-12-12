@@ -36,11 +36,15 @@ class RecipeCell: UICollectionViewCell {
   
   var recipe: RecipeElement? {
     didSet {
-      guard let recipe = recipe else {
+      guard var recipe = recipe else {
         return
       }
       
+        if !recipe.image!.contains("https://spoonacular.com/recipeImages/") {
+            recipe.image! = "https://spoonacular.com/recipeImages/" + recipe.image!
+      }
       let imageURL = URL(string: recipe.image!)
+        
       imageView.sd_setImage(with:imageURL)
       titleLabel.text = recipe.title
       let ratingString : String
@@ -155,7 +159,6 @@ class RecipeCell: UICollectionViewCell {
           else if (savedRecipeIDs.contains(recipe.id!)) {
             self.savedButton.tintColor = lightTextColor
             self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            
             dataViewModel.deleteSingleRecipe(id)
           }
         }
