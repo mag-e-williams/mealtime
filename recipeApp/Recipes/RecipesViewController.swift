@@ -49,10 +49,12 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
       self.searchBar.text = self.query!
     }
     
-    if viewModel.title != nil {
-    self.pageTitleLabel.text = viewModel.title
+    if (!viewModel.title.isEmpty) {
+      self.pageTitleLabel.text = viewModel.title
     } else {
-      if self.pageTitle == nil {
+//      self.pageTitleLabel.text = "Recipes"
+      print(self.pageTitle)
+      if self.pageTitle == nil || self.pageTitle!.isEmpty {
          self.pageTitleLabel.text = "Recipes"
        } else {
          self.pageTitleLabel.text = self.pageTitle
