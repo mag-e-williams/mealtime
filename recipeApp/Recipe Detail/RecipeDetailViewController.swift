@@ -15,6 +15,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var savedButton: UIButton!
+    @IBOutlet weak var ingredientsTableButton: UIButton!
+    @IBOutlet weak var instructionsTableButton: UIButton!
+    @IBOutlet weak var similarRecipesButton: UIButton!
+
     
 //    @IBOutlet weak var tableHeight: NSLayoutConstraint!
 //    @IBOutlet weak var tabBar: UITabBar!
@@ -38,6 +42,11 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     var viewModel: RecipeDetailViewModel?
     var recipeID: Int?
     var savedRecipeIDs = Set<Int>()
+  
+    var showIngredientsTable: Bool
+    var showInstructionsTable: Bool
+    var showSimilarRecipesTable: Bool
+
 
 //    var tabItems: [UITabBarItem]
   
@@ -104,10 +113,26 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       }
             
       updateSavedButton((self.recipeDetail?.id)!)
-
+      ingredientsTable.isHidden = true
+      
+      showIngredientsTable = true
+      showInstructionsTable = false
+      showSimilarRecipesTable = false
+      
       
     }
-    
+//
+//    func loadTabViews() {
+//      if (showIngredientsTable) {
+//        ingredientsTable.isHidden = true
+//        instructionsTable.isHidden = true
+//      }
+//      if (showIngredientsTable) {
+//        ingredientsTable.isHidden = true
+//        instructionsTable.isHidden = true
+//      }
+//    }
+//
     func updateSavedButton(_ recipeID: Int) {
       if (self.savedRecipeIDs.contains(recipeID)) {
         savedButton.tintColor = colorSchemeGreen
