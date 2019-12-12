@@ -11,6 +11,7 @@ import Foundation
 class CuisineCollectionViewModel {
   var cuisines = [Cuisine]()
     
+
   func numberOfRows() -> Int? {
     return cuisines.count
   }
@@ -23,6 +24,10 @@ class CuisineCollectionViewModel {
     return "Title is nil"
   }
   
+  func cuisinesViewModelForRowAtIndexPath(_ cuisine: Cuisine) -> RecipesViewModel {
+    let viewModel = RecipesViewModel(cuisines: cuisine.title!, title: "\(cuisine.title!) Cuisine")
+    return viewModel
+  }
   
 }
 

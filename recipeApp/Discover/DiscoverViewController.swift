@@ -26,12 +26,12 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   
   @IBOutlet var seeAllSuggestedButton: UIButton!
 
-  let recipeViewModel = RecipeCollectionViewModel()
+  var recipeViewModel = RecipeCollectionViewModel()
 
   
-  let cuisineViewModel = CuisineCollectionViewModel()
-  let profileModel = ProfileViewModel()
-  let cuisines = Cuisines().getCuisines()
+  var cuisineViewModel = CuisineCollectionViewModel()
+  var profileModel = ProfileViewModel()
+  var cuisines = Cuisines().getCuisines()
   
   let apiClient = SearchRecipesClient()
   var recipes: [RecipeElement] = []
@@ -269,15 +269,9 @@ extension DiscoverViewController {
       detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
     }
     
-//    if let detailVC = segue.destination as? RecipesViewController,
-//      let cuisine = sender as? Cuisine {
-//      detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
-//    }
-//
-    if segue.identifier == "showRecipesWithCuisines" {
-        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
-//        showRecipes.preferences = profileModel.getCuisinePreferences()
-        showRecipes.pageTitle = "Cuisines"
+    if let cuisineListVC = segue.destination as? RecipesViewController,
+      let cuisine = sender as? Cuisine {
+      cuisineListVC.viewModel = cuisineViewModel.cuisinesViewModelForRowAtIndexPath(cuisine)
     }
     
     if segue.identifier == "showAllSuggestedRecipes" {

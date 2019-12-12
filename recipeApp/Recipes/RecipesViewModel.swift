@@ -13,6 +13,18 @@ class RecipesViewModel {
   
   let client = SearchRecipesClient()
   
+  var query: String
+  var cuisines: String
+  var dietaryRestrictions: String
+  var title: String
+
+  init(query: String = "", cuisines: String = "", dietaryRestrictions: String = "", title: String = "") {
+    self.query = query
+    self.cuisines = cuisines
+    self.dietaryRestrictions = dietaryRestrictions
+    self.title = title
+  }
+  
   func numberOfRows() -> Int? {
     return recipes.count
   }

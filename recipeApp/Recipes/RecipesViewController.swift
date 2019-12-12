@@ -24,7 +24,7 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
       performSegueToReturnBack()
   }
   
-  let viewModel = RecipesViewModel()
+  var viewModel = RecipesViewModel()
   let filterViewModel = FilterViewModel()
   let apiClient = SearchRecipesClient()
   var recipes: [RecipeElement] = []
@@ -49,11 +49,16 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
       self.searchBar.text = self.query!
     }
     
-    if self.pageTitle == nil {
-      self.pageTitleLabel.text = "Recipes"
+    if viewModel.title != nil {
+    self.pageTitleLabel.text = viewModel.title
     } else {
-      self.pageTitleLabel.text = self.pageTitle
+      if self.pageTitle == nil {
+         self.pageTitleLabel.text = "Recipes"
+       } else {
+         self.pageTitleLabel.text = self.pageTitle
+       }
     }
+   
     
 //     self.pageSubtitle == nil {
 //      self.pageSubtitleLabel.text = "Recipes"
