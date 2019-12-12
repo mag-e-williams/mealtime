@@ -16,6 +16,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var dietaryRestrictions: UITextField!
     @IBOutlet weak var preferences: UITextField!
+  
+    @IBOutlet weak var cancelButton: UIButton!
     
     let viewModel = ProfileViewModel()
     
@@ -54,6 +56,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         else {
             dietaryRestrictions.text = user?.value(forKey: "dietary_restrictions") as? String
         }
+      
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -62,7 +65,11 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    
+    @IBAction func close() {
+        performSegueToReturnBack()
+    }
+  
+  
     @IBAction func saveFields() {
         let user : NSManagedObject?
         print("saveFields called")
@@ -102,3 +109,12 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     }
 }
     
+extension UIViewController {
+    func performSegueToReturnBack()  {
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+}
