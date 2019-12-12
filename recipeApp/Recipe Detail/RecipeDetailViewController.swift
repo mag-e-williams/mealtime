@@ -426,6 +426,10 @@ extension RecipeDetailViewController {
 //        print("recipes")
         print(recipes)
         self?.similarRecipes = recipes
+//        print("CWE")
+//        for x in recipes {
+//            x.image = "https://spoonacular.com/recipeImages/" + x.image!
+//        }
         self?.suggestedRecipesCollection?.reloadData()
       } else {
         return

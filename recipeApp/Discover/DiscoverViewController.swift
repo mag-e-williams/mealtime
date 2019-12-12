@@ -54,7 +54,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchBar.delegate = self
+    self.searchBar.delegate = self
     configureCollectionView()
     refreshSuggestedContent()
     refreshQuickRecipesContent()
@@ -68,6 +68,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        print("why")
         performSegue(withIdentifier: "showAllSuggestedRecipes", sender: self)
     }
 
