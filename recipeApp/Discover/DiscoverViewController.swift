@@ -65,11 +65,18 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     refreshDessertContent()
 
   }
+  
+
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      searchBar.resignFirstResponder()
+      performSegue(withIdentifier: "showRecipes", sender: self)
+  }
+  
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        performSegue(withIdentifier: "showRecipesWithQuery", sender: self)
-    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        performSegue(withIdentifier: "showRecipesWithQuery", sender: self)
+//    }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -264,6 +271,11 @@ extension DiscoverViewController {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showRecipes" {
+        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+        showRecipes.query = self.searchBar.text
+    }
+    
     if let detailVC = segue.destination as? RecipeDetailViewController,
       let recipe = sender as? RecipeElement {
       detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
@@ -282,11 +294,11 @@ extension DiscoverViewController {
         showRecipes.pageTitle = "Suggested Recipes"
     }
     
-    if segue.identifier == "showRecipesWithQuery" {
-        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
-        showRecipes.query = self.searchBar.text
-        showRecipes.pageTitle = "Recipe Results"
-    }
+//    if segue.identifier == "showRecipesWithQuery" {
+//        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+//        showRecipes.query = self.searchBar.text
+//        showRecipes.pageTitle = "Recipe Results"
+//    }
 
     if segue.identifier == "showAllQuickRecipes" {
         let showRecipes:RecipesViewController = segue.destination as! RecipesViewController

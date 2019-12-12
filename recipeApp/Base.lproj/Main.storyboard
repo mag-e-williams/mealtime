@@ -128,10 +128,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-Jx-C8I">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foc-mK-wGK">
-                                                <rect key="frame" x="8" y="10" width="398" height="22"/>
+                                                <rect key="frame" x="8" y="10" width="398" height="38"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title=" back" image="chevron.left" catalog="system">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,13 +142,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Results " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94g-h9-qgB">
-                                                <rect key="frame" x="8" y="32" width="398" height="60"/>
+                                                <rect key="frame" x="8" y="48" width="398" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0w-s1-kHD">
-                                                <rect key="frame" x="8" y="92" width="398" height="18"/>
+                                                <rect key="frame" x="8" y="108" width="398" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -157,14 +157,14 @@
                                         <edgeInsets key="layoutMargins" top="10" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyi-lN-fDu">
-                                        <rect key="frame" x="0.0" y="118" width="414" height="38"/>
+                                        <rect key="frame" x="0.0" y="134" width="414" height="72"/>
                                         <subviews>
-                                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="zka-ww-7bd">
-                                                <rect key="frame" x="0.0" y="8" width="380" height="22"/>
+                                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="zka-ww-7bd">
+                                                <rect key="frame" x="0.0" y="8" width="380" height="56"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-50-zE5">
-                                                <rect key="frame" x="380" y="8" width="26" height="22"/>
+                                                <rect key="frame" x="380" y="8" width="26" height="56"/>
                                                 <color key="tintColor" red="0.60740202669999999" green="0.79460513590000004" blue="0.25317350030000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="line.horizontal.3" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -177,7 +177,7 @@
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="47g-8p-9fQ">
-                                        <rect key="frame" x="0.0" y="156" width="414" height="613"/>
+                                        <rect key="frame" x="0.0" y="206" width="414" height="563"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="0.0" right="0.0"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fMy-uC-cZc">
@@ -812,17 +812,25 @@
                                         <edgeInsets key="layoutMargins" top="20" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="fIo-oF-jcG">
-                                        <rect key="frame" x="0.0" y="106.5" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="106.5" width="414" height="56"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-0c-e27">
-                                                <rect key="frame" x="0.0" y="8" width="414" height="56"/>
+                                                <rect key="frame" x="8" y="8" width="366" height="40"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxb-k6-asf">
+                                                <rect key="frame" x="376" y="8" width="30" height="40"/>
+                                                <color key="tintColor" red="0.60740202669999999" green="0.79460513590000004" blue="0.25317350030000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="magnifyingglass" catalog="system"/>
+                                                <connections>
+                                                    <segue destination="Nfx-cc-6St" kind="push" identifier="showRecipes" id="hUS-Wy-0yp"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
-                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXq-pa-hNI">
-                                        <rect key="frame" x="0.0" y="178.5" width="414" height="590.5"/>
+                                        <rect key="frame" x="0.0" y="162.5" width="414" height="606.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mQu-6C-h0y">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="2294.5"/>
@@ -1292,7 +1300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EW6-f7-MjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1850.7246376811595" y="154.6875"/>
+            <point key="canvasLocation" x="2109" y="155"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="sdU-Hi-ZOg">
@@ -1642,6 +1650,7 @@
         <image name="house" catalog="system" width="64" height="54"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="line.horizontal.3" catalog="system" width="64" height="32"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="mic.circle.fill" catalog="system" width="64" height="60"/>
         <image name="multiply" catalog="system" width="64" height="54"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
@@ -1654,6 +1663,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="OO6-Pj-YBo"/>
         <segue reference="txj-eO-NUI"/>
-        <segue reference="XRm-c3-qfl"/>
+        <segue reference="hUS-Wy-0yp"/>
     </inferredMetricsTieBreakers>
 </document>
