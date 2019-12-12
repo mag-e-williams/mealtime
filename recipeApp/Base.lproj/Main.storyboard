@@ -825,10 +825,10 @@
                                         <rect key="frame" x="0.0" y="178.5" width="414" height="590.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mQu-6C-h0y">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="2302.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="2294.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJO-Pt-REM">
-                                                        <rect key="frame" x="0.0" y="16" width="414" height="45"/>
+                                                        <rect key="frame" x="0.0" y="8" width="414" height="45"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj3-eU-LHE">
                                                                 <rect key="frame" x="8" y="8" width="298" height="29"/>
@@ -855,7 +855,7 @@
                                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RUR-bs-Twg">
-                                                        <rect key="frame" x="0.0" y="61" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="53" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="Fa1-f0-10x"/>
@@ -886,7 +886,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="tlM-ed-xcX">
-                                                        <rect key="frame" x="0.0" y="321" width="414" height="40.5"/>
+                                                        <rect key="frame" x="0.0" y="313" width="414" height="40.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aX-li-vg2">
                                                                 <rect key="frame" x="8" y="12" width="398" height="20.5"/>
@@ -898,7 +898,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Am7-6D-3xJ">
-                                                        <rect key="frame" x="0.0" y="361.5" width="414" height="87"/>
+                                                        <rect key="frame" x="0.0" y="353.5" width="414" height="87"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="87" id="eBe-5q-gz5"/>
@@ -929,7 +929,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="v50-Wf-Lgv">
-                                                        <rect key="frame" x="0.0" y="448.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="440.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick &amp; Easy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bta-ZI-ceW">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -956,7 +956,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e3H-7y-lq6">
-                                                        <rect key="frame" x="0.0" y="497.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="489.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="TLs-My-TcF"/>
@@ -983,7 +983,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="sUh-zG-ytg">
-                                                        <rect key="frame" x="0.0" y="757.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="749.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-3t-47x">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -1010,7 +1010,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2XN-1n-zdT">
-                                                        <rect key="frame" x="0.0" y="806.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="798.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="72O-5a-c0J"/>
@@ -1037,7 +1037,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="KMS-dx-cwc">
-                                                        <rect key="frame" x="0.0" y="1066.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="1058.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xl-z4-DIL">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -1064,7 +1064,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bUc-6Q-KMi">
-                                                        <rect key="frame" x="0.0" y="1115.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="1107.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="OOb-wA-f0O"/>
@@ -1091,7 +1091,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="70n-gP-GzD">
-                                                        <rect key="frame" x="0.0" y="1375.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="1367.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwn-zK-AzQ">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -1118,7 +1118,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F9d-Jf-rXg">
-                                                        <rect key="frame" x="0.0" y="1424.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="1416.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="u4T-Qs-CUX"/>
@@ -1145,7 +1145,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-wi-3pt">
-                                                        <rect key="frame" x="0.0" y="1684.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="1676.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stir-Fry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viA-N8-RDp">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -1172,7 +1172,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uHV-R8-5Ps">
-                                                        <rect key="frame" x="0.0" y="1733.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="1725.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="KVe-iy-8sr"/>
@@ -1199,7 +1199,7 @@
                                                         </connections>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="OIF-N7-JwM">
-                                                        <rect key="frame" x="0.0" y="1993.5" width="414" height="49"/>
+                                                        <rect key="frame" x="0.0" y="1985.5" width="414" height="49"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desserts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKu-Uw-8Ed">
                                                                 <rect key="frame" x="8" y="12" width="157" height="29"/>
@@ -1226,7 +1226,7 @@
                                                         <edgeInsets key="layoutMargins" top="12" left="8" bottom="8" right="8"/>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SX1-f0-dUW">
-                                                        <rect key="frame" x="0.0" y="2042.5" width="414" height="260"/>
+                                                        <rect key="frame" x="0.0" y="2034.5" width="414" height="260"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="260" id="CZy-bW-gG3"/>
@@ -1253,7 +1253,7 @@
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
-                                                <edgeInsets key="layoutMargins" top="16" left="0.0" bottom="0.0" right="0.0"/>
+                                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="0.0" right="0.0"/>
                                             </stackView>
                                         </subviews>
                                         <viewLayoutGuide key="contentLayoutGuide" id="ofY-4U-Xnx"/>
@@ -1652,7 +1652,7 @@
         <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OO6-Pj-YBo"/>
+        <segue reference="si4-8W-6bT"/>
         <segue reference="txj-eO-NUI"/>
         <segue reference="ulS-Gy-IFW"/>
     </inferredMetricsTieBreakers>
