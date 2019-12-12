@@ -28,4 +28,26 @@ class SearchRecipesClient {
     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
     return item.results
   }
+  
+  
+  func fetchSimilarRecipes(inputID: Int,_ completion: @escaping ([RecipeElement]?) -> Void) {
+  
+    let interpString = String(inputID)
+    let url = "https://api.spoonacular.com/recipes/\(interpString)/similar?number=6&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+    
+//    let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(interpString)&number=60&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
+    let recipes = getSimilarRecipes(url)
+    completion(recipes)
+    
+  }
+  
+  func getSimilarRecipes(_ url: String) -> [RecipeElement]?{
+    let decoder = JSONDecoder()
+    let item = try! decoder.decode(SimilarRecipes.self, from: try! Data(contentsOf: URL(string: url)!))
+    print("HEREHEE;AWIUEFBAI2U4HT9843")
+    print(item)
+    return item
+  }
+  
+  
 }

@@ -21,19 +21,29 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     var recipes: [AnyObject] = []
     var inProgressTask: Cancellable?
     
+    @IBOutlet var usernameInitial: UILabel!
     @IBOutlet var username: UILabel!
     @IBOutlet var cuisine: UILabel!
     @IBOutlet var restrictions: UILabel!
     @IBOutlet var savedRecipeCollectionView: UICollectionView!
-    
+  
+
+
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 //        viewModel.resetData()
 //        deleteRecipes()
 //        viewModel.deleteUser()
         user = viewModel.fetchUser("User")
-        displayDetails()
         
+        let displayName = "\(user?.value(forKey: "first_name") ?? " ")!"
+        displayDetails()
+        let mySubstring = displayName.prefix(1) // Hello
+
+      self.usernameInitial.text = String(mySubstring)
+        
+      
         configureCollectionView()
         refreshContent()
     }
@@ -44,7 +54,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     }
     
     func displayDetails() {
-        self.username.text = "Hi, \(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
+        self.username.text = "   Hi, \(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
+//        self.name = "\(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
         self.cuisine.text = "\(user?.value(forKey: "preferences") ?? "No Favorite Cuisines Yet!")"
         self.restrictions.text = "\(user?.value(forKey: "dietary_restrictions") ?? "No Dietary Restrictions Yet!")" 
     }
@@ -170,3 +181,18 @@ extension ProfileViewController {
 }
 
 
+
+extension String {
+ 
+    func index(at position: Int, from start: Index? = nil) -> Index? {
+        let startingIndex = start ?? startIndex
+        return index(startingIndex, offsetBy: position, limitedBy: endIndex)
+    }
+ 
+    func character(at position: Int) -> Character? {
+        guard position >= 0, let indexPosition = index(at: position) else {
+            return nil
+        }
+        return self[indexPosition]
+    }
+}

@@ -19,21 +19,15 @@ struct RecipeElement: Codable {
     var servings: Int?
         
     
-//    init(id: Int?, title: String?, calories: Int?, image: String?, imageType: String?, cuisines: [String]?, readyInMinutes: Int?, cookingMinutes: Int?, averageRating: Double?, diets: [String]?) {
-//        self.id = id
-//        self.title = title
-//        self.calories = calories
-//        self.image = image
-//        self.imageType = imageType
-//        self.cuisines = cuisines
-//        self.readyInMinutes = readyInMinutes
-//        self.cookingMinutes = cookingMinutes
-//        self.averageRating = averageRating
-//        self.diets = diets
-//    }
-    
 }
 
-//extension RecipeElement: Codable {
-//        
+import Foundation
+
+//struct SimilarRecipe: Codable {
+//    let id: Int
+//    let title, image: String
+//    let imageUrls: [String]
+//    let readyInMinutes, servings: Int
 //}
+
+typealias SimilarRecipes = [RecipeElement]

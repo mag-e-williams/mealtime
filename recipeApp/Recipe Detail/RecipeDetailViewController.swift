@@ -9,9 +9,8 @@
 import UIKit
 import CoreData
 
-class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
-//    var recipeDetail: RecipeDetail?
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var savedButton: UIButton!
@@ -19,9 +18,9 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var instructionsTableButton: UIButton!
     @IBOutlet weak var similarRecipesButton: UIButton!
 
-    
-//    @IBOutlet weak var tableHeight: NSLayoutConstraint!
-//    @IBOutlet weak var tabBar: UITabBar!
+    @IBOutlet weak var pageContent: UIStackView!
+    @IBOutlet weak var pageContentHeight: NSLayoutConstraint!
+
     
     @IBOutlet var recipeLabel: UILabel!
     @IBOutlet var prepTime: UILabel!
@@ -32,24 +31,29 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet var ingredientsTable: UITableView!
     @IBOutlet var instructionsTable: UITableView!
-    
+    @IBOutlet var suggestedRecipesCollection: UICollectionView!
+  
+    @IBOutlet weak var ingredientsTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var instructionsTableHeight: NSLayoutConstraint!
+    @IBOutlet weak var suggestedRecipesCollectionHeight: NSLayoutConstraint!
+
+    let apiClient = SearchRecipesClient()
     var dataViewModel = ProfileViewModel()
 
     let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
     let lightTextColor = UIColor(red: 164, green: 165, blue: 166)
+    let backgroundColor = UIColor(red: 37, green: 38, blue: 41)
 
   
     var viewModel: RecipeDetailViewModel?
+    let recipesViewModel = RecipesViewModel()
+
     var recipeID: Int?
     var savedRecipeIDs = Set<Int>()
-  
-    var showIngredientsTable: Bool
-    var showInstructionsTable: Bool
-    var showSimilarRecipesTable: Bool
+    var similarRecipes: [RecipeElement] = []
 
+    var inProgressTask: Cancellable?
 
-//    var tabItems: [UITabBarItem]
-  
     var recipeDetail: RecipeDetail? {
       didSet {
         guard let recipeDetail = recipeDetail else {
@@ -111,28 +115,74 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
 
       }
-            
+      configureCollectionView()
+      refreshContent()
+      
       updateSavedButton((self.recipeDetail?.id)!)
-      ingredientsTable.isHidden = true
       
-      showIngredientsTable = true
-      showInstructionsTable = false
-      showSimilarRecipesTable = false
+      ingredientsTable.isHidden = false
+      instructionsTable.isHidden = true
+      suggestedRecipesCollection.isHidden = true
       
+      ingredientsTableButton.addTopBorderWithColor(color: backgroundColor, width: 1)
+      instructionsTableButton.addTopBorderWithColor(color: backgroundColor, width: 1)
+      similarRecipesButton.addTopBorderWithColor(color: backgroundColor, width: 1)
       
+      ingredientsTableButton.addBottomBorderWithColor(color: colorSchemeGreen, width: 3)
+      instructionsTableButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+      similarRecipesButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+
     }
-//
-//    func loadTabViews() {
-//      if (showIngredientsTable) {
-//        ingredientsTable.isHidden = true
-//        instructionsTable.isHidden = true
-//      }
-//      if (showIngredientsTable) {
-//        ingredientsTable.isHidden = true
-//        instructionsTable.isHidden = true
-//      }
-//    }
-//
+
+  
+    @IBAction func showIngredientsButtonPressed(_ sender: UIButton) {
+      ingredientsTable.isHidden = false
+      instructionsTable.isHidden = true
+      suggestedRecipesCollection.isHidden = true
+      
+      ingredientsTableButton.addBottomBorderWithColor(color: colorSchemeGreen, width: 3)
+      instructionsTableButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+      similarRecipesButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+    
+      resizeScreen()
+      
+
+    }
+  
+    @IBAction func showInstructionsButtonPressed(_ sender: UIButton) {
+      ingredientsTable.isHidden = true
+      instructionsTable.isHidden = false
+      suggestedRecipesCollection.isHidden = true
+
+      ingredientsTableButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+      instructionsTableButton.addBottomBorderWithColor(color: colorSchemeGreen, width: 3)
+      similarRecipesButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+
+      resizeScreen()
+      
+  }
+    
+    @IBAction func showSimilarRecipesButtonPressed(_ sender: UIButton) {
+      ingredientsTable.isHidden = true
+      instructionsTable.isHidden = true
+      suggestedRecipesCollection.isHidden = false
+
+      ingredientsTableButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+      instructionsTableButton.addBottomBorderWithColor(color: backgroundColor, width: 3)
+      similarRecipesButton.addBottomBorderWithColor(color: colorSchemeGreen, width: 3)
+
+      resizeScreen()
+    }
+  
+    func resizeScreen() {
+      ingredientsTableHeight.constant = ingredientsTable.contentSize.height
+      instructionsTableHeight.constant = instructionsTable.contentSize.height
+      suggestedRecipesCollectionHeight.constant = suggestedRecipesCollection.contentSize.height
+      
+//      scrollView.contentSize.height = pageContentHeight.constant
+    }
+  
+  
     func updateSavedButton(_ recipeID: Int) {
       if (self.savedRecipeIDs.contains(recipeID)) {
         savedButton.tintColor = colorSchemeGreen
@@ -186,7 +236,12 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         instructionsTable.reloadData()
       
         self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
- 
+        
+        ingredientsTableHeight.constant = ingredientsTable.contentSize.height
+        instructionsTableHeight.constant = instructionsTable.contentSize.height
+        suggestedRecipesCollectionHeight.constant = suggestedRecipesCollection.contentSize.height
+      
+//        scrollView.contentSize.height = CGFloat(pageContentHeight.constant)
     }
   
 
@@ -267,8 +322,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
             newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
             newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
             
-            print("new recipe")
-            print(newRecipe!)
+//            print(newRecipe!)
             do {
                 try context.save()
                 print("context was saved")
@@ -287,6 +341,107 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     }
 }
 
+// MARK: UI Configuration
+extension RecipeDetailViewController {
+
+  func configureCollectionView() {
+    let cellNib = UINib(nibName: "RecipeCell", bundle: nil)
+    suggestedRecipesCollection?.register(cellNib, forCellWithReuseIdentifier: RecipeCell.cellID)
+  }
+
+}
+
+// MARK: UICollectionViewDelegateFlowLayout
+extension RecipeDetailViewController: UICollectionViewDelegateFlowLayout {
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: view.bounds.width - (RecipeCell.cellPadding * 2), height: RecipeCell.cellHeight)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: RecipeCell.cellPadding, left: RecipeCell.cellPadding, bottom: RecipeCell.cellPadding, right: RecipeCell.cellPadding)
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return RecipeCell.cellPadding
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 0.0
+  }
+}
+
+// MARK: UICollectionViewDataSource and Delegate
+extension RecipeDetailViewController {
+
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return similarRecipes.count
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecipeCell.cellID, for: indexPath) as? RecipeCell {
+      cell.recipe = similarRecipes[indexPath.row]
+      return cell
+    } else {
+      fatalError("Missing cell for indexPath: \(indexPath)")
+    }
+  }
+  
+
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let detailVC = segue.destination as? RecipeDetailViewController,
+      let recipe = sender as? RecipeElement {
+      detailVC.viewModel = recipesViewModel.detailViewModelForRowAtIndexPath(recipe)
+    }
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let recipe = similarRecipes[indexPath.row]
+    
+    performSegue(withIdentifier: "toDetailVC", sender: recipe)
+  }
+}
+
+// MARK: Data
+extension RecipeDetailViewController {
+
+  func refreshContent() {
+    guard inProgressTask == nil else {
+      inProgressTask?.cancel()
+      inProgressTask = nil
+      return
+    }
+
+
+  if let recipe = self.recipeDetail {
+
+    inProgressTask = apiClient.fetchSimilarRecipes(inputID: recipe.id!) { [weak self] (recipes) in
+      self?.inProgressTask = nil
+      if let recipes = recipes {
+//        print("recipes")
+        print(recipes)
+        self?.similarRecipes = recipes
+        self?.suggestedRecipesCollection?.reloadData()
+      } else {
+        return
+      }
+      } as? Cancellable
+    }
+  }
+
+  func showError() {
+
+  }
+
+}
+
+
+
 extension UIImageView {
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
@@ -304,4 +459,41 @@ extension UIImageView {
     }
 }
 
+
+extension UIButton {
+    func addTopBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0,y: 0, width:self.frame.size.width, height:width)
+        self.layer.addSublayer(border)
+    }
+
+    func addRightBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: self.frame.size.width - width,y: 0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+
+    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0, y:self.frame.size.height - width, width:self.frame.size.width, height:width)
+        self.layer.addSublayer(border)
+    }
+
+    func addLeftBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:0, y:0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+
+    func addMiddleBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x:self.frame.size.width/2, y:0, width:width, height:self.frame.size.height)
+        self.layer.addSublayer(border)
+    }
+}
 
