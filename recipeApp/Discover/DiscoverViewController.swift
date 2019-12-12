@@ -68,8 +68,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        print("why")
-        performSegue(withIdentifier: "showAllSuggestedRecipes", sender: self)
+        performSegue(withIdentifier: "showRecipesWithQuery", sender: self)
     }
 
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -283,6 +282,12 @@ extension DiscoverViewController {
         showRecipes.pageTitle = "Suggested Recipes"
     }
     
+    if segue.identifier == "showRecipesWithQuery" {
+        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+        showRecipes.query = self.searchBar.text
+        showRecipes.pageTitle = "Recipe Results"
+    }
+
     if segue.identifier == "showAllQuickRecipes" {
         let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
         showRecipes.preferences = ""

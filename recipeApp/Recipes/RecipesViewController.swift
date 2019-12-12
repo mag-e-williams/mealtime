@@ -187,6 +187,23 @@ extension RecipesViewController {
     if self.preferences != nil && self.preferences != "" {
       input = self.preferences!
     }
+    if (self.pageTitle == "RecipeResults") {
+      inProgressTask = apiClient.fetchSuggestedRecipes(query: [input]){ [weak self] (recipes) in
+      self?.inProgressTask = nil
+      if let recipes = recipes {
+        print("recipes")
+        print(recipes)
+        let filteredRecipes = self?.filterViewModel.filterOutCuisines(recipes)
+        self?.recipes = filteredRecipes!
+        print("filtered")
+        print(self?.recipes)
+        self?.collectionView?.reloadData()
+      } else {
+        return
+      }
+      } as? Cancellable
+    }
+    
     if (self.pageTitle == "Quick & Easy Recipes") {
       inProgressTask = apiClient.fetchQuickRecipes(){ [weak self] (recipes) in
       self?.inProgressTask = nil

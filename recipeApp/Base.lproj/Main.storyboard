@@ -1598,8 +1598,8 @@
         <!--View Controller-->
         <scene sceneID="esn-cA-9xY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jlm-H9-woV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="PoQ-VG-5Qz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jlm-H9-woV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2128" y="1150"/>
         </scene>
@@ -1652,8 +1652,8 @@
         <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="si4-8W-6bT"/>
+        <segue reference="OO6-Pj-YBo"/>
         <segue reference="txj-eO-NUI"/>
-        <segue reference="ulS-Gy-IFW"/>
+        <segue reference="XRm-c3-qfl"/>
     </inferredMetricsTieBreakers>
 </document>
