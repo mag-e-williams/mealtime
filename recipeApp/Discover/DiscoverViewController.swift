@@ -278,6 +278,8 @@ extension DiscoverViewController {
     if segue.identifier == "showAllSuggestedRecipes" {
         let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
         showRecipes.preferences = profileModel.getCuisinePreferences()
+        showRecipes.query =  self.searchBar.text!
+      
         showRecipes.pageTitle = "Suggested Recipes"
     }
     
