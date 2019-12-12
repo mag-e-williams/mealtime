@@ -52,9 +52,6 @@ class RecipeCell: UICollectionViewCell {
       if recipe.healthScore == nil {
           ratingString = "N/A"
       }
-//      else if recipe.cookingMinutes == -1 {
-//          ratingString = "Health Score: \(recipe.calories!)"
-//      }
       else {
           ratingString = "Health Score: \(recipe.healthScore!)"
       }
@@ -84,6 +81,7 @@ class RecipeCell: UICollectionViewCell {
   }
   
   func updateSavedButton(recipeID: Int) {
+    self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
     if (self.savedRecipeIDs.contains(recipeID)) {
       savedButton.tintColor = colorSchemeGreen
       //      let image = UIImage(named: "heart.fill")
@@ -112,30 +110,36 @@ class RecipeCell: UICollectionViewCell {
 //
 //     }
 
-   
+   let client1 = GetRecipeDetailClient()
   @IBAction func saveButtonPressed(_ sender: UIButton) {
+    print("pressed save button")
       self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
       
       if let recipe = self.recipe {
 
         if let id = self.recipe?.id {
-          if (!savedRecipeIDs.contains(recipe.id!)) {
+            if (!self.savedRecipeIDs.contains(recipe.id!)) {
+            print("not already saved")
             self.savedButton.tintColor = colorSchemeGreen
             self.savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             
             self.recipeID = id
               
             recipeDetailViewModel = RecipeDetailViewModel(id: id)
-
+            print("right before viewModel")
              if let recipeDetailViewModel = recipeDetailViewModel {
-                recipeDetailViewModel.refreshDetailByID(recipeID: id) {
-                  self.recipeDetail = recipeDetailViewModel.recipeDetail
-                    
+                print("inside if let")
+                let url = "https://api.spoonacular.com/recipes/\(id)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+                self.recipeDetail = client1.getRecipeDetail(url)
+//                recipeDetailViewModel.refreshDetailByID(recipeID: id) {
+//                  self.recipeDetail = recipeDetailViewModel.recipeDetail
+                  print("recipeDetail made")
+                print(self.recipeDetail)
                   let appDelegate = UIApplication.shared.delegate as! AppDelegate
                   let context = appDelegate.persistentContainer.viewContext
                   let recipeDetail = self.recipeDetail
                   let newRecipe = self.recipeDetailViewModel!.createRecipe("Recipe")
-
+                    print("saving to coredata")
                   newRecipe?.setValue(recipeDetail?.id, forKey: "id")
                   newRecipe?.setValue(recipeDetail?.title!, forKey: "name")
                   newRecipe?.setValue(recipeDetail?.image!, forKey: "image")
@@ -153,8 +157,7 @@ class RecipeCell: UICollectionViewCell {
                     print("Failed saving")
                   }
                 }
-              }
-            
+            //}
           }
           else if (savedRecipeIDs.contains(recipe.id!)) {
             self.savedButton.tintColor = lightTextColor

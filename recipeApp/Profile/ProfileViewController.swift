@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
 //        viewModel.resetData()
-//        deleteRecipes()
+//        viewModel.deleteRecipes()
 //        viewModel.deleteUser()
         user = viewModel.fetchUser("User")
         

@@ -89,6 +89,8 @@ class ProfileViewModel {
         var recipeSet = Set<Int>()
         guard let recipes = recipeViewModel.fetchRecipe("Recipe") else { return [] }
         for recipe in recipes {
+//            print("y r u crashing")
+//            print(recipe)
             let recipeID = (recipe.value(forKey: "id")! as AnyObject).integerValue
             recipeSet.insert(recipeID!)
         }
