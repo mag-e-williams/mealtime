@@ -204,9 +204,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+      
 
         if let id = self.recipeDetail?.id {
           if (!savedRecipeIDs.contains(id)) {
+            
+            self.savedButton.tintColor = colorSchemeGreen
+            self.savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             let recipe = self.recipeDetail!
@@ -229,25 +234,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
                 print("Failed saving")
             }
           } else if (savedRecipeIDs.contains(id)) {
-            
-          
-          
-          }
-        }
-
-//        let fetchedRecipe = viewModel?.fetchRecipe("Recipe")
-//        print("all fetched recipes")
-//        print(fetchedRecipe)
-      
-        if let id = self.recipeDetail?.id {
-           if (savedRecipeIDs.contains(id)) {
-            self.savedButton.tintColor = colorSchemeGreen
-            self.savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-           } else if (!savedRecipeIDs.contains(id)) {
             self.savedButton.tintColor = lightTextColor
             self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
+          
+          
           }
         }
+      
+
     }
 }
 

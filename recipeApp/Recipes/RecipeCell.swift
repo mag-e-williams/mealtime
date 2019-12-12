@@ -15,6 +15,8 @@ class RecipeCell: UICollectionViewCell {
   static let cellHeight: CGFloat = 370.0
   static let cellWidth: CGFloat = 360.0
 
+  var recipeDetail: RecipeDetail?
+  
   static let cellPadding: CGFloat = 10.0
   let colorSchemeGreen = UIColor(red: 153, green: 204, blue: 51)
   let lightTextColor = UIColor(red: 164, green: 165, blue: 166)
@@ -26,6 +28,8 @@ class RecipeCell: UICollectionViewCell {
   @IBOutlet var savedButton: UIButton!
 
   var dataViewModel = ProfileViewModel()
+  let getRecipeClient = GetRecipeDetailClient()
+  var recipeDetailViewModel: RecipeDetailViewModel?
 
   
   var recipe: RecipeElement? {
@@ -83,6 +87,57 @@ class RecipeCell: UICollectionViewCell {
     imageView.sd_cancelCurrentImageLoad()
     titleLabel.text = nil
   }
+  
+  @IBAction func saveButtonPressed(_ sender: UIButton) {
+      let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+      
+      if let recipe = self.recipe {
+
+        if let id = self.recipe?.id {
+          if (!savedRecipeIDs.contains(recipe.id!)) {
+              self.savedButton.tintColor = lightTextColor
+              self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
+              getRecipeClient.fetchRecipeDetail(inputID: id) { [unowned self] recipeDetail in
+              self.recipeDetail = recipeDetail!
+              if (!savedRecipeIDs.contains(id)) {
+              let appDelegate = UIApplication.shared.delegate as! AppDelegate
+              let context = appDelegate.persistentContainer.viewContext
+              let recipeDetail = self.recipeDetail
+              let newRecipe = self.recipeDetailViewModel!.createRecipe("Recipe")
+
+              newRecipe?.setValue(recipeDetail?.id, forKey: "id")
+              newRecipe?.setValue(recipeDetail?.title!, forKey: "name")
+              newRecipe?.setValue(recipeDetail?.image!, forKey: "image")
+              newRecipe?.setValue(recipeDetail?.servings!, forKey: "servings")
+              newRecipe?.setValue(recipeDetail?.readyInMinutes!, forKey: "ready_in_minutes")
+              newRecipe?.setValue(recipeDetail?.cheap!, forKey: "cheap")
+              newRecipe?.setValue(recipeDetail?.instructions!, forKey: "instructions")
+                
+              print("new recipe")
+              print(newRecipe!)
+              do {
+                try context.save()
+                print("context was saved")
+              } catch {
+                print("Failed saving")
+              }
+              } else if (savedRecipeIDs.contains(id)) {
+              }
+            }
+          }
+          else if (savedRecipeIDs.contains(recipe.id!)) {
+            self.savedButton.tintColor = lightTextColor
+            self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            
+            
+          }
+        }
+      }
+    
+    
+  }
+  
+  
 
 }
 

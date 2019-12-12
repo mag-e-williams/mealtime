@@ -80,6 +80,9 @@
                         <state key="normal" image="heart" catalog="system">
                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                         </state>
+                        <connections>
+                            <action selector="saveButtonPressed:" destination="LaC-lX-mGw" eventType="touchDown" id="xD0-od-JXF"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
