@@ -14,8 +14,15 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   
   @IBOutlet var searchBar: UISearchBar!
   @IBOutlet var collectionView: UICollectionView!
-  @IBOutlet var numResults: UILabel!
+//  @IBOutlet var numResults: UILabel!
 
+  @IBOutlet var pageTitleLabel: UILabel!
+  @IBOutlet var pageSubtitleLabel: UILabel!
+
+  
+  @IBAction func close() {
+      performSegueToReturnBack()
+  }
   
   let viewModel = RecipesViewModel()
   let filterViewModel = FilterViewModel()
@@ -24,6 +31,11 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
   var inProgressTask: Cancellable?
   
   var query: String?
+  var preferences: String?
+
+  var pageTitle: String?
+  var pageSubtitle: String?
+
   var filters: [Filter]?
 
   var queryFilters: [Filter]?
@@ -34,8 +46,22 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     if self.query == nil {
       self.searchBar.text = " "
     } else {
-//      self.searchBar.text = self.query!
+      self.searchBar.text = self.query!
     }
+    
+    if self.pageTitle == nil {
+      self.pageTitleLabel.text = "Recipes"
+    } else {
+      self.pageTitleLabel.text = self.pageTitle
+    }
+    
+//     self.pageSubtitle == nil {
+//      self.pageSubtitleLabel.text = "Recipes"
+//    } else {
+//      self.pageSubtitleLabel.text = self.pageSubtitle
+//    }
+//
+    
     
     if self.filters == nil {
       self.filters = []
@@ -45,12 +71,13 @@ class RecipesViewController: UIViewController, UICollectionViewDataSource, UICol
     
     configureCollectionView()
     refreshContent()
-    
-    if (self.query != "" && self.query != nil) {
-      numResults.text = "\(recipes.count) results for \"\(self.query ?? "")\""
-    } else {
-      numResults.text = "\(recipes.count) results"
-    }
+    pageSubtitleLabel.text = "showing \(recipes.count) recipes"
+
+//    if (self.query != "" && self.query != nil) {
+//      numResults.text = "\(recipes.count) results for \"\(self.query ?? "")\""
+//    } else {
+//      numResults.text = "\(recipes.count) results"
+//    }
     
   }
 
@@ -146,9 +173,15 @@ extension RecipesViewController {
       inProgressTask = nil
       return
     }
-
-
-    inProgressTask = apiClient.fetchRecipes(inputString: self.query!) { [weak self] (recipes) in
+    var input: String = ""
+    if self.query != nil && self.query != "" {
+      input = self.query!
+    }
+    if self.preferences != nil && self.preferences != "" {
+      input = self.preferences!
+    }
+    if (self.pageTitle == "Quick & Easy Recipes") {
+      inProgressTask = apiClient.fetchQuickRecipes(){ [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
         print("recipes")
@@ -162,6 +195,23 @@ extension RecipesViewController {
         return
       }
       } as? Cancellable
+    }
+    else {
+    inProgressTask = apiClient.fetchSuggestedRecipes(tags: [input]){ [weak self] (recipes) in
+      self?.inProgressTask = nil
+      if let recipes = recipes {
+        print("recipes")
+        print(recipes)
+        let filteredRecipes = self?.filterViewModel.filterOutCuisines(recipes)
+        self?.recipes = filteredRecipes!
+        print("filtered")
+        print(self?.recipes)
+        self?.collectionView?.reloadData()
+      } else {
+        return
+      }
+      } as? Cancellable
+    }
   }
 
   func showError() {

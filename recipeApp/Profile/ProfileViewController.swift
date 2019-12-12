@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import CoreData
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
     var user: NSManagedObject?
     var viewModel = ProfileViewModel()
@@ -23,13 +23,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
     
     @IBOutlet var usernameInitial: UILabel!
     @IBOutlet var username: UILabel!
-    @IBOutlet var cuisine: UILabel!
-    @IBOutlet var restrictions: UILabel!
     @IBOutlet var savedRecipeCollectionView: UICollectionView!
   
+    @IBOutlet var dietaryRestrictionsTable: UITableView!
+    @IBOutlet var preferencesTable: UITableView!
 
+    @IBOutlet var dietaryRestrictionsTableHeight: NSLayoutConstraint!
+    @IBOutlet var preferencesTableHeight: NSLayoutConstraint!
 
-  
     override func viewDidLoad() {
         super.viewDidLoad()
 //        viewModel.resetData()
@@ -46,20 +47,58 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UICollection
       
         configureCollectionView()
         refreshContent()
+      
+        let bundle = Bundle(for: type(of: self))
+
+        let dietaryRestrictionsCellNib = UINib(nibName: "TableViewCell", bundle: bundle)
+        self.dietaryRestrictionsTable.register(dietaryRestrictionsCellNib, forCellReuseIdentifier: "cell")
+      
+        let preferencesCellNib = UINib(nibName: "TableViewCell", bundle: bundle)
+        self.preferencesTable.register(preferencesCellNib, forCellReuseIdentifier: "cell")
+      
+        dietaryRestrictionsTableHeight.constant = dietaryRestrictionsTable.contentSize.height
+        preferencesTableHeight.constant = preferencesTable.contentSize.height
     }
     
     override func viewDidAppear(_ animated: Bool) {
         configureCollectionView()
         refreshContent()
+        dietaryRestrictionsTableHeight.constant = dietaryRestrictionsTable.contentSize.height
+        preferencesTableHeight.constant = preferencesTable.contentSize.height
     }
     
     func displayDetails() {
         self.username.text = "   Hi, \(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
 //        self.name = "\(user?.value(forKey: "first_name") ?? "Please Update Your Info")!"
-        self.cuisine.text = "\(user?.value(forKey: "preferences") ?? "No Favorite Cuisines Yet!")"
-        self.restrictions.text = "\(user?.value(forKey: "dietary_restrictions") ?? "No Dietary Restrictions Yet!")" 
+//        self.cuisine.text = "\(user?.value(forKey: "preferences") ?? "No Favorite Cuisines Yet!")"
+//        self.restrictions.text = "\(user?.value(forKey: "dietary_restrictions") ?? "No Dietary Restrictions Yet!")"
     }
     
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == dietaryRestrictionsTable {
+          return (viewModel.numberOfDietaryRestrictionTableRows())
+        } else if tableView == preferencesTable {
+          return (viewModel.numberOfPreferencesTableRows())
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == dietaryRestrictionsTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+          cell.title?.text = viewModel.dietaryRestrictionForRowAtIndexPath(indexPath)
+            return cell
+        } else if tableView == preferencesTable {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+          cell.title?.text = viewModel.preferenceForRowAtIndexPath(indexPath)
+            return cell
+        }
+        return UITableViewCell()
+    }
+  
+  
+  
 }
 
 

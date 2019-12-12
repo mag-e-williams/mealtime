@@ -34,8 +34,6 @@ class SearchRecipesClient {
   
     let interpString = String(inputID)
     let url = "https://api.spoonacular.com/recipes/\(interpString)/similar?number=6&apiKey=0ff5861766ea48b0a55b2008c47bd778"
-    
-//    let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(interpString)&number=60&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
     let recipes = getSimilarRecipes(url)
     completion(recipes)
     
@@ -44,10 +42,33 @@ class SearchRecipesClient {
   func getSimilarRecipes(_ url: String) -> [RecipeElement]?{
     let decoder = JSONDecoder()
     let item = try! decoder.decode(SimilarRecipes.self, from: try! Data(contentsOf: URL(string: url)!))
-    print("HEREHEE;AWIUEFBAI2U4HT9843")
-    print(item)
+//    print("HEREHEE;AWIUEFBAI2U4HT9843")
+//    print(item)
     return item
   }
+  
+  func fetchQuickRecipes(number: Int = 100,_ completion: @escaping ([RecipeElement]?) -> Void) {
+    let url = "https://api.spoonacular.com/recipes/complexSearch?maxReadyTime=20&number=20&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
+     let recipes = getSuggestedRecipes(url)
+     completion(recipes)
+   }
+  
+  
+  func fetchSuggestedRecipes(number: Int = 100, tags: [String],_ completion: @escaping ([RecipeElement]?) -> Void) {
+   
+    let interpString = tags.joined(separator:",")
+    let interpNumber = String(number)
+    let tags = (interpString).replacingOccurrences(of: " ", with: ",+")
+    let url = "https://api.spoonacular.com/recipes/complexSearch?query=\(tags)&cuisine=\(tags)&number=\(interpNumber)&apiKey=0ff5861766ea48b0a55b2008c47bd778&instructionsRequired=true&addRecipeInformation=true"
+     let recipes = getSuggestedRecipes(url)
+     completion(recipes)
+   }
+   
+   func getSuggestedRecipes(_ url: String) -> [RecipeElement]?{
+     let decoder = JSONDecoder()
+     let item = try! decoder.decode(Recipes.self, from: try! Data(contentsOf: URL(string: url)!))
+    return item.results
+   }
   
   
 }

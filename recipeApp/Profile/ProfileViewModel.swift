@@ -11,6 +11,30 @@ import CoreData
 import UIKit
 
 class ProfileViewModel {
+  
+    func numberOfDietaryRestrictionTableRows() -> Int {
+      let str = getDietaryRestrictions()
+      let array = str.components(separatedBy: ",")
+      return array.count
+    }
+  
+    func numberOfPreferencesTableRows() -> Int {
+      let str = getCuisinePreferences()
+      let array = str.components(separatedBy: ",")
+      return array.count
+    }
+
+    func dietaryRestrictionForRowAtIndexPath(_ indexPath: IndexPath) -> String {
+      let str = getDietaryRestrictions()
+      let array = str.components(separatedBy: ",")
+      return array[indexPath.row]
+    }
+  
+    func preferenceForRowAtIndexPath(_ indexPath: IndexPath) -> String {
+      let str = getCuisinePreferences()
+      let array = str.components(separatedBy: ",")
+      return array[indexPath.row]
+    }
     
     func createUser(_ entity: String) -> NSManagedObject? {
         // Helpers
@@ -70,7 +94,29 @@ class ProfileViewModel {
         }
         return recipeSet
     }
-    
+  
+    func getCuisinePreferences() -> String {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let context = appDelegate.persistentContainer.viewContext
+      let user = fetchUser("User")
+      if user?.value(forKey: "preferences") == nil || user?.value(forKey: "preferences") as? String == "" {
+        return "sugar,christmas"
+      } else {
+        return user?.value(forKey: "preferences") as! String
+      }
+    }
+  
+    func getDietaryRestrictions() -> String {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let context = appDelegate.persistentContainer.viewContext
+      let user = fetchUser("User")
+      if user?.value(forKey: "dietary_restrictions") == nil || user?.value(forKey: "dietary_restrictions") as? String == "" {
+        return ""
+      } else {
+        return user?.value(forKey: "dietary_restrictions") as! String
+      }
+    }
+  
     let client = GetRecipeDetailClient()
     let client1 = SearchRecipesClient() 
     func createSavedRecipeArray() -> [RecipeElement] {
