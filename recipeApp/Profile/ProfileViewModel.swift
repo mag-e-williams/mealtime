@@ -113,8 +113,37 @@ class ProfileViewModel {
         appDelegate.saveContext()
     }
     
-    func deleteSingleRecipe(_ id: Int) {
+    let recipeViewModel = RecipeDetailViewModel(id: 1)
+    func saveRecipeByID(_ id: Int) {
         let recipeViewModel = RecipeDetailViewModel(id: 1)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let url = "https://api.spoonacular.com/recipes/\(id)/information?includeNutrition=false&apiKey=0ff5861766ea48b0a55b2008c47bd778"
+        let recipe = client.getRecipeDetail(url)
+        let newRecipe = recipeViewModel.createRecipe("Recipe")
+
+        newRecipe?.setValue(recipe.id!, forKey: "id")
+        newRecipe?.setValue(recipe.title!, forKey: "name")
+        newRecipe?.setValue(recipe.image!, forKey: "image")
+        newRecipe?.setValue(recipe.servings!, forKey: "servings")
+        newRecipe?.setValue(recipe.readyInMinutes!, forKey: "ready_in_minutes")
+        newRecipe?.setValue(recipe.cheap!, forKey: "cheap")
+        newRecipe?.setValue(recipe.instructions!, forKey: "instructions")
+        
+//        print("new recipe")
+//        print(newRecipe!)
+        do {
+            try context.save()
+//            print("context was saved")
+        } catch {
+            print("Failed saving")
+        }
+    }
+    
+    
+    func deleteSingleRecipe(_ id: Int) {
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let recipes = recipeViewModel.fetchRecipe("Recipe")
