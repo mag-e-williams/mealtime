@@ -113,6 +113,12 @@ class RecipeDetailViewModel {
     
   }
   
+  func refreshDetailByID(recipeID: Int, completion: @escaping () -> Void) {
+    client.fetchRecipeDetail(inputID: recipeID) { [unowned self] recipeDetail in
+      self.recipeDetail = recipeDetail!
+    }
+  }
+  
 }
 
 typealias Rational = (num : Int, den : Int)

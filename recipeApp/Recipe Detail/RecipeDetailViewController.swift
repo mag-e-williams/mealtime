@@ -37,6 +37,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
   
     var viewModel: RecipeDetailViewModel?
     var recipeID: Int?
+    var savedRecipeIDs = Set<Int>()
+
 //    var tabItems: [UITabBarItem]
   
     var recipeDetail: RecipeDetail? {
@@ -101,17 +103,31 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
 
       }
             
+      updateSavedButton((self.recipeDetail?.id)!)
 
       
     }
     
+    func updateSavedButton(_ recipeID: Int) {
+      if (self.savedRecipeIDs.contains(recipeID)) {
+        savedButton.tintColor = colorSchemeGreen
+        //      let image = UIImage(named: "heart.fill")
+        savedButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+      }else if (!self.savedRecipeIDs.contains(recipeID)) {
+        self.savedButton.tintColor = lightTextColor
+        self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
+      }
+    }
+  
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+      super.viewWillAppear(animated)
+      updateSavedButton((self.recipeDetail?.id)!)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+      super.viewDidAppear(animated)
+      updateSavedButton((self.recipeDetail?.id)!)
     }
   
     //  loading all the data into the screen
@@ -132,7 +148,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
         }
         self.recipeImg.downloadImage(from: imageURL)
         
-        let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+        self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
              
         if let id = self.recipeDetail?.id {
            if (savedRecipeIDs.contains(id)) {
@@ -143,7 +159,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
       
         ingredientsTable.reloadData()
         instructionsTable.reloadData()
-        
+      
+        self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
  
     }
   
@@ -203,7 +220,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
+        self.savedRecipeIDs = dataViewModel.profileLoadSavedRecipes()
       
 
         if let id = self.recipeDetail?.id {
@@ -236,8 +253,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDataSource, UITab
           } else if (savedRecipeIDs.contains(id)) {
             self.savedButton.tintColor = lightTextColor
             self.savedButton.setImage(UIImage(systemName: "heart"), for: .normal)
-          
-          
+            
+            dataViewModel.deleteSingleRecipe(id)
           }
         }
       
