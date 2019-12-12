@@ -268,13 +268,24 @@ extension DiscoverViewController {
       let recipe = sender as? RecipeElement {
       detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
     }
+    
+//    if let detailVC = segue.destination as? RecipesViewController,
+//      let cuisine = sender as? Cuisine {
+//      detailVC.viewModel = recipeViewModel.detailViewModelForRowAtIndexPath(recipe)
+//    }
+//
+    if segue.identifier == "showRecipesWithCuisines" {
+        let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
+//        showRecipes.preferences = profileModel.getCuisinePreferences()
+        showRecipes.pageTitle = "Cuisines"
+    }
+    
     if segue.identifier == "showAllSuggestedRecipes" {
         let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
         showRecipes.preferences = profileModel.getCuisinePreferences()
-        print("HERERERERE")
-        print(profileModel.getCuisinePreferences())
         showRecipes.pageTitle = "Suggested Recipes"
     }
+    
     if segue.identifier == "showAllQuickRecipes" {
         let showRecipes:RecipesViewController = segue.destination as! RecipesViewController
         showRecipes.preferences = ""
@@ -313,6 +324,10 @@ extension DiscoverViewController {
       let recipe = recipes[indexPath.row]
       performSegue(withIdentifier: "toDetailVC", sender: recipe)
     }
+    if collectionView == cuisineCollectionView {
+      let cuisine = cuisines[indexPath.row]
+      performSegue(withIdentifier: "showRecipesWithCuisine", sender: cuisine)
+    }
   }
 
 }
@@ -327,7 +342,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = profileModel.getCuisinePreferences()
-    inProgressTask = apiClient.fetchSuggestedRecipes(number: 10, tags: [preferences]) { [weak self] (recipes) in
+    inProgressTask = apiClient.fetchSuggestedRecipes(number: 10, cuisines: [preferences]) { [weak self] (recipes) in
       self?.inProgressTask = nil
       if let recipes = recipes {
         self?.recipes = recipes
@@ -368,7 +383,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = "vegan"
-    veganRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, tags: [preferences]) { [weak self] (recipes) in
+    veganRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, query: [preferences]) { [weak self] (recipes) in
       self?.veganRecipesCallTask = nil
       if let recipes = recipes {
         self?.veganRecipes = recipes
@@ -388,7 +403,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = "vegetarian"
-    vegetarianRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, tags: [preferences]) { [weak self] (recipes) in
+    vegetarianRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, query: [preferences]) { [weak self] (recipes) in
       self?.vegetarianRecipesCallTask = nil
       if let recipes = recipes {
         self?.vegetarianRecipes = recipes
@@ -407,7 +422,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = "salad"
-    saladRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, tags: [preferences]) { [weak self] (recipes) in
+    saladRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, query: [preferences]) { [weak self] (recipes) in
       self?.saladRecipesCallTask = nil
       if let recipes = recipes {
         self?.saladRecipes = recipes
@@ -427,7 +442,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = "stirfry"
-    stirFryRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10,tags: [preferences]) { [weak self] (recipes) in
+    stirFryRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10,query: [preferences]) { [weak self] (recipes) in
       self?.stirFryRecipesCallTask = nil
       if let recipes = recipes {
         self?.stirFryRecipes = recipes
@@ -446,7 +461,7 @@ extension DiscoverViewController {
       return
     }
     let preferences = "dessert"
-    dessertRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, tags: [preferences]) { [weak self] (recipes) in
+    dessertRecipesCallTask = apiClient.fetchSuggestedRecipes(number: 10, query: [preferences]) { [weak self] (recipes) in
       self?.dessertRecipesCallTask = nil
       if let recipes = recipes {
         self?.dessertRecipes = recipes

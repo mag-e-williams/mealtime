@@ -157,14 +157,14 @@
                                         <edgeInsets key="layoutMargins" top="10" left="8" bottom="8" right="8"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyi-lN-fDu">
-                                        <rect key="frame" x="0.0" y="118" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="118" width="414" height="38"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="zka-ww-7bd">
-                                                <rect key="frame" x="0.0" y="8" width="380" height="44"/>
+                                                <rect key="frame" x="0.0" y="8" width="380" height="22"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOg-50-zE5">
-                                                <rect key="frame" x="380" y="8" width="26" height="44"/>
+                                                <rect key="frame" x="380" y="8" width="26" height="22"/>
                                                 <color key="tintColor" red="0.60740202669999999" green="0.79460513590000004" blue="0.25317350030000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="line.horizontal.3" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
@@ -177,7 +177,7 @@
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="47g-8p-9fQ">
-                                        <rect key="frame" x="0.0" y="178" width="414" height="591"/>
+                                        <rect key="frame" x="0.0" y="156" width="414" height="613"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="0.0" right="0.0"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fMy-uC-cZc">
@@ -930,6 +930,9 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <segue destination="Nfx-cc-6St" kind="push" identifier="showRecipesWithCuisine" id="ulS-Gy-IFW"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
@@ -1662,9 +1665,8 @@
         <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wkq-fQ-BMH"/>
-        <segue reference="XCU-A5-IMV"/>
+        <segue reference="si4-8W-6bT"/>
         <segue reference="txj-eO-NUI"/>
-        <segue reference="W9G-dE-Pti"/>
+        <segue reference="ulS-Gy-IFW"/>
     </inferredMetricsTieBreakers>
 </document>
