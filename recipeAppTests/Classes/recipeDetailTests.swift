@@ -1,13 +1,13 @@
 //
 //  recipeDetailTests.swift
-//  recipeAppTests
+//  mealtimeTests
 //
 //  Created by Kasdan on 11/7/19.
 //  Copyright © 2019 CMU. All rights reserved.
 //
 
 import XCTest
-@testable import recipeApp
+@testable import mealtime
 
 class recipeDetailTests: XCTestCase {
 

@@ -1,6 +1,6 @@
 //
 //  DiscoverViewController.swift
-//  recipeApp
+//  mealtime
 //
 //  Created by Maggie on 12/5/19.
 //  Copyright © 2019 CMU. All rights reserved.

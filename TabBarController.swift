@@ -1,6 +1,6 @@
 //
 //  TabBarController.swift
-//  recipeApp
+//  mealtime
 //
 //  Created by Maggie Williams on 11/7/19.
 //  Copyright © 2019 CMU. All rights reserved.

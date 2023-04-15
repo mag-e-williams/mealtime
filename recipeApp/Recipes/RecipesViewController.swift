@@ -1,6 +1,6 @@
 //
 //  RecipesViewController.swift
-//  recipeApp
+//  mealtime
 //
 //  Created by Kasdan on 11/4/19.
 //  Copyright © 2019 CMU. All rights reserved.

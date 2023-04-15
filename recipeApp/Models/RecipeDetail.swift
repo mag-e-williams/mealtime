@@ -1,6 +1,6 @@
 //
 //  RecipeDetail.swift
-//  recipeApp
+//  mealtime
 //
 //  Created by Maggie Williams on 11/6/19.
 //  Copyright © 2019 CMU. All rights reserved.
